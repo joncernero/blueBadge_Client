@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-const CreatePlant = () => {
+const CreatePlant = (props) => {
   const [trefle_id, setTrefle_Id] = useState('143075');
   const [common_name, setCommon_Name] = useState('Common velvetgrass');
   const [scientific_name, setScientific_Name] = useState('Holcus lanatus');
@@ -24,9 +24,7 @@ const CreatePlant = () => {
       ),
       headers: new Headers({
         'Content-type': 'application/json',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjEzODUwMDU5LCJleHAiOjE2MTM5MzY0NTl9.do1OhRba8dtu3rd0AGKuFBv8DbCE4FGwvd3RWP-SUdc',
-        // Authorization: props.token,
+        Authorization: props.token,
       }),
     })
       .then((res) => res.json())
