@@ -12,21 +12,20 @@ const CreatePlant = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/log', {
+    fetch('http://localhost:3000/plants/', {
       method: 'Post',
       body: JSON.stringify({
-        log: {
           trefle_id: trefle_id,
           common_name: common_name,
           scientific_name: scientific_name,
           image_url: image_url,
           notes: notes,
         },
-      }),
+      ),
       headers: new Headers({
         'Content-type': 'application/json',
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjEzODQzMzcyLCJleHAiOjE2MTM5Mjk3NzJ9.MzSgVgJhThS9kF4vaR2f-Km5m_9M5FiHV_PWVG8H0iE',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjEzODUwMDU5LCJleHAiOjE2MTM5MzY0NTl9.do1OhRba8dtu3rd0AGKuFBv8DbCE4FGwvd3RWP-SUdc',
         // Authorization: props.token,
       }),
     })
