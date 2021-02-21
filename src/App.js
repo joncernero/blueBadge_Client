@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Dashboard from './components/Dashboard'
 
-function App() {
+
+function App() {  
+  const [sessionToken, setSessionToken] = useState('');
+
+  useEffect(() => {
+    if(localStorage.getItem('token'));
+    setSessionToken(localStorage.getItem('token'));
+  }, []);
+
+  const updateToken = (newToken) => {
+localStorage.setItem('token', newToken);
+setSessionToken(newToken);
+console.log(sessionToken);
+  };
+
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken();
+  };
+
+  const protectedViews = () => {
+let x = localStorage.getItem('token')
+
+return sessionToken ? (<p>Person has token</p>) : (<p> no token</p>);
+  }
+  console.log(sessionToken);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div> 
+      {protectedViews()}
+      <Dashboard />
     </div>
   );
+  
 }
 
 export default App;
