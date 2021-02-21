@@ -8,7 +8,8 @@ import {
 const DisplayPlants = (props) => {
 
     return ( 
-
+      <div>
+<div>
       <Card id="plantCard">
         <CardImg id="plantImg" className="plantImg" top width="100%" src={props.plant.image_url} alt="Card image cap" />
         
@@ -22,7 +23,12 @@ const DisplayPlants = (props) => {
         </CardBody>
         
       </Card>
-       
+      </div>
+<div>
+      
+    </div>
+    
+    </div>
      );
      
 }
