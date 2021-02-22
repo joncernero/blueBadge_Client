@@ -6,42 +6,44 @@ import {
 import DisplayPlants from "./DisplayPlants";
 
 
-const SearchPlants = () => {
+const UserSearchPlants = () => {
 
     const [plants, setPlants] = useState([]);
     const [loading, setLoading] = useState();
     const [page, setPage] = useState(1);
+    const [plantSelector, setPlantSelector] = useState();
     
-    async function fetchPlants(){
+   async function fetchPlants(){
 
       const corsURL = 'https://efa-cors-anywhere.herokuapp.com/';
-      const baseurl = 'https://trefle.io/api/v1/plants?';
+      const baseurl = 'https://trefle.io/api/v1/plants/search?';
       const token = 'token=FKCFSL2qgSy2Gnwimlt25A-Ze2oYTp-CACmUCTxbtSc';
+      const selector = `&q=${plantSelector}`
       const pageurl = `&page=${page}`
-        const url = `${baseurl}${token}${pageurl}&order[common_name]=asc`;
+        const url = `${baseurl}${token}${selector}${pageurl}&order[common_name]=asc`;
         console.log(url);
         await fetch(corsURL + url)
         .then(response => response.json())
         .then(data => {
           setPlants(data.data);
           console.log(plants);
+          console.log(url);
         })
       }
       
         useEffect(() => {
       fetchPlants();
-      // localStorage.setItem("plants", plants)
         }, []
         );
-        // if (loading && !plants) {
-        //   return <div>loading</div>
-        // };
+        
 
-const handlePage = (event) => {
-  setPage(0);
-  fetchPlants();
-  event.preventDefault();
-}
+        const handleSubmit = (event) => {
+          setPage(1);
+          fetchPlants();
+          // event.preventDefault();
+      }
+
+
 
 const changePage = (event, direction) => {
   event.preventDefault()
@@ -59,7 +61,6 @@ const changePage = (event, direction) => {
 };
 
 
-
         function displayCards(){
           return plants.length >0 ? plants.map((plant) => <DisplayPlants plant={plant} />) : null;
       }
@@ -69,6 +70,14 @@ const changePage = (event, direction) => {
     return (   
 
 <div>
+  <div>
+    <span>Enter a plant to search:</span>
+    <input type="text" name="plantsearch" onChange={(e) => setPlantSelector(e.target.value)}/>
+    <button type="submit" onClick={(e) => handleSubmit()}>Search</button>
+    <CardDeck>
+    {displayCards()}
+    </CardDeck>
+  </div>
 <div>
      <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
       <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>   
@@ -76,10 +85,10 @@ const changePage = (event, direction) => {
 </div>
   <div>
 
-  {/* <button onClick={fetchPlants}>Find Your Favorite Plants!</button> */}
-<CardDeck>
-     {displayCards()}
-     </CardDeck> 
+  
+
+     
+     
      </div>
      
 </div>
@@ -87,5 +96,5 @@ const changePage = (event, direction) => {
      );
 }
  
-export default SearchPlants;
+export default UserSearchPlants;
 
