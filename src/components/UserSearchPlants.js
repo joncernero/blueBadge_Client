@@ -3,7 +3,7 @@ import {
   CardColumns, CardDeck, Card, Button, CardImg, CardTitle, CardText,
   CardSubtitle, CardBody
 } from 'reactstrap';
-import DisplayPlants from "./DisplayPlants";
+import DisplayUserPlants from "./DisplayUserPlants";
 
 
 const UserSearchPlants = () => {
@@ -62,7 +62,7 @@ const changePage = (event, direction) => {
 
 
         function displayCards(){
-          return plants.length >0 ? plants.map((plant) => <DisplayPlants plant={plant} />) : null;
+          return plants.length >0 ? plants.map((plant) => <DisplayUserPlants plant={plant} />) : null;
       }
 
 
