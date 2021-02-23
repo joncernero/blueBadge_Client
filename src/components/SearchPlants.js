@@ -30,12 +30,10 @@ const SearchPlants = () => {
       
         useEffect(() => {
       fetchPlants();
-      // localStorage.setItem("plants", plants)
+     
         }, []
         );
-        // if (loading && !plants) {
-        //   return <div>loading</div>
-        // };
+       
 
 const handlePage = (event) => {
   setPage(0);
@@ -76,7 +74,7 @@ const changePage = (event, direction) => {
 </div>
   <div>
 
-  {/* <button onClick={fetchPlants}>Find Your Favorite Plants!</button> */}
+  
 <CardDeck>
      {displayCards()}
      </CardDeck> 

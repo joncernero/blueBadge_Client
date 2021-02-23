@@ -40,7 +40,7 @@ const UserSearchPlants = () => {
         const handleSubmit = (event) => {
           setPage(1);
           fetchPlants();
-          // event.preventDefault();
+         
       }
 
 
