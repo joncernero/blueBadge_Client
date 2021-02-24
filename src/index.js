@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import { ThemeProvider } from 'styled-components'
 import Theme from './components/styled/Theme'
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(
   <ThemeProvider theme={Theme}>

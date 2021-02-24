@@ -4,6 +4,7 @@ import { Wrapper, Container } from "./components/styled/";
 import Auth from "./components/Auth/index";
 import React, { useState, useEffect } from "react";
 import Dashboard from "./components/Dashboard";
+import Navbar from "./components/Navbar";
 
 function iPlants() {
   const [sessionToken, setSessionToken] = useState("");
@@ -31,13 +32,19 @@ function iPlants() {
   };
   console.log(sessionToken);
 
+
+
+
+
   return (
     <div className="main">
       <Container>
         <Auth />
         {protectedViews()}
+        <Navbar />
         <Dashboard />
       </Container>
+    
     </div>
   );
 }
