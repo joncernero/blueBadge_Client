@@ -59,13 +59,12 @@ export const Form = styled.form`
 `
 
 export const FormGroup = styled.div`
-  font-weight: bold;
-  margin-left: 10px;
+  margin-left: 25px;
   display: flex;
-  flex-direction: row;
+  align-items: center;
 `
 export const Label = styled.label`
-  font-size: 15px;
+  font-size: 25px;
   width: 240px;
   /* display: inline-block; */
   margin: 5px;
