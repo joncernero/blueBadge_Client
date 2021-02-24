@@ -1,13 +1,12 @@
 import './App.css';
-import SearchPlants from "./components/SearchPlants";
-import UserSearchPlants from "./components/UserSearchPlants";
+import Navbar from "./components/Navbar";
 
 
 
 function App() {
   return (
     <div>
-      <UserSearchPlants />
+      <Navbar />
       
     </div>
   );

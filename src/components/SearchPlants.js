@@ -4,6 +4,7 @@ import {
   CardSubtitle, CardBody
 } from 'reactstrap';
 import DisplayPlants from "./DisplayPlants";
+import {Link} from "react-router-dom";
 
 
 const SearchPlants = () => {
