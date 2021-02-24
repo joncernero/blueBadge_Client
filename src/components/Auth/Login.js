@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { Form, FormGroup, Label, Input } from 'reactstrap'
-import { Button } from '../../components/styled'
+import { Button, Form, FormGroup, Label, Input } from '../../components/styled'
 
 const Login = props => {
   const [email, setEmail] = useState('')

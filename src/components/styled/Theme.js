@@ -1,4 +1,4 @@
-export default {
+const theme = {
   colors: {
     main: '#37474f',
     dark: '#263238',
@@ -16,3 +16,5 @@ export default {
     'below-768': 'only screen and (max-width: 768px)'
   }
 }
+
+export default theme

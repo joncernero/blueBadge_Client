@@ -9,7 +9,7 @@ import {
   LoginCol,
   TitleCol
 } from '../../components/styled'
-import { colors, fontSizes } from '../styled'
+import { colors, fontSizes } from '../styled/Theme'
 import '../../App.css'
 
 const Auth = props => {

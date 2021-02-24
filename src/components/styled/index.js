@@ -6,32 +6,39 @@ export const Container = styled.div`
   border-radius: 10px;
   padding: 25px;
   width: 93vw;
-  height: 80vh;
+  height: 85vh;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 `
 export const Row = styled.div`
   display: flex;
-  flex-direction: row;
 `
 export const Col = styled.div``
 
 export const TitleCol = styled.div`
-  flex: ${props => props.size};
-  text-align: center;
-  justify-content: center;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   width: 50vw;
+  font-size: 50px;
+  letter-spacing: -1;
+  color: green;
 `
 export const LoginCol = styled.div`
-  align-content: center;
+  display: flex;
+  align-items: center;
   background-color: rgba(255, 255, 255, 0.5);
   width: 50vw;
-  height: 75vh;
+  height: 79vh;
   padding: 20px;
-  box-shadow: 0 0.5rem 1.5 rgba(0, 0, 0.2);
+  box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 `
-export const Card = styled.div``
-export const Thumbnail = styled.div``
+export const Card = styled.div`
+  background-color: white;
+  padding: 10px;
+  margin: 5px;
+`
+export const Thumbnail = styled.img``
 export const Button = styled.button`
   height: 35px;
   width: 125px;
@@ -41,5 +48,30 @@ export const Button = styled.button`
   background: ${props => (props.primary ? 'green' : 'gray')};
   border-radius: 5px;
   margin: 10px;
-  box-shadow: 0 0.5rem 1.5 rgba(0, 0, 0.2);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+`
+//Form, FormGroup, Label, Input
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+`
+
+export const FormGroup = styled.div`
+  font-weight: bold;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+`
+export const Label = styled.label`
+  font-size: 15px;
+  width: 240px;
+  /* display: inline-block; */
+  margin: 5px;
+`
+export const Input = styled.input`
+  padding-right: 10px;
+  padding-left: 10px;
+  margin: 10px;
 `
