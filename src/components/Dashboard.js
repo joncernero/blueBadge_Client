@@ -1,16 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
-import PlantEdit from './PlantEdit';
-import PlantTable from './PlantTable';
 
 
 const Dashboard = (props) => {
 
     const [plants, setPlants] = useState([]);
-    const [updateActive, setUpdateActive] = useState(false);
-    const [plantsToUpdate, setPlantsToUpdate] = ({});
-
-    const [plants, setPlants] = useState([]);
+ 
     const fetchPlants = () => {
         fetch('http://localhost:3000/plants/', {
             method: 'GET',
@@ -25,19 +20,6 @@ const Dashboard = (props) => {
         })
     };
 
-    const editPlants = (plants) => {
-        setPlantsToUpdate(plants);
-        console.log(plants);
-    }
-
-    const updateOn = () => {
-        setUpdateActive(true);
-    }
-
-    const updateOff = () => {
-        setUpdateActive(false);
-    }
-
     useEffect(() => {
         fetchPlants();
     }, [])
@@ -51,7 +33,6 @@ const Dashboard = (props) => {
                 </Col>
                 <Col md="9">
                     <h2>View my garden below...</h2> 
-                    <PlantTable />
                 </Col>
             </Row>
         </Container>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {Table, Button} from 'reactstrap';
 
 const PlantTable = (props) => {
@@ -25,8 +25,7 @@ const PlantTable = (props) => {
                     <td>{plants.image_url}</td>
                     <td>{plants.notes}</td>
                     <td>
-                        <Button color ="warning" onClick={() => {props.editPlants(plants); props.updateOn()}}>Update Notes </Button>
-                        <Button color ="danger" onClick={() => {props.deletePlants(plants)}}>Delete Plant</Button>
+                        <Button color ="danger" onClick={() => {deletePlants(plants)}}>Delete Plant</Button>
                     </td>
                 </tr>
             )
