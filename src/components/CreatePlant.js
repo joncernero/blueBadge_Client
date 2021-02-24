@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const CreatePlant = (props) => {
-  const [trefle_id, setTrefle_Id] = useState('143075');
-  const [common_name, setCommon_Name] = useState('Common velvetgrass');
-  const [scientific_name, setScientific_Name] = useState('Holcus lanatus');
+  const [trefle_id, setTrefle_Id] = useState('126957');
+  const [common_name, setCommon_Name] = useState('Orchardgrass');
+  const [scientific_name, setScientific_Name] = useState('Dactylis glomeratas lanatus');
   const [image_url, setImage_Url] = useState(
-    'https://bs.floristic.org/image/o/46619775d4319328b2fad6f1ba876ccca2d03534'
+    'https://bs.floristic.org/image/o/428f40dadfa0281dc890ead17fcd07882f9efb09'
   );
-  const [notes, setNotes] = useState('My first entry from code, not Postman');
+  const [notes, setNotes] = useState('My entry from code, not Postman');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ const CreatePlant = (props) => {
     };
     return (
       <>
-        <h3>Create a Plant</h3>
+        <h3>Create Plant</h3>
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Label htmlFor='trefle_id' />

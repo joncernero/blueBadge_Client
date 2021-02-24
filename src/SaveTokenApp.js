@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-// import CreatePlant from './components/CreatePlant';
-// import PlantEdit from './components/PlantEditg';
 
 
 function App() {  
@@ -27,9 +25,6 @@ console.log(sessionToken);
 let x = localStorage.getItem('token')
 
 return sessionToken ? (<p>Person has token</p>) : (<p> no token</p>);
-
-// return sessionToken ? (<CreatePlant token={sessionToken}/>) : (<p>no token</
-  // return sessionToken ? (<PlantEdit token={sessionToken}/>) : (<p>no token</p>)  
   }
   console.log(sessionToken);
   return (
