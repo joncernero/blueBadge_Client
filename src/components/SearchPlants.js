@@ -4,6 +4,7 @@ import {
   CardSubtitle, CardBody
 } from 'reactstrap';
 import DisplayPlants from "./DisplayPlants";
+import CreatePlant from "./CreatePlant";
 import {Link} from "react-router-dom";
 
 
@@ -60,13 +61,11 @@ const changePage = (event, direction) => {
 
 
         function displayCards(){
-          return plants.length >0 ? plants.map((plant) => <DisplayPlants plant={plant} />) : null;
+          return plants.length >0 ? plants.map((plant) => <DisplayPlants plant={plant} />) : null;       
       }
 
 
-
-    return (   
-
+      return (   
 <div>
 <div>
      <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
@@ -78,7 +77,7 @@ const changePage = (event, direction) => {
   
 <CardDeck>
      {displayCards()}
-     </CardDeck> 
+</CardDeck> 
      </div>
      
 </div>

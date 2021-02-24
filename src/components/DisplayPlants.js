@@ -3,6 +3,7 @@ import {
     Card, Button, CardImg, CardTitle, CardText,
     CardSubtitle, CardBody, CardDeck
   } from 'reactstrap';
+  import CreatePlant from "./CreatePlant";
 
 
 const DisplayPlants = (props) => {
@@ -19,8 +20,7 @@ const DisplayPlants = (props) => {
           <CardTitle key={props.plant.image_url}>{props.plant.common_name}</CardTitle>
           <CardSubtitle key={props.plant.image_url}>{props.plant.scientific_name}</CardSubtitle>
           <CardText></CardText>
-        
-          
+
         </CardBody>
         
       </Card>

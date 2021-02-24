@@ -7,7 +7,7 @@ import DisplayUserPlants from "./DisplayUserPlants";
 import {Link} from "react-router-dom";
 
 
-const UserSearchPlants = () => {
+const UserSearchPlants = (props) => {
 
     const [plants, setPlants] = useState([]);
     const [loading, setLoading] = useState();
@@ -63,7 +63,7 @@ const changePage = (event, direction) => {
 
 
         function displayCards(){
-          return plants.length >0 ? plants.map((plant) => <DisplayUserPlants plant={plant} />) : null;
+          return plants.length >0 ? plants.map((plant) => <DisplayUserPlants plant={plant}/>) : null;
       }
 
 
