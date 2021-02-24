@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import Dashboard from './components/Dashboard'
+import "./App.css";
+import styled from "styled-components";
+import { Wrapper, Container } from "./components/styled/";
+import Auth from "./components/Auth/index";
+import React, { useState, useEffect } from "react";
+import Dashboard from "./components/Dashboard";
 
-
-function App() {  
-  const [sessionToken, setSessionToken] = useState('');
+function iPlants() {
+  const [sessionToken, setSessionToken] = useState("");
 
   useEffect(() => {
-    if(localStorage.getItem('token'));
-    setSessionToken(localStorage.getItem('token'));
+    if (localStorage.getItem("token"));
+    setSessionToken(localStorage.getItem("token"));
   }, []);
 
   const updateToken = (newToken) => {
-localStorage.setItem('token', newToken);
-setSessionToken(newToken);
-console.log(sessionToken);
+    localStorage.setItem("token", newToken);
+    setSessionToken(newToken);
+    console.log(sessionToken);
   };
 
   const clearToken = () => {
@@ -23,18 +25,20 @@ console.log(sessionToken);
   };
 
   const protectedViews = () => {
-let x = localStorage.getItem('token')
+    let x = localStorage.getItem("token");
 
-return sessionToken ? (<p>Person has token</p>) : (<p> no token</p>);
-  }
+    return sessionToken ? <p>Person has token</p> : <p> no token</p>;
+  };
   console.log(sessionToken);
+
   return (
-    <div> 
-      {protectedViews()}
-      <Dashboard />
+    <div className="main">
+      <Container>
+        <Auth />
+        {protectedViews()}
+        <Dashboard />
+      </Container>
     </div>
   );
-  
 }
-
-export default App;
+export default iPlants;
