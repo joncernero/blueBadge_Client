@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
 
-function iPlants() {
+function App() {
   const [sessionToken, setSessionToken] = useState("");
 
   useEffect(() => {
@@ -47,5 +47,6 @@ function iPlants() {
     
     </div>
   );
+  
 }
-export default iPlants;
+export default App;
