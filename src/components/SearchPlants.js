@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 
 
 const SearchPlants = (props) => {
-
+  
     const [plants, setPlants] = useState([]);
     const [loading, setLoading] = useState();
     const [page, setPage] = useState(1);

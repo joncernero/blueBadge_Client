@@ -44,6 +44,7 @@ const UserSearchPlants = (props) => {
          
       }
 
+    
 
 
 const changePage = (event, direction) => {

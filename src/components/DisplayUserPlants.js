@@ -38,7 +38,7 @@ const DisplayUserPlants = (props) => {
         <CardImg key={props.plant.image_url} id="plantImg" className="plantImg" top width="100%" src={props.plant.image_url} alt="Image not available" />
         
         <CardBody id="plantBody">
-        <Button id="plantButton" size="sm">+</Button>
+        <Button id="plantButton" size="sm" onClick={handleSubmit}>+</Button>
           <CardTitle key={props.plant.image_url}>Common Name: {props.plant.common_name}</CardTitle>
           <CardSubtitle key={props.plant.image_url}>Scientific Name: {props.plant.scientific_name}</CardSubtitle>
           <CardText></CardText>

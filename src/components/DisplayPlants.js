@@ -33,7 +33,7 @@ const handleSubmit = () => {
     return ( 
       <div>
 <div>
-  
+
       <Card id="plantCard">
         <CardImg key={props.plant.image_url} id="plantImg" className="plantImg" top width="100%" src={props.plant.image_url} alt="AlternateImage" id="AlternateImage" />
         
