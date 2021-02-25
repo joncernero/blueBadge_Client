@@ -25,24 +25,19 @@ function App() {
     setSessionToken();
   };
 
-  const protectedViews = () => {
-    let x = localStorage.getItem("token");
-
-    return sessionToken ? <p>Person has token</p> : <p> no token</p>;
-  };
-  console.log(sessionToken);
-
-
-
-
+  // const protectedViews = () => {
+  //   // let x = localStorage.getItem("token");
+  //   return (sessionToken === localStorage.getItem('token') ? <Dashboard token={sessionToken}/> : <Auth updateToken={updateToken}/>);
+  // };
 
   return (
     <div className="main">
       <Container>
-        <Auth />
-        {protectedViews()}
-        <Navbar />
-        <Dashboard />
+        {!sessionToken ? <Auth updateToken={updateToken}/> : <Dashboard token={sessionToken} /> }
+ {/* <Auth updateToken={updateToken}/> */}
+        {/* {protectedViews()} */}
+        <Navbar /> 
+         {/* <Dashboard />  */}
       </Container>
     
     </div>

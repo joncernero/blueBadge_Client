@@ -29,7 +29,7 @@ const Dashboard = (props) => {
             <h1>Search for a plant to get started!</h1>
             <Row>
                 <Col md="3">
-                    <h1> Add Create plant component here</h1>
+                   <CreatePlant token={props.token} /> 
                 </Col>
                 <Col md="9">
                     <h2>View my garden below...</h2> 
