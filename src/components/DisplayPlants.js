@@ -35,12 +35,12 @@ const handleSubmit = () => {
 <div>
   
       <Card id="plantCard">
-        <CardImg key={props.plant.image_url} id="plantImg" className="plantImg" top width="100%" src={props.plant.image_url} alt="Image not available" />
+        <CardImg key={props.plant.image_url} id="plantImg" className="plantImg" top width="100%" src={props.plant.image_url} alt="AlternateImage" id="AlternateImage" />
         
         <CardBody id="plantBody">
         <Button id="plantButton" size="sm" onClick={handleSubmit}>+</Button>
-          <CardTitle key={props.plant.image_url}>{props.plant.common_name}</CardTitle>
-          <CardSubtitle key={props.plant.image_url}>{props.plant.scientific_name}</CardSubtitle>
+          <CardTitle key={props.plant.common_name}>{props.plant.common_name}</CardTitle>
+          <CardSubtitle key={props.plant.scientific_name}>{props.plant.scientific_name}</CardSubtitle>
           <CardText></CardText>
         
           
