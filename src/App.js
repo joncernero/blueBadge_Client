@@ -1,11 +1,13 @@
 import "./App.css";
 import styled from "styled-components";
 import { Wrapper, Container } from "./components/styled/";
-import Auth from "./components/Auth/index";
+import Auth from "./components/Auth";
 import React, { useState, useEffect } from "react";
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
+import SearchPlants from "./components/SearchPlants"
 import {Route, Switch, BrowserRouter as Router} from "react-router-dom";
+
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");

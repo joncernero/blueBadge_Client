@@ -60,3 +60,10 @@ body {
   background-color: rgb(2, 58, 2);
   border: 1px solid rgb(2, 58, 2); 
 }
+
+#AlternateImage{
+  background-image: url(./assets/images/plants-bg.jpg);
+  max-height: 10em;
+  min-height: 10em;
+  width: 100%;
+}
