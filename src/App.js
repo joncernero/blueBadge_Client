@@ -1,10 +1,11 @@
 import "./App.css";
 import styled from "styled-components";
 import { Wrapper, Container } from "./components/styled/";
-import Auth from "./components/Auth/index";
+import Auth from "./components/Auth";
 import React, { useState, useEffect } from "react";
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
+import SearchPlants from "./components/SearchPlants"
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -20,16 +21,17 @@ function App() {
     console.log(sessionToken);
   };
 
-  const clearToken = () => {
-    localStorage.clear();
-    setSessionToken();
-  };
+  // const clearToken = () => {
+  //   localStorage.clear();
+  //   setSessionToken();
+  // };
 
-  const protectedViews = () => {
-    let x = localStorage.getItem("token");
-
-    return sessionToken ? <p>Person has token</p> : <p> no token</p>;
-  };
+const protectedViews = () => {
+    return (
+      sessionToken === localStorage.getItem('token') ? <SearchPlants token={sessionToken}/> : <Auth updateToken={updateToken}/>
+    )
+  }
+ 
   console.log(sessionToken);
 
 

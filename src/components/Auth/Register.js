@@ -12,7 +12,7 @@ const Register = props => {
     fetch('http://localhost:3000/user/register', {
       method: 'POST',
       body: JSON.stringify({
-        user: { email: email, password: password }
+        user: { email, password, firstName, zipcode }
       }),
       headers: new Headers({
         'Content-Type': 'application/json'
