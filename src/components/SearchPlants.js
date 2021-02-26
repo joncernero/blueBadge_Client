@@ -60,7 +60,7 @@ const changePage = (event, direction) => {
 
 
         function displayCards(){
-          return plants.length >0 ? plants.map((plant) => <DisplayPlants plant={plant} token={props.token}/>) : null;
+          return plants.length >0 ? plants.map((plant) => <DisplayPlants plant={plant} token={props.Token}/>) : null;
       }
 
 

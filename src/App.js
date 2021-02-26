@@ -32,11 +32,6 @@ const protectedViews = () => {
     )
   }
  
-  console.log(sessionToken);
-
-
-
-
 
   return (
     <div className="main">
