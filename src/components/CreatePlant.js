@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const CreatePlant = (props) => {
+  // const [trefle_id, setTrefle_Id] = useState('');
+  // const [common_name, setCommon_Name] = useState('');
+  // const [scientific_name, setScientific_Name] = useState('');
+  // const [image_url, setImage_Url] = useState('');
+  // const [notes, setNotes] = useState('');
   const [trefle_id, setTrefle_Id] = useState('126957');
   const [common_name, setCommon_Name] = useState('Orchardgrass');
   const [scientific_name, setScientific_Name] = useState('Dactylis glomeratas lanatus');

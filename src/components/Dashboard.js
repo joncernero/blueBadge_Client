@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
-
+import CreatePlant from './CreatePlant'
 
 const Dashboard = (props) => {
 

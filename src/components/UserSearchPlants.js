@@ -13,7 +13,7 @@ import {
 import DisplayUserPlants from './DisplayUserPlants';
 import { Link } from 'react-router-dom';
 
-const UserSearchPlants = () => {
+const UserSearchPlants = (props) => {
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState();
   const [page, setPage] = useState(1);
@@ -25,10 +25,8 @@ const UserSearchPlants = () => {
     const token = 'token=FKCFSL2qgSy2Gnwimlt25A-Ze2oYTp-CACmUCTxbtSc';
     const selector = `&q=${plantSelector}`;
     const pageurl = `&page=${page}`;
-    // const order = `&order=${common_name}`;
     const url = `${baseurl}${token}${selector}${pageurl}&order[common_name]=asc`;
-    // const url = `${baseurl}${token}${selector}${pageurl}${order}`;
-    // console.log(url);
+    console.log(url);
     await fetch(corsURL + url)
       .then((response) => response.json())
       .then((data) => {
