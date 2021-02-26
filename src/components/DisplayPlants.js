@@ -8,7 +8,6 @@ import {
 const DisplayPlants = (props) => {
 
 const handleSubmit = () => {
-  debugger
     fetch('http://localhost:3000/plants/', {
       method: 'Post',
       body: JSON.stringify({
