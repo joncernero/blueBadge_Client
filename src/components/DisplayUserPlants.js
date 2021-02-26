@@ -8,7 +8,6 @@ import {
 const DisplayUserPlants = (props) => {
 
   const handleSubmit = () => {
-    debugger
       fetch('http://localhost:3000/plants/', {
         method: 'Post',
         body: JSON.stringify({
@@ -20,7 +19,7 @@ const DisplayUserPlants = (props) => {
         ),
         headers: new Headers({
           'Content-type': 'application/json',
-          Authorization: props.token,
+          'Authorization': props.token,
         }),
       })
         .then((res) => res.json())
