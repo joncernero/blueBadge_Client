@@ -12,7 +12,7 @@ const Register = props => {
     fetch('http://localhost:3000/user/register', {
       method: 'POST',
       body: JSON.stringify({
-        user: { email: email, password: password }
+        user: { email, password, firstName, zipcode }
       }),
       headers: new Headers({
         'Content-Type': 'application/json'
@@ -20,6 +20,7 @@ const Register = props => {
     })
       .then(response => response.json())
       .then(data => {
+        console.log({ data })
         props.updateToken(data.sessionToken)
       })
   }
@@ -45,7 +46,10 @@ const Register = props => {
         <FormGroup>
           <Label htmlFor='firstName'>First Name</Label>
           <Input
-            onChange={e => setFirstName(e.target.value)}
+            onChange={e => {
+              setFirstName(e.target.value)
+              console.log(e.target)
+            }}
             name='firstName'
             value={firstName}
           />
