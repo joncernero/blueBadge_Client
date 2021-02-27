@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
+import PlantTable from './PlantTable';
+import CreatePlant from './CreatePlant';
+import PlantEdit from './PlantEdit';
 
 
 const Dashboard = (props) => {
@@ -8,6 +11,10 @@ const Dashboard = (props) => {
     console.log(props.token)
     
     const fetchPlants = () => {
+        if(props.token === ""
+        ){
+            return
+        }
         fetch('http://localhost:3000/plants/', {
             method: 'GET',
             headers: new Headers ({
@@ -23,17 +30,18 @@ const Dashboard = (props) => {
 
     useEffect(() => {
         fetchPlants();
-    }, [])
+    }, [props.token])
 
     return (
         <Container>
             <h1>Search for a plant to get started!</h1>
             <Row>
                 <Col md="3">
-                    <h1> Add Create plant component here</h1>
+                    <CreatePlant fetchPlants={fetchPlants} token={props.token} />
                 </Col>
-                <Col md="9">
+                <Col md="12">
                     <h2>View my garden below...</h2> 
+                    <PlantTable plants={plants} fetchPlants={fetchPlants} token={props.token}/>;
                 </Col>
             </Row>
         </Container>

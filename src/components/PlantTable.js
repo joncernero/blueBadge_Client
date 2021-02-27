@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {Table, Button} from 'reactstrap';
+import React from 'react';
+import {Table, CardBody, CardTitle, CardSubtitle, CardText, Button, Card, CardImg} from 'reactstrap';
 
 const PlantTable = (props) => {
 
@@ -15,6 +15,7 @@ const PlantTable = (props) => {
     }
 
     const plantMapper = () => {
+        debugger
         return props.plants.map((plants, index) => {
             return(
                 <tr key={index}>
@@ -25,8 +26,8 @@ const PlantTable = (props) => {
                     <td>{plants.image_url}</td>
                     <td>{plants.notes}</td>
                     <td>
-                        <Button color ="warning" onClick={() => {props.editPlants(plants); props.updateOn()}}>Update Notes </Button>
                         <Button color ="danger" onClick={() => {deletePlants(plants)}}>Delete Plant</Button>
+                        
                     </td>
                 </tr>
             )
