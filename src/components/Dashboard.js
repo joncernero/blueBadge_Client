@@ -5,7 +5,8 @@ import CreatePlant from './CreatePlant'
 const Dashboard = (props) => {
 
     const [plants, setPlants] = useState([]);
- 
+    console.log(props.token)
+    
     const fetchPlants = () => {
         fetch('http://localhost:3000/plants/', {
             method: 'GET',

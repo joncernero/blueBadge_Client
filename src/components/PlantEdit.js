@@ -17,7 +17,7 @@ const PlantEdit = (props) => {
 
   const plantUpdate = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/plants/10', {
+    fetch('http://localhost:3000/plants/${plants.id}', {
       method: 'Put',
       body: JSON.stringify({
         notes: editNotes,

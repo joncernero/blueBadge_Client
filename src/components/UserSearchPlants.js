@@ -19,7 +19,7 @@ const UserSearchPlants = (props) => {
   const [page, setPage] = useState(1);
   const [plantSelector, setPlantSelector] = useState();
 
-  async function fetchPlants() {
+  function fetchPlants() {
     const corsURL = 'https://efa-cors-anywhere.herokuapp.com/';
     const baseurl = 'https://trefle.io/api/v1/plants/search?';
     const token = 'token=FKCFSL2qgSy2Gnwimlt25A-Ze2oYTp-CACmUCTxbtSc';
@@ -27,7 +27,7 @@ const UserSearchPlants = (props) => {
     const pageurl = `&page=${page}`;
     const url = `${baseurl}${token}${selector}${pageurl}&order[common_name]=asc`;
     console.log(url);
-    await fetch(corsURL + url)
+    fetch(corsURL + url)
       .then((response) => response.json())
       .then((data) => {
         setPlants(data.data);
@@ -57,6 +57,14 @@ const UserSearchPlants = (props) => {
     if (direction === 'up') {
       setPage(page + 1);
       fetchPlants();
+    }
+
+    function displayCards() {
+      return plants.length > 0
+        ? plants.map((plant) => (
+            <DisplayUserPlants plant={plant} token={props.token} />
+          ))
+        : null;
     }
   };
 
