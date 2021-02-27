@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
-  CardColumns, CardDeck, Card, Button, CardImg, CardTitle, CardText,
-  CardSubtitle, CardBody
-} from 'reactstrap';
+  CardDeck} from 'reactstrap';
 import DisplayPlants from "./DisplayPlants";
-import {Link} from "react-router-dom";
+
 
 
 const SearchPlants = (props) => {
   
     const [plants, setPlants] = useState([]);
-    const [loading, setLoading] = useState();
+    // const [loading, setLoading] = useState();
     const [page, setPage] = useState(1);
     
     async function fetchPlants(){
@@ -36,11 +34,11 @@ const SearchPlants = (props) => {
         );
        
 
-const handlePage = (event) => {
-  setPage(0);
-  fetchPlants();
-  event.preventDefault();
-}
+// const handlePage = (event) => {
+//   setPage(0);
+//   fetchPlants();
+//   event.preventDefault();
+// }
 
 const changePage = (event, direction) => {
   event.preventDefault()
@@ -57,30 +55,23 @@ const changePage = (event, direction) => {
   }
 };
 
-
-
         function displayCards(){
-          return plants.length >0 ? plants.map((plant) => <DisplayPlants plant={plant} token={props.Token}/>) : null;
+          return plants.length >0 ? plants.map((plant) => <DisplayPlants plant={plant} token={props.token}/>) : null;
       }
-
-
 
     return (   
 
 <div>
-<div>
-     <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
-      <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>   
-      
-</div>
   <div>
-
-  
 <CardDeck>
      {displayCards()}
      </CardDeck> 
      </div>
      
+     <div>
+     <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
+      <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>   
+</div>
 </div>
 
      );

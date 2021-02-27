@@ -19,7 +19,7 @@ const handleSubmit = () => {
       ),
       headers: new Headers({
         'Content-type': 'application/json',
-        Authorization: props.token,
+        'Authorization': props.token
       }),
     })
       .then((res) => res.json())

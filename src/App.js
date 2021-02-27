@@ -5,9 +5,8 @@ import Auth from "./components/Auth/index";
 import React, { useState, useEffect } from "react";
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
-import SearchPlants from "./components/SearchPlants";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import UserSearchPlants from "./components/UserSearchPlants";
+
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -46,16 +45,11 @@ function App() {
         {/* <Auth updateToken={updateToken} />
         {protectedViews()} */}
           <Navbar clearToken={clearToken} />
+         
           <div>
         <Switch>
           <Route exact path="/dashboard">
             <Dashboard token={sessionToken}/>
-          </Route>
-          <Route exact path="/UserSearchPlants">
-            <UserSearchPlants token={sessionToken} />
-          </Route>
-          <Route exact path="/SearchPlants">
-            <SearchPlants token={sessionToken}/>
           </Route>
           <Route exact path="/">
             <Auth updateToken={updateToken}/>

@@ -19,7 +19,7 @@ const DisplayUserPlants = (props) => {
         ),
         headers: new Headers({
           'Content-type': 'application/json',
-          'Authorization': props.token,
+          'Authorization': props.token
         }),
       })
         .then((res) => res.json())
@@ -38,8 +38,8 @@ const DisplayUserPlants = (props) => {
         
         <CardBody id="plantBody">
         <Button id="plantButton" size="sm" onClick={handleSubmit}>+</Button>
-          <CardTitle key={props.plant.image_url}>Common Name: {props.plant.common_name}</CardTitle>
-          <CardSubtitle key={props.plant.image_url}>Scientific Name: {props.plant.scientific_name}</CardSubtitle>
+          <CardTitle key={props.plant.common_name}>Common Name: {props.plant.common_name}</CardTitle>
+          <CardSubtitle key={props.plant.scientific_name}>Scientific Name: {props.plant.scientific_name}</CardSubtitle>
           <CardText></CardText>
         
           

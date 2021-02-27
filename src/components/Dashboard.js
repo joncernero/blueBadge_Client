@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
+import {BrowserRouter, Router, Route, Switch, Link} from 'react-router-dom';
+import Sidebar from "./Sidebar";
+
 
 
 const Dashboard = (props) => {
@@ -26,6 +29,8 @@ const Dashboard = (props) => {
     }, [])
 
     return (
+        <div>
+              <div>
         <Container>
             <h1>Search for a plant to get started!</h1>
             <Row>
@@ -37,6 +42,14 @@ const Dashboard = (props) => {
                 </Col>
             </Row>
         </Container>
+       </div>
+            <BrowserRouter>
+            <Sidebar token={props.token}/>
+            </BrowserRouter>
+            <div>           
+            </div>
+          
+        </div>
     )
 }
 
