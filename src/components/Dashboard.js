@@ -8,6 +8,9 @@ import PlantEdit from './PlantEdit';
 const Dashboard = (props) => {
 
     const [plants, setPlants] = useState([]);
+    const [plantsToUpdate, setPlantsToUpdate] = useState({})
+    const [updateActive, setUpdateActive] = useState(false); 
+
     console.log(props.token)
     
     const fetchPlants = () => {
@@ -28,6 +31,19 @@ const Dashboard = (props) => {
         })
     };
 
+    const editPlants = (plants) => {
+        setPlantsToUpdate(plants);
+        console.log(plants);
+    }
+
+    const updateOn = () => {
+        setUpdateActive(true);
+    }
+
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
+
     useEffect(() => {
         fetchPlants();
     }, [props.token])
@@ -40,9 +56,9 @@ const Dashboard = (props) => {
                     <CreatePlant fetchPlants={fetchPlants} token={props.token} />
                 </Col>
                 <Col md="12">
-                    <h2>View my garden below...</h2> 
-                    <PlantTable plants={plants} fetchPlants={fetchPlants} token={props.token}/>;
+                    <PlantTable plants={plants} editPlants={editPlants} updateOn={updateOn} fetchPlants={fetchPlants} token={props.token}/>;
                 </Col>
+                {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} updateOff={updateOff} token={props.token} fetchPlants={fetchPlants}/> : <></>}
             </Row>
         </Container>
     )

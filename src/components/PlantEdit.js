@@ -11,9 +11,7 @@ import {
 } from 'reactstrap';
 
 const PlantEdit = (props) => {
-   const [editNotes, setEditNotes] = useState(
-    'First Edit/update of an entry from code, not Postman'
-  );
+   const [editNotes, setEditNotes] = useState(props.PlantEdit);
 
   const plantUpdate = (e) => {
     e.preventDefault();
