@@ -67,3 +67,8 @@ body {
   min-height: 10em;
   width: 100%;
 }
+
+.plantsMain{
+  text-align: center;
+  padding: 5em;
+}

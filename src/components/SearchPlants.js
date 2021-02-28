@@ -62,7 +62,7 @@ const changePage = (event, direction) => {
     return (   
 
 <div>
-  <div>
+  <div  className="plantsMain">
 <CardDeck>
      {displayCards()}
      </CardDeck> 

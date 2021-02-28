@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from '../../components/styled'
 const Login = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  // const [firstName, setFirstName] = useState('')
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -20,6 +21,8 @@ const Login = props => {
       .then(data => {
         props.updateToken(data.sessionToken)
         setPassword('')
+        // props.firstName(data.firstName)
+        // setFirstName('')
       })
   }
   return (

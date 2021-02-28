@@ -64,16 +64,26 @@ function displayCards(){
 
     return (   
 
-<div>
+<div className="plantsMain">
   <div>
-    <span>Enter a plant to search:</span>
+    <span>Enter a plant below to search the database and add to your garden:</span>
+    <br></br>
+    <br></br>
     <input type="text" name="plantsearch" onChange={(e) => setPlantSelector(e.target.value)}/>
+    <br></br>
+    <br></br>
+    <div>
     <button type="submit" onClick={(e) => handleSubmit()}>Search</button>
+    <br></br>
+    </div>
+    <br></br>
     <CardDeck>
     {displayCards()}
     </CardDeck>
   </div>
 <div>
+  <p>Plants will display below</p>
+  <br></br>
      <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
       <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>   
       

@@ -8,6 +8,7 @@ import Sidebar from "./Sidebar";
 const Dashboard = (props) => {
 
     const [plants, setPlants] = useState([]);
+    // const [user, setUser] = useState('');
     console.log(props.token)
     
     const fetchPlants = () => {
@@ -24,15 +25,21 @@ const Dashboard = (props) => {
         })
     };
 
+    // function getUser(){
+    //     const user = JSON.parse(localStorage.getItem('user'));
+    // }
+
     useEffect(() => {
         fetchPlants();
+        // getUser();
     }, [])
 
     return (
         <div>
+        
               <div>
         <Container>
-            <h1>Search for a plant to get started!</h1>
+            {/* <h1>Welcome, {user.firstName}</h1> */}
             <Row>
                 <Col md="3">
                     <h1> Add Create plant component here</h1>
@@ -46,6 +53,7 @@ const Dashboard = (props) => {
             <BrowserRouter>
             <Sidebar token={props.token}/>
             </BrowserRouter>
+         
             <div>           
             </div>
           

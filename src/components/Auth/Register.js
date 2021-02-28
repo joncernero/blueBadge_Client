@@ -12,7 +12,7 @@ const Register = props => {
     fetch('http://localhost:3000/user/register', {
       method: 'POST',
       body: JSON.stringify({
-        user: { email, password, firstName, zipcode }
+        user: {email, password, firstName, zipcode }
       }),
       headers: new Headers({
         'Content-Type': 'application/json'
@@ -70,4 +70,4 @@ const Register = props => {
   )
 }
 
-export default Register
+export default Register;

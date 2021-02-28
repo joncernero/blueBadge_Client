@@ -34,7 +34,7 @@ const DisplayUserPlants = (props) => {
 <div>
   
       <Card id="plantCard">
-        <CardImg key={props.plant.image_url} id="plantImg" className="plantImg" top width="100%" src={props.plant.image_url} alt="Image not available" />
+        <CardImg key={props.plant.image_url} id="plantImg" className="plantImg" top width="100%" src={props.plant.image_url} alt="AlternateImage" id="AlternateImage" />
         
         <CardBody id="plantBody">
         <Button id="plantButton" size="sm" onClick={handleSubmit}>+</Button>
