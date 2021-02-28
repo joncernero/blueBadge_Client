@@ -48,9 +48,9 @@ function App() {
          
           <div>
         <Switch>
-          <Route exact path="/dashboard">
+          {/* <Route exact path="/dashboard">
             <Dashboard token={sessionToken}/>
-          </Route>
+          </Route> */}
           <Route exact path="/">
             <Auth updateToken={updateToken}/>
           </Route>

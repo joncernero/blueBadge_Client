@@ -51,7 +51,7 @@ const Dashboard = (props) => {
         </Container>
        </div>
             <BrowserRouter>
-            <Sidebar token={props.token}/>
+            <Navbar token={props.token}/>
             </BrowserRouter>
          
             <div>           
