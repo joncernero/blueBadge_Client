@@ -24,7 +24,7 @@ const Login = props => {
   }
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Welcome Back!</h1>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor='email'>Email</Label>
@@ -40,6 +40,7 @@ const Login = props => {
             onChange={e => setPassword(e.target.value)}
             name='password'
             value={password}
+            type='password'
           />
         </FormGroup>
         <Button primary type='submit'>

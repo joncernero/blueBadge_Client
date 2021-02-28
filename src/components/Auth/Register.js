@@ -26,21 +26,29 @@ const Register = props => {
   }
   return (
     <div>
-      <h1>Signup</h1>
+      <h1>Join Now!</h1>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor='email'>Email</Label>
           <Input
             onChange={e => setEmail(e.target.value)}
             name='email'
-            value={email}></Input>
+            type='email'
+            placeholder='email@test.com'
+            value={email}
+            required
+          />
         </FormGroup>
         <FormGroup>
           <Label htmlFor='password'>Password</Label>
           <Input
             onChange={e => setPassword(e.target.value)}
             name='password'
+            type='password'
+            minLength={'5'}
+            placeholder='password'
             value={password}
+            required
           />
         </FormGroup>
         <FormGroup>
@@ -52,6 +60,8 @@ const Register = props => {
             }}
             name='firstName'
             value={firstName}
+            minLength={'1'}
+            required
           />
         </FormGroup>
         <FormGroup>
@@ -60,6 +70,8 @@ const Register = props => {
             onChange={e => setZipcode(e.target.value)}
             name='zipcode'
             value={zipcode}
+            minLength={'5'}
+            required
           />
         </FormGroup>
         <Button primary type='submit'>
