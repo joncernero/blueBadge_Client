@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import SearchPlants from "./components/SearchPlants";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import UserSearchPlants from "./components/UserSearchPlants";
+import FlowerSearch from "./components/FlowerSearch";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -56,6 +57,9 @@ function App() {
           </Route>
           <Route exact path="/SearchPlants">
             <SearchPlants token={sessionToken}/>
+          </Route>
+          <Route exact path="/FlowerSearch">
+            <FlowerSearch token={sessionToken}/>
           </Route>
           <Route exact path="/">
             <Auth updateToken={updateToken}/>
