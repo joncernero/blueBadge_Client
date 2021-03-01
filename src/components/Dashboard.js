@@ -13,6 +13,9 @@ const Dashboard = (props) => {
     const [plants, setPlants] = useState([]);
     const [plantsToUpdate, setPlantsToUpdate] = useState({})
     const [updateActive, setUpdateActive] = useState(false); 
+    const userName = localStorage.userData;
+
+    var x = sessionStorage.test1;
 
     console.log(props.token)
     
@@ -53,7 +56,7 @@ const Dashboard = (props) => {
 
     return (
     <div>
-      
+      <h1>Welcome, {userName}</h1>
     <div>
         <hr />
         <h1>My Garden</h1>
