@@ -1,15 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import APIURL from "../helpers/environment";
+import PlantTable from './PlantTable';
+import PlantEdit from './PlantEdit';
 
 
 const Dashboard = (props) => {
 
     const [plants, setPlants] = useState([]);
+    const [plantsToUpdate, setPlantsToUpdate] = useState({})
+    const [updateActive, setUpdateActive] = useState(false); 
+
     console.log(props.token)
     
     const fetchPlants = () => {
-        fetch(`$APIURL}/plants/`, {
+        if(props.token === ""
+        ){
+            return
+        }
+        fetch(`${APIURL}/plants/`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -22,22 +31,35 @@ const Dashboard = (props) => {
         })
     };
 
+    const editPlants = (plants) => {
+        setPlantsToUpdate(plants);
+        console.log(plants);
+    }
+
+    const updateOn = () => {
+        setUpdateActive(true);
+    }
+
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
+
     useEffect(() => {
         fetchPlants();
-    }, [])
+    }, [props.token])
 
     return (
-        <Container>
-            <h1>Search for a plant to get started!</h1>
-            <Row>
-                <Col md="3">
-                    <h1> Add Create plant component here</h1>
-                </Col>
-                <Col md="9">
-                    <h2>View my garden below...</h2> 
-                </Col>
-            </Row>
-        </Container>
+        // <Container>
+        //     <h1>Search for a plant to get started!</h1>
+        //     <Row>
+        //         <Col md="12">
+        //             <PlantTable plants={plants} editPlants={editPlants} updateOn={updateOn} fetchPlants={fetchPlants} token={props.token}/>;
+        //         </Col>
+        //         {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} updateOff={updateOff} token={props.token} fetchPlants={fetchPlants}/> : <></>}
+        //     </Row>
+        // </Container>
+
+        
     )
 }
 

@@ -13,9 +13,7 @@ import APIURL from "../helpers/environment";
 
 
 const PlantEdit = (props) => {
-   const [editNotes, setEditNotes] = useState(
-    'First Edit/update of an entry from code, not Postman'
-  );
+   const [editNotes, setEditNotes] = useState('');
 
   const plantUpdate = (e) => {
     e.preventDefault();
@@ -26,13 +24,13 @@ const PlantEdit = (props) => {
       }),
       headers: new Headers({
         'Content-type': 'application/json',
-        Authorization: props.token,
+        'Authorization': props.token
       }),
     })
       .then((res) => res.json())
       .then((plantData) => {
         console.log(plantData);
-        setEditNotes('');
+        // setEditNotes('');
       });
     };
     return (
