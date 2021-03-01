@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {Container, Row, Col} from 'reactstrap';
+import {Container, Row, Col, Card, Button, CardImg, CardTitle, CardText,
+    CardSubtitle, CardBody, CardDeck} from 'reactstrap';
 import APIURL from "../helpers/environment";
 import PlantTable from './PlantTable';
 import PlantEdit from './PlantEdit';
+import UserSearchPlants from "./UserSearchPlants";
+import SearchPlants from "./SearchPlants";
 
 
 const Dashboard = (props) => {
@@ -49,15 +52,23 @@ const Dashboard = (props) => {
     }, [props.token])
 
     return (
-        // <Container>
-        //     <h1>Search for a plant to get started!</h1>
-        //     <Row>
-        //         <Col md="12">
-        //             <PlantTable plants={plants} editPlants={editPlants} updateOn={updateOn} fetchPlants={fetchPlants} token={props.token}/>;
-        //         </Col>
-        //         {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} updateOff={updateOff} token={props.token} fetchPlants={fetchPlants}/> : <></>}
-        //     </Row>
-        // </Container>
+    <div>
+      
+    <div>
+        <hr />
+        <h1>My Garden</h1>
+        <hr />
+    </div>
+        
+    <div>
+        <Container id="plantTable">    
+            <PlantTable plants={plants} editPlants={editPlants} updateOn={updateOn} fetchPlants={fetchPlants} token={props.token}/>;
+                
+            {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} updateOff={updateOff} token={props.token} fetchPlants={fetchPlants}/> : <></>}
+        </Container>
+        </div>
+        </div>
+
 
         
     )

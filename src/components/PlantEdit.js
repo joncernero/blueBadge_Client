@@ -16,7 +16,7 @@ const PlantEdit = (props) => {
    const [editNotes, setEditNotes] = useState('');
 
   const plantUpdate = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     fetch(`${APIURL}/plants/10`, {
       method: 'Put',
       body: JSON.stringify({
