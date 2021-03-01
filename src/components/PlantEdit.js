@@ -9,6 +9,8 @@ import {
   ModalHeader,
   ModalBody,
 } from 'reactstrap';
+import APIURL from "../helpers/environment";
+
 
 const PlantEdit = (props) => {
    const [editNotes, setEditNotes] = useState(
@@ -17,7 +19,7 @@ const PlantEdit = (props) => {
 
   const plantUpdate = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/plants/10', {
+    fetch(`${APIURL}/plants/10`, {
       method: 'Put',
       body: JSON.stringify({
         notes: editNotes,

@@ -3,12 +3,13 @@ import {
     Card, Button, CardImg, CardTitle, CardText,
     CardSubtitle, CardBody, CardDeck
   } from 'reactstrap';
+  import APIURL from "../helpers/environment";
 
 
 const DisplayUserPlants = (props) => {
 
   const handleSubmit = () => {
-      fetch('http://localhost:3000/plants/', {
+      fetch(`${APIURL}/plants/`, {
         method: 'Post',
         body: JSON.stringify({
             trefle_id: props.plant.id,

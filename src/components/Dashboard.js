@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
+import APIURL from "../helpers/environment";
 
 
 const Dashboard = (props) => {
@@ -8,7 +9,7 @@ const Dashboard = (props) => {
     console.log(props.token)
     
     const fetchPlants = () => {
-        fetch('http://localhost:3000/plants/', {
+        fetch(`$APIURL}/plants/`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',

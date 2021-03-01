@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Button, Form, FormGroup, Label, Input } from '../../components/styled'
+import { Button, Form, FormGroup, Label, Input } from '../../components/styled';
+import APIURL from "../../helpers/environment";
 
 const Register = props => {
   const [email, setEmail] = useState('')
@@ -9,7 +10,7 @@ const Register = props => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    fetch('http://localhost:3000/user/register', {
+    fetch(`${APIURL}/user/register`, {
       method: 'POST',
       body: JSON.stringify({
         user: { email, password, firstName, zipcode }

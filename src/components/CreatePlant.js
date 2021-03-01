@@ -12,7 +12,7 @@ const CreatePlant = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/plants/', {
+    fetch('http://localhost:3001/plants/', {
       method: 'Post',
       body: JSON.stringify({
           trefle_id: trefle_id,
