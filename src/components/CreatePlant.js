@@ -2,18 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const CreatePlant = (props) => {
-  // const [trefle_id, setTrefle_Id] = useState('');
-  // const [common_name, setCommon_Name] = useState('');
-  // const [scientific_name, setScientific_Name] = useState('');
-  // const [image_url, setImage_Url] = useState('');
-  // const [notes, setNotes] = useState('');
-  const [trefle_id, setTrefle_Id] = useState('126957');
-  const [common_name, setCommon_Name] = useState('Orchardgrass');
-  const [scientific_name, setScientific_Name] = useState('Dactylis glomeratas lanatus');
-  const [image_url, setImage_Url] = useState(
-    'https://bs.floristic.org/image/o/428f40dadfa0281dc890ead17fcd07882f9efb09'
-  );
-  const [notes, setNotes] = useState('My entry from code, not Postman');
+  const [trefle_id, setTrefle_Id] = useState('');
+  const [common_name, setCommon_Name] = useState('');
+  const [scientific_name, setScientific_Name] = useState('');
+  const [image_url, setImage_Url] = useState('');
+  const [notes, setNotes] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,6 +45,7 @@ const CreatePlant = (props) => {
               trefle_id='trefle_id'
               value={trefle_id}
               onChange={(e) => setTrefle_Id(e.target.value)}
+              placeholder="Trefle ID"
             />
           </FormGroup>
           <FormGroup>
@@ -60,6 +54,7 @@ const CreatePlant = (props) => {
               common_name='common_name'
               value={common_name}
               onChange={(e) => setCommon_Name(e.target.value)}
+              placeholder="Common Plant Name"
             />
           </FormGroup>
           <FormGroup>
@@ -68,6 +63,7 @@ const CreatePlant = (props) => {
               scientific_name='scientific_name'
               value={scientific_name}
               onChange={(e) => setScientific_Name(e.target.value)}
+              placeholder="Scientific Plant Name"
             />
           </FormGroup>
           <FormGroup>
@@ -75,6 +71,7 @@ const CreatePlant = (props) => {
             <Input
               image_url='image_url'
               value={image_url}
+              placeholder="Plant Image URL"
               onChange={(e) => setImage_Url(e.target.value)}
             />
           </FormGroup>
@@ -83,6 +80,7 @@ const CreatePlant = (props) => {
             <Input
               notes='notes'
               value={notes}
+              placeholder="Plant Notes"
               onChange={(e) => setNotes(e.target.value)}
             />
           </FormGroup>

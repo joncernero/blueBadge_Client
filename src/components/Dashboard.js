@@ -16,8 +16,7 @@ const Dashboard = (props) => {
     const [updateActive, setUpdateActive] = useState(false); 
     const userName = localStorage.userData;
 
-    var x = sessionStorage.test1;
-
+//     var x = sessionStorage.test1;
     console.log(props.token)
     
     const fetchPlants = () => {
@@ -25,6 +24,7 @@ const Dashboard = (props) => {
         ){
             return
         }
+
         fetch(`${APIURL}/plants/`, {
             method: 'GET',
             headers: new Headers ({
@@ -43,12 +43,8 @@ const Dashboard = (props) => {
         console.log(plants);
     }
 
-    const updateOn = () => {
-        setUpdateActive(true);
-    }
-
-    const updateOff = () => {
-        setUpdateActive(false);
+    const toggleModal = () => {
+        setUpdateActive(!updateActive)
     }
 
     useEffect(() => {
@@ -67,30 +63,22 @@ const Dashboard = (props) => {
 //         <h1>My Garden</h1>
 //         <hr />
 //     </div>
-        
+      
 //     <div>
 //         <Container id="plantTable">    
 //             <PlantTable plants={plants} editPlants={editPlants} updateOn={updateOn} fetchPlants={fetchPlants} token={props.token}/>;
                 
 //             {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} updateOff={updateOff} token={props.token} fetchPlants={fetchPlants}/> : <></>}
-// =======
+
         <Container>
             <h1>Search for a plant to get started!</h1>
             <Row>
-                <Col md="3">
-                   <CreatePlant token={props.token} /> 
+                <Col md="12">
+                    <PlantTable plants={plants} editPlants={editPlants} toggleModal={toggleModal} fetchPlants={fetchPlants} token={props.token}/>;
                 </Col>
-                <Col md="9">
-                    <h2>View my garden below...</h2> 
-                </Col>
+                {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} toggleModal={toggleModal} updateActive={updateActive} token={props.token} fetchPlants={fetchPlants}/> : <></>}
             </Row>
-// >>>>>>> develop
         </Container>
-        </div>
-        </div>
-
-
-        
     )
 }
 
