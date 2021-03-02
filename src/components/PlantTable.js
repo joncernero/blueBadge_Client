@@ -25,16 +25,41 @@ const PlantTable = (props) => {
                     <td>{plants.image_url}</td>
                     <td>{plants.notes}</td>
                     <td>
-                        <Button color ="danger" onClick={() => {deletePlants(plants)}}>Kill Plant</Button>
+                        <Button color ="danger" onClick={() => {deletePlants(plants)}}>Kill Plant!</Button>
                         <br/>
                         <br/>
-                        <Button color="warning" onClick={() => {props.editPlants(plants); props.updateOn()}}>Add/Edit Notes</Button>
+                        <Button color="warning" onClick={() => {props.editPlants(plants); props.toggleModal()}}>Add/Edit Notes</Button>
                         
                     </td>
                 </tr>
             )
         })
     }
+
+//     return ( 
+//         <div>
+//   <div>
+  
+//         <Card id="plantCard">
+//           <CardImg key={props.plants.image_url} id="plantImg" className="plantImg" top width="100%" src={props.plants.image_url} alt="AlternateImage" id="AlternateImage" />
+          
+//           <CardBody id="plantBody">
+//             <CardTitle key={props.plants.common_name}>{props.plants.common_name}</CardTitle>
+//             <CardSubtitle key={props.plants.scientific_name}>{props.plants.scientific_name}</CardSubtitle>
+//             <CardText></CardText>
+//       {plantMapper()}
+          
+            
+//           </CardBody>
+          
+//         </Card>
+        
+//         </div>
+//   <div>
+        
+//       </div>
+//       </div>
+//        );
 
     return ( 
         <>

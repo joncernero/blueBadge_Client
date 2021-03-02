@@ -11,11 +11,11 @@ import {
 } from 'reactstrap';
 
 const PlantEdit = (props) => {
-   const [editNotes, setEditNotes] = useState(props.PlantEdit);
-
+   const [editNotes, setEditNotes] = useState(props.plantsToUpdate.notes);
+    console.log(props.updateActive);
   const plantUpdate = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/plants/10', {
+    fetch(`http://localhost:3000/plants/${props.plantsToUpdate.id}`, {
       method: 'Put',
       body: JSON.stringify({
         notes: editNotes,
@@ -28,11 +28,11 @@ const PlantEdit = (props) => {
       .then((res) => res.json())
       .then((plantData) => {
         console.log(plantData);
-        setEditNotes('');
+        props.toggleModal();
       });
     };
     return (
-      <Modal isOpen={true}>
+      <Modal isOpen={props.updateActive}>
         <ModalHeader>Edit/Update a Plant</ModalHeader>
         <ModalBody>
           <Form onSubmit={plantUpdate}>

@@ -36,12 +36,9 @@ const Dashboard = (props) => {
         console.log(plants);
     }
 
-    const updateOn = () => {
-        setUpdateActive(true);
-    }
+    const toggleModal = () => {
+        setUpdateActive(!updateActive)
 
-    const updateOff = () => {
-        setUpdateActive(false);
     }
 
     useEffect(() => {
@@ -53,12 +50,12 @@ const Dashboard = (props) => {
             <h1>Search for a plant to get started!</h1>
             <Row>
                 <Col md="3">
-                    <CreatePlant fetchPlants={fetchPlants} token={props.token} />
+                    {/* <CreatePlant fetchPlants={fetchPlants} token={props.token} /> */}
                 </Col>
                 <Col md="12">
-                    <PlantTable plants={plants} editPlants={editPlants} updateOn={updateOn} fetchPlants={fetchPlants} token={props.token}/>;
+                    <PlantTable plants={plants} editPlants={editPlants} toggleModal={toggleModal} fetchPlants={fetchPlants} token={props.token}/>;
                 </Col>
-                {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} updateOff={updateOff} token={props.token} fetchPlants={fetchPlants}/> : <></>}
+                {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} toggleModal={toggleModal} updateActive={updateActive} token={props.token} fetchPlants={fetchPlants}/> : <></>}
             </Row>
         </Container>
     )
