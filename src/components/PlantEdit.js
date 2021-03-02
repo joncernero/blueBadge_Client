@@ -12,12 +12,12 @@ import {
 
 const PlantEdit = (props) => {
    const [editNotes, setEditNotes] = useState(
-    'First Edit/update of an entry from code, not Postman'
+    'Demo Edit/update of an entry from code, not Postman'
   );
 
   const plantUpdate = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/plants/${plants.id}', {
+    fetch('http://localhost:3000/plants/1', {
       method: 'Put',
       body: JSON.stringify({
         notes: editNotes,

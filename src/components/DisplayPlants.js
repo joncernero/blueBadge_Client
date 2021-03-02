@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import APIURL from '../helpers/environment'
 import {
   Card,
   Button,
@@ -13,6 +14,7 @@ import {
 const DisplayPlants = (props) => {
   const handleSubmit = () => {
     fetch('http://localhost:3000/plants/', {
+      // fetch(`${ APIURL}/plants/`, {
       method: 'Post',
       body: JSON.stringify({
         trefle_id: props.plant.id,
