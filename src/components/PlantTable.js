@@ -53,10 +53,24 @@ const PlantTable = (props) => {
 
     return ( 
         <>
-
-{plantMapper()}
-
-        </>
+        <h3>My Garden</h3>
+        <hr />
+        <Table striped>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Trefle ID</th>
+                    <th>Common Name</th>
+                    <th>Scientific Name</th>
+                    <th>Image</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {plantMapper()}
+            </tbody>
+        </Table>
+    </>
      );
 }
 

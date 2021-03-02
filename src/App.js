@@ -75,9 +75,9 @@ function App() {
           {/*<Route exact path="/FlowerSearch">
             <FlowerSearch token={sessionToken}/>
           </Route> */}
-          {/* <Route exact path="/PlantIndex">
+          <Route exact path="/PlantIndex">
             <PlantIndex token={sessionToken}/>
-          </Route> */}
+          </Route> 
           <Route exact path="/">
             <Auth updateToken={updateToken}/>
           </Route>
