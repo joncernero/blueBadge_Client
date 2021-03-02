@@ -9,28 +9,27 @@ import {
   ModalHeader,
   ModalBody,
 } from 'reactstrap';
+import APIURL from "../helpers/environment";
 
 const PlantEdit = (props) => {
-   const [editNotes, setEditNotes] = useState(
-    'Demo Edit/update of an entry from code, not Postman'
-  );
+   const [editNotes, setEditNotes] = useState('');
 
   const plantUpdate = (e) => {
-    e.preventDefault();
-    fetch('http://localhost:3000/plants/1', {
+    // e.preventDefault();
+    fetch(`${APIURL}/plants/10`, {
       method: 'Put',
       body: JSON.stringify({
         notes: editNotes,
       }),
       headers: new Headers({
         'Content-type': 'application/json',
-        Authorization: props.token,
+        'Authorization': props.token
       }),
     })
       .then((res) => res.json())
       .then((plantData) => {
         console.log(plantData);
-        setEditNotes('');
+        // setEditNotes('');
       });
     };
     return (

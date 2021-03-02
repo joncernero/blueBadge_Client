@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 import SearchPlants from "./SearchPlants";
 import UserSearchPlants from "./UserSearchPlants";
+import FlowerSearch from "./FlowerSearch";
+import PlantIndex from "./PlantIndex";
 import Home from "./Home";
 import {Button, NavbarToggler, Collapse} from 'reactstrap';
 
@@ -20,8 +22,10 @@ const Navbar = (props) => {
         <div>
             <ul>
                 <li><Link to="/Dashboard">My Garden</Link></li>
-                <li><Link to="/SearchPlants">View All Plants</Link></li>
+                <li><Link to="/PlantIndex">Explore Plants</Link></li>
+                {/* <li><Link to="/SearchPlants">View All Plants</Link></li>
                 <li><Link to="/UserSearchPlants">Search Plants</Link></li>
+                <li><Link to ="/FlowerSearch">Search By Flower Color</Link></li> */}
                 <Button  color='info' onClick={props.clearToken}>Logout</Button>
                 <NavbarToggler onClick={toggle}/>
                 <Collapse isOpen={isOpen}>

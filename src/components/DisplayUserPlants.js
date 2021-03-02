@@ -1,35 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Card,
-  Button,
-  CardImg,
-  CardTitle,
-  CardText,
-  CardSubtitle,
-  CardBody,
-  CardDeck,
-} from 'reactstrap';
+    Card, Button, CardImg, CardTitle, CardText,
+    CardSubtitle, CardBody, CardDeck
+  } from 'reactstrap';
+  import APIURL from "../helpers/environment";
 
 const DisplayUserPlants = (props) => {
   const handleSubmit = () => {
-    fetch('http://localhost:3000/plants/', {
-      method: 'Post',
-      body: JSON.stringify({
-        trefle_id: props.plant.id,
-        common_name: props.plant.common_name,
-        scientific_name: props.plant.scientific_name,
-        image_url: props.plant.image_url,
-      }),
-      headers: new Headers({
-        'Content-type': 'application/json',
-        Authorization: props.token,
-      }),
-    })
-      .then((res) => res.json())
-      .then((logData) => {
-        console.log(logData);
-      });
-  };
+
+      fetch(`${APIURL}/plants/`, {
+        method: 'Post',
+        body: JSON.stringify({
+            trefle_id: props.plant.id,
+            common_name: props.plant.common_name,
+            scientific_name: props.plant.scientific_name,
+            image_url: props.plant.image_url
+          },
+        ),
+        headers: new Headers({
+          'Content-type': 'application/json',
+          'Authorization': props.token,
+        }),
+      })
+        .then((res) => res.json())
+        .then((logData) => {
+          console.log(logData);
+        });
+      };
 
   return (
     <div>

@@ -67,3 +67,10 @@ body {
   min-height: 10em;
   width: 100%;
 }
+
+#plantTable{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
