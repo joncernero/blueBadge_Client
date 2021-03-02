@@ -18,6 +18,7 @@ const Login = props => {
     })
       .then(response => response.json())
       .then(data => {
+        console.log('Logged In!!!', data)
         props.updateToken(data.sessionToken)
         setPassword('')
       })
