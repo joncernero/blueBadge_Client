@@ -57,26 +57,24 @@ function App() {
     <div className='main'>
       <Router>
         {sessionToken ? <Navbar clearToken={clearToken} /> : null}
-        <div>
-          <Switch>
-            <Route exact path='/dashboard'>
-              {protectedViews('dashboard')}
-            </Route>
-            <Route exact path='/UserSearchPlants'>
-              {protectedViews('UserSearchPlants')}
-            </Route>
-            <Route exact path='/SearchPlants'>
-              {protectedViews('SearchPlants')}
-            </Route>
-            <Route exact path='/'>
-              {sessionToken ? (
-                <Redirect to='/dashboard' />
-              ) : (
-                <Auth updateToken={updateToken} />
-              )}
-            </Route>
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path='/dashboard'>
+            {protectedViews('dashboard')}
+          </Route>
+          <Route exact path='/UserSearchPlants'>
+            {protectedViews('UserSearchPlants')}
+          </Route>
+          <Route exact path='/SearchPlants'>
+            {protectedViews('SearchPlants')}
+          </Route>
+          <Route exact path='/'>
+            {sessionToken ? (
+              <Redirect to='/dashboard' />
+            ) : (
+              <Auth updateToken={updateToken} />
+            )}
+          </Route>
+        </Switch>
       </Router>
     </div>
   )

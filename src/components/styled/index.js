@@ -17,6 +17,19 @@ export const TitleContainer = styled.div`
   display: grid;
   justify-content: center;
   align-content: center;
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    color: Green;
+  }
+
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    color: gray;
+    font-size: 1.5rem;
+  }
 `
 export const LoginContainer = styled.div`
   grid-column: 7 / -1;
@@ -28,6 +41,7 @@ export const LoginContainer = styled.div`
   box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   min-height: 85vh;
+  font-family: 'Poppins', sans-serif;
 `
 export const Card = styled.div`
   background-color: white;
@@ -62,6 +76,62 @@ export const Label = styled.label`
   margin: 5px;
 `
 export const Input = styled.input``
-export const TopNav = styled.div`
+export const NavHeader = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 15px 100px;
+  z-index: 10;
+  font-family: 'Poppin', sans-serif;
+  font-weight: bolder;
+
+  div {
+    position: relative;
+    font-size: 2rem;
+    color: green;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+
+  li {
+    list-style: none;
+    margin: 0 10px;
+    text-align: center;
+  }
+
+  li a {
+    color: green;
+    text-decoration: none;
+    font-weight: 500px;
+    letter-spacing: 1px;
+  }
+
+  li a:hover {
+    color: gray;
+  }
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: green;
+  }
+
+  @media (max-width: 991px) {
+    header {
+      padding: 10px 20px;
+      flex-direction: column;
+    }
+  }
 `
