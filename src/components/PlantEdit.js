@@ -9,20 +9,21 @@ import {
   ModalHeader,
   ModalBody,
 } from 'reactstrap';
+import APIURL from "../helpers/environment";
 
 const PlantEdit = (props) => {
    const [editNotes, setEditNotes] = useState(props.plantsToUpdate.notes);
     console.log(props.updateActive);
   const plantUpdate = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/plants/${props.plantsToUpdate.id}`, {
+    fetch(`${APIURL}/plants/${props.plantsToUpdate.id}`, {
       method: 'Put',
       body: JSON.stringify({
         notes: editNotes,
       }),
       headers: new Headers({
         'Content-type': 'application/json',
-        Authorization: props.token,
+        'Authorization': props.token
       }),
     })
       .then((res) => res.json())

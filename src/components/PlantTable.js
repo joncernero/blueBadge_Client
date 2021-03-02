@@ -1,10 +1,10 @@
-import React from 'react';
-import {Table, CardBody, CardTitle, CardSubtitle, CardText, Button, Card, CardImg} from 'reactstrap';
+import React, { useState } from 'react';
+import APIURL from "../helpers/environment";
+import {Table, CardDeck, CardBody, CardTitle, CardSubtitle, CardText, Button, Card, CardImg} from 'reactstrap';
 
 const PlantTable = (props) => {
-
     const deletePlants = (plants) => {
-        fetch(`http://localhost:3000/plants/${plants.id}`, {
+        fetch(`${APIURL}/plants/${plants.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -32,54 +32,30 @@ const PlantTable = (props) => {
                         
                     </td>
                 </tr>
+  
+//         <CardDeck>
+//         <Card id="plantCard">
+//         <CardImg id="plantImg" className="plantImg" top width="100%" src={plants.image_url} alt="AlternateImage" id="AlternateImage" />
+        
+//         <CardBody id="plantBody">
+//           <CardTitle>{plants.common_name}</CardTitle>
+//           <CardSubtitle>{plants.scientific_name}</CardSubtitle>
+//           <CardText>{plants.notes}</CardText>
+//           <Button color ="danger" onClick={() => {deletePlants(plants)}}>Kill Plant</Button>
+//           <Button color="warning" onClick={() => {props.editPlants(plants); props.updateOn()}}>Add/Edit Notes</Button>
+//         </CardBody> 
+//         </Card>
+//         </CardDeck>
+
             )
         })
     }
 
-//     return ( 
-//         <div>
-//   <div>
-  
-//         <Card id="plantCard">
-//           <CardImg key={props.plants.image_url} id="plantImg" className="plantImg" top width="100%" src={props.plants.image_url} alt="AlternateImage" id="AlternateImage" />
-          
-//           <CardBody id="plantBody">
-//             <CardTitle key={props.plants.common_name}>{props.plants.common_name}</CardTitle>
-//             <CardSubtitle key={props.plants.scientific_name}>{props.plants.scientific_name}</CardSubtitle>
-//             <CardText></CardText>
-//       {plantMapper()}
-          
-            
-//           </CardBody>
-          
-//         </Card>
-        
-//         </div>
-//   <div>
-        
-//       </div>
-//       </div>
-//        );
-
     return ( 
         <>
-            <h3>My Garden</h3>
-            <hr />
-            <Table striped>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Trefle ID</th>
-                        <th>Common Name</th>
-                        <th>Scientific Name</th>
-                        <th>Image</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {plantMapper()}
-                </tbody>
-            </Table>
+
+{plantMapper()}
+
         </>
      );
 }

@@ -5,14 +5,12 @@ const CreatePlant = (props) => {
   const [trefle_id, setTrefle_Id] = useState('');
   const [common_name, setCommon_Name] = useState('');
   const [scientific_name, setScientific_Name] = useState('');
-  const [image_url, setImage_Url] = useState(
-    ''
-  );
+  const [image_url, setImage_Url] = useState('');
   const [notes, setNotes] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/plants/', {
+    fetch('http://localhost:3001/plants/', {
       method: 'Post',
       body: JSON.stringify({
           trefle_id: trefle_id,
