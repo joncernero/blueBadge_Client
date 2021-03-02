@@ -13,7 +13,7 @@ const Register = props => {
     fetch(`${APIURL}/user/register`, {
       method: 'POST',
       body: JSON.stringify({
-        user: { email, password, firstName, zipcode }
+        user: { email: email, password: password, firstName: firstName, zipcode: zipcode }
       }),
       headers: new Headers({
         'Content-Type': 'application/json'
@@ -21,8 +21,10 @@ const Register = props => {
     })
       .then(response => response.json())
       .then(data => {
+        console.log('ENTRY CREATED!!!', data)
         props.updateToken(data.sessionToken)
       })
+      .catch ((err) => console.log(err))
   }
   return (
     <div>

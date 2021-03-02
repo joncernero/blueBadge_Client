@@ -56,22 +56,35 @@ const Dashboard = (props) => {
     }, [props.token])
 
     return (
-    <div>
-      <h1>Welcome, {userName}</h1>
-      <BrowserRouter>
-      <PlantIndex token={props.token}/>
-      </BrowserRouter>
-    <div>
-        <hr />
-        <h1>My Garden</h1>
-        <hr />
-    </div>
+// <<<<<<< jessicatest
+//     <div>
+//       <h1>Welcome, {userName}</h1>
+//       <BrowserRouter>
+//       <PlantIndex token={props.token}/>
+//       </BrowserRouter>
+//     <div>
+//         <hr />
+//         <h1>My Garden</h1>
+//         <hr />
+//     </div>
         
-    <div>
-        <Container id="plantTable">    
-            <PlantTable plants={plants} editPlants={editPlants} updateOn={updateOn} fetchPlants={fetchPlants} token={props.token}/>;
+//     <div>
+//         <Container id="plantTable">    
+//             <PlantTable plants={plants} editPlants={editPlants} updateOn={updateOn} fetchPlants={fetchPlants} token={props.token}/>;
                 
-            {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} updateOff={updateOff} token={props.token} fetchPlants={fetchPlants}/> : <></>}
+//             {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} updateOff={updateOff} token={props.token} fetchPlants={fetchPlants}/> : <></>}
+// =======
+        <Container>
+            <h1>Search for a plant to get started!</h1>
+            <Row>
+                <Col md="3">
+                   <CreatePlant token={props.token} /> 
+                </Col>
+                <Col md="9">
+                    <h2>View my garden below...</h2> 
+                </Col>
+            </Row>
+// >>>>>>> develop
         </Container>
         </div>
         </div>

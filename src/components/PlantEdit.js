@@ -11,7 +11,6 @@ import {
 } from 'reactstrap';
 import APIURL from "../helpers/environment";
 
-
 const PlantEdit = (props) => {
    const [editNotes, setEditNotes] = useState('');
 
