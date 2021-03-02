@@ -68,7 +68,9 @@ body {
   width: 100%;
 }
 
-.plantsMain{
-  text-align: center;
-  padding: 5em;
+#plantTable{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
 }
