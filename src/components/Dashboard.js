@@ -8,6 +8,7 @@ import UserSearchPlants from "./UserSearchPlants";
 import SearchPlants from "./SearchPlants";
 import PlantIndex from "./PlantIndex";
 import {BrowserRouter} from 'react-router-dom';
+import Navbar from "./Navbar";
 
 const Dashboard = (props) => {
 
