@@ -9,6 +9,7 @@ import SearchPlants from "./components/SearchPlants";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import UserSearchPlants from "./components/UserSearchPlants";
 import FlowerSearch from "./components/FlowerSearch";
+import PlantIndex from "./components/PlantIndex";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -52,7 +53,7 @@ function App() {
           <Route exact path="/dashboard">
             <Dashboard token={sessionToken}/>
           </Route>
-          <Route exact path="/UserSearchPlants">
+          {/* <Route exact path="/UserSearchPlants">
             <UserSearchPlants token={sessionToken} />
           </Route>
           <Route exact path="/SearchPlants">
@@ -60,7 +61,10 @@ function App() {
           </Route>
           <Route exact path="/FlowerSearch">
             <FlowerSearch token={sessionToken}/>
-          </Route>
+          </Route> */}
+          {/* <Route exact path="/PlantIndex">
+            <PlantIndex token={sessionToken}/>
+          </Route> */}
           <Route exact path="/">
             <Auth updateToken={updateToken}/>
           </Route>

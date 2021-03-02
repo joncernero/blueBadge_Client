@@ -6,7 +6,8 @@ import PlantTable from './PlantTable';
 import PlantEdit from './PlantEdit';
 import UserSearchPlants from "./UserSearchPlants";
 import SearchPlants from "./SearchPlants";
-
+import PlantIndex from "./PlantIndex";
+import {BrowserRouter} from 'react-router-dom';
 
 const Dashboard = (props) => {
 
@@ -57,6 +58,9 @@ const Dashboard = (props) => {
     return (
     <div>
       <h1>Welcome, {userName}</h1>
+      <BrowserRouter>
+      <PlantIndex token={props.token}/>
+      </BrowserRouter>
     <div>
         <hr />
         <h1>My Garden</h1>
