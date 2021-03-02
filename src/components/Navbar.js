@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, NavHeader } from '../components/styled'
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
+import SearchPlants from "./SearchPlants";
+import UserSearchPlants from "./UserSearchPlants";
+import FlowerSearch from "./FlowerSearch";
+import PlantIndex from "./PlantIndex";
+// import {Button, NavbarToggler, Collapse} from 'reactstrap';
 
 const Toggler = props => {
   const [isOpen, setIsOpen] = useState(false)

@@ -1,39 +1,83 @@
+
 import React, { useState, useEffect } from 'react'
-// import {Container, Row, Col} from 'reactstrap';
 import { Container, Row } from '../components/styled'
+import { Col, Card, Button, CardImg, CardTitle, CardText,
+    CardSubtitle, CardBody, CardDeck} from 'reactstrap';
+import APIURL from "../helpers/environment";
+import PlantTable from './PlantTable';
+import PlantEdit from './PlantEdit';
+import UserSearchPlants from "./UserSearchPlants";
+import SearchPlants from "./SearchPlants";
+import PlantIndex from "./PlantIndex";
+import {BrowserRouter} from 'react-router-dom';
 
 const Dashboard = props => {
   const [plants, setPlants] = useState([])
-  console.log(props.token)
+   const [plantsToUpdate, setPlantsToUpdate] = useState({})
+    const [updateActive, setUpdateActive] = useState(false); 
+    const userName = localStorage.userData;
 
-  const fetchPlants = () => {
-    fetch('http://localhost:3000/plants/', {
-      method: 'GET',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        Authorization: props.token
-      })
-    })
-      .then(res => res.json())
-      .then(plantData => {
-        setPlants(plantData)
-        console.log(plantData)
-      })
-  }
+    const fetchPlants = () => {
+        if(props.token === ""
+        ){
+            return
+        }
 
-  useEffect(() => {
-    fetchPlants()
-  }, [])
+        fetch(`${APIURL}/plants/`, {
+            method: 'GET',
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                'Authorization' : props.token
+            })
+        }) .then( (res) => res.json())
+        .then((plantData) => {
+            setPlants(plantData)
+            console.log(plantData)
+        })
+    };
 
-  return (
-    <Container>
-      <h1>Search for a plant to get started!</h1>
-      <div>
-        <h1> Add Create plant component here</h1>
-        <h2>View my garden below...</h2>
-      </div>
-    </Container>
-  )
+    const editPlants = (plants) => {
+        setPlantsToUpdate(plants);
+        console.log(plants);
+    }
+
+    const toggleModal = () => {
+        setUpdateActive(!updateActive)
+    }
+
+    useEffect(() => {
+        fetchPlants();
+    }, [props.token])
+
+    return (
+
+//     <div>
+//       <h1>Welcome, {userName}</h1>
+//       <BrowserRouter>
+//       <PlantIndex token={props.token}/>
+//       </BrowserRouter>
+//     <div>
+//         <hr />
+//         <h1>My Garden</h1>
+//         <hr />
+//     </div>
+      
+//     <div>
+//         <Container id="plantTable">    
+//             <PlantTable plants={plants} editPlants={editPlants} updateOn={updateOn} fetchPlants={fetchPlants} token={props.token}/>;
+                
+//             {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} updateOff={updateOff} token={props.token} fetchPlants={fetchPlants}/> : <></>}
+
+        <Container>
+            <h1>Search for a plant to get started!</h1>
+            <Row>
+                <Col md="12">
+                    <PlantTable plants={plants} editPlants={editPlants} toggleModal={toggleModal} fetchPlants={fetchPlants} token={props.token}/>;
+                </Col>
+                {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} toggleModal={toggleModal} updateActive={updateActive} token={props.token} fetchPlants={fetchPlants}/> : <></>}
+            </Row>
+        </Container>
+    )
 }
 
 export default Dashboard
