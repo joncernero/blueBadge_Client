@@ -24,8 +24,8 @@ const Login = props => {
         console.log('Logged In!!!', data)
         props.updateToken(data.sessionToken)
         setPassword('')
-        console.log(data.user.firstName)
-        setFirstName(localStorage.setItem('userData', JSON.stringify(data.user.firstName)))
+        // console.log(data.user.firstName)
+        // setFirstName(localStorage.setItem('userData', JSON.stringify(data.user.firstName)))
       })
   }
   return (
