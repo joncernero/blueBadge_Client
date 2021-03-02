@@ -72,14 +72,6 @@ const PlantTable = (props) => {
             </Table>
         </>
      );
-
-//     return ( 
-//         <>
-
-// {plantMapper()}
-
-//         </>
-//      );
 }
 
 export default PlantTable;

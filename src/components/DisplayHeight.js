@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {
     Card, Button, CardImg, CardTitle, CardText,
-    CardSubtitle, CardBody, CardDeck
+    CardSubtitle, CardBody
   } from 'reactstrap';
   import APIURL from "../helpers/environment";
 
-const DisplayUserPlants = (props) => {
+const DisplayHeight = (props) => {
   const handleSubmit = () => {
 
       fetch(`${APIURL}/plants/`, {
@@ -60,4 +60,4 @@ const DisplayUserPlants = (props) => {
   );
 };
 
-export default DisplayUserPlants;
+export default DisplayHeight;
