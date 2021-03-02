@@ -50,7 +50,7 @@ function App() {
          
           <div>
         <Switch>
-          {/* <Route exact path="/dashboard">
+          <Route exact path="/dashboard">
             <Dashboard token={sessionToken}/>
           </Route>
           {/* <Route exact path="/UserSearchPlants">
@@ -62,9 +62,9 @@ function App() {
           <Route exact path="/FlowerSearch">
             <FlowerSearch token={sessionToken}/>
           </Route> */}
-          {/* <Route exact path="/PlantIndex">
+          <Route exact path="/PlantIndex">
             <PlantIndex token={sessionToken}/>
-          </Route> */}
+          </Route> 
           <Route exact path="/">
             <Auth updateToken={updateToken}/>
           </Route>

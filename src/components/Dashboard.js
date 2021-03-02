@@ -53,38 +53,41 @@ const Dashboard = (props) => {
     }, [props.token])
 
     return (
-// <<<<<<< jessicatest
-//     <div>
-//       <h1>Welcome, {userName}</h1>
-//       <BrowserRouter>
-//       <PlantIndex token={props.token}/>
-//       </BrowserRouter>
-//     <div>
-//         <hr />
-//         <h1>My Garden</h1>
-//         <hr />
-//     </div>
+
+    <div>
+      <h1>Welcome, {userName}</h1>
+     {/* <BrowserRouter>
+      <PlantIndex token={props.token}/>
+      </BrowserRouter> */}
+    <div>
+        <hr />
+        <h1>My Garden</h1>
+        <hr />
+    </div>
       
-//     <div>
-//         <Container id="plantTable">    
-//             <PlantTable plants={plants} editPlants={editPlants} updateOn={updateOn} fetchPlants={fetchPlants} token={props.token}/>;
+    <div>
+        <Container id="plantTable">    
+        <PlantTable plants={plants} editPlants={editPlants} toggleModal={toggleModal} fetchPlants={fetchPlants} token={props.token}/>;
                 
-//             {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} updateOff={updateOff} token={props.token} fetchPlants={fetchPlants}/> : <></>}
-<div>
-        <Container>
-            {/* <h1>Welcome, {user.firstName}</h1> */}
+        {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} toggleModal={toggleModal} updateActive={updateActive} token={props.token} fetchPlants={fetchPlants}/> : <></>}
+
+        </Container>
+        </div>
+        <div>
+            {/* <Container> */}
+            {/* <h1>Welcome, {user.firstName}</h1>
             <Row>
                 <Col md="12">
                     <PlantTable plants={plants} editPlants={editPlants} toggleModal={toggleModal} fetchPlants={fetchPlants} token={props.token}/>;
                 </Col>
                 {updateActive ? <PlantEdit plantsToUpdate={plantsToUpdate} toggleModal={toggleModal} updateActive={updateActive} token={props.token} fetchPlants={fetchPlants}/> : <></>}
             </Row>
-        </Container>
+        </Container> */}
       
-            <BrowserRouter>
+            {/* <BrowserRouter>
             <Navbar token={props.token}/>
-            </BrowserRouter>
-         
+            </BrowserRouter> */}
+         </div>
           
         </div>
     )

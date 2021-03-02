@@ -6,8 +6,10 @@ import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 
 const PlantIndex = (props) => {
     return ( 
+        <BrowserRouter>
 <div>
 <div>
+   
     <ul>
         <li><Link to="/UserSearchPlants">Search by Plant Name</Link></li>
         <li><Link to="/FlowerSearch">Search by Flower Color</Link></li>
@@ -24,8 +26,10 @@ const PlantIndex = (props) => {
 
 
 
+
 </div>
 </div>
+</BrowserRouter>
      );
 }
  
