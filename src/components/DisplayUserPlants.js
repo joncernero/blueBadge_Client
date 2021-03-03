@@ -45,7 +45,7 @@ const DisplayUserPlants = (props) => {
             width='100%'
             src={props.plant.image_url}
             alt='Image not available'
-            onError={imageHandling}
+            // onError={imageHandling}
           />
 
           <CardBody id='plantBody'>

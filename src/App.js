@@ -70,7 +70,7 @@ function App() {
               <Redirect to='/dashboard' />
             ) : (
               <Auth updateToken={updateToken} />
-            )}
+            )}</Route>
           {/*<Route exact path="/FlowerSearch">
             <FlowerSearch token={sessionToken}/>
           </Route> */}

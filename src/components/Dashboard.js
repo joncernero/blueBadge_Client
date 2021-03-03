@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Row } from '../components/styled'
+import { Container} from '../components/styled'
 import { Col, Card, Button, CardImg, CardTitle, CardText,
-    CardSubtitle, CardBody, CardDeck} from 'reactstrap';
+    CardSubtitle, CardBody, Row, CardDeck} from 'reactstrap';
 import APIURL from "../helpers/environment";
 import PlantTable from './PlantTable';
 import PlantEdit from './PlantEdit';
@@ -81,7 +81,6 @@ const Dashboard = props => {
             fetchPlants={fetchPlants}
             token={props.token}
           />
-          ;
         </Col>
         {updateActive ? (
           <PlantEdit

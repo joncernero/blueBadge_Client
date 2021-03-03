@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, NavHeader } from '../components/styled'
-import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import SearchPlants from "./SearchPlants";
 import UserSearchPlants from "./UserSearchPlants";
 import FlowerSearch from "./FlowerSearch";
