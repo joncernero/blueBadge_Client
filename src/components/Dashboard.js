@@ -1,36 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Button,
-  CardImg,
-  CardTitle,
-  CardText,
-  CardSubtitle,
-  CardBody,
-  CardDeck,
-} from 'reactstrap';
-import APIURL from '../helpers/environment';
+import React, { useState, useEffect } from 'react'
+import { Container, Row } from '../components/styled'
+import { Col, Card, Button, CardImg, CardTitle, CardText,
+    CardSubtitle, CardBody, CardDeck} from 'reactstrap';
+import APIURL from "../helpers/environment";
 import PlantTable from './PlantTable';
 import PlantEdit from './PlantEdit';
-import UserSearchPlants from './UserSearchPlants';
-import SearchPlants from './SearchPlants';
-import PlantIndex from './PlantIndex';
-import { BrowserRouter } from 'react-router-dom';
+import UserSearchPlants from "./UserSearchPlants";
+import SearchPlants from "./SearchPlants";
+import PlantIndex from "./PlantIndex";
+import {BrowserRouter} from 'react-router-dom';
+import Navbar from "./Navbar";
 
-const Dashboard = (props) => {
-  const [plants, setPlants] = useState([]);
-  const [plantsToUpdate, setPlantsToUpdate] = useState({});
-  const [updateActive, setUpdateActive] = useState(false);
-  const userName = localStorage.userData;
+const Dashboard = props => {
+  const [plants, setPlants] = useState([])
+   const [plantsToUpdate, setPlantsToUpdate] = useState({})
+    const [updateActive, setUpdateActive] = useState(false); 
+    const userName = localStorage.userData;
 
-  const fetchPlants = () => {
-    if (props.token === '') {
-      return;
-    }
-
+  
+    const fetchPlants = () => {
+        if(props.token === ""
+        ){
+            return
+        }
+  
     fetch(`${APIURL}/plants/`, {
       method: 'GET',
       headers: new Headers({
@@ -105,5 +98,5 @@ const Dashboard = (props) => {
     </Container>
   );
 };
+export default Dashboard
 
-export default Dashboard;
