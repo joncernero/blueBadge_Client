@@ -1,27 +1,34 @@
-import "./App.css";
-import styled from "styled-components";
-import { Wrapper, Container } from "./components/styled/";
-import Auth from "./components/Auth/index";
-import React, { useState, useEffect } from "react";
-import Dashboard from "./components/Dashboard";
-import Navbar from "./components/Navbar";
-import SearchPlants from "./components/SearchPlants";
-import { Route, Switch, BrowserRouter as Router, Redirect } from "react-router-dom";
-import UserSearchPlants from "./components/UserSearchPlants";
-import FlowerSearch from "./components/FlowerSearch";
-import PlantIndex from "./components/PlantIndex";
+import './App.css'
+import styled from 'styled-components'
+import { Wrapper, Container } from './components/styled/'
+import Auth from './components/Auth/index'
+import React, { useState, useEffect } from 'react'
+import Dashboard from './components/Dashboard'
+import Navbar from './components/Navbar'
+import SearchPlants from './components/SearchPlants'
+import {
+  Route,
+  Switch,
+  BrowserRouter as Router,
+  Redirect
+} from 'react-router-dom'
+import UserSearchPlants from './components/UserSearchPlants'
+import FlowerSearch from './components/FlowerSearch'
+import PlantIndex from './components/PlantIndex'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('')
+  const [userName, setUserName] = useState('')
 
   useEffect(() => {
     if (localStorage.getItem('token'));
     setSessionToken(localStorage.getItem('token'))
   }, [])
 
-  const updateToken = newToken => {
+  const updateToken = (newToken, newUserName) => {
     localStorage.setItem('token', newToken)
     setSessionToken(newToken)
+    setUserName(newUserName)
     console.log(sessionToken)
   }
 
@@ -41,7 +48,7 @@ function App() {
     if (pageToShow === 'SearchPlants') {
       component = <SearchPlants token={sessionToken} />
     }
-  
+
     return localStorage.getItem('token') ? (
       // <Dashboard token={sessionToken} />
       component
@@ -71,14 +78,18 @@ function App() {
             ) : (
               <Auth updateToken={updateToken} />
             )}
-          {/*<Route exact path="/FlowerSearch">
-            <FlowerSearch token={sessionToken}/>
+          </Route>
+          <Route exact path='/FlowerSearch'>
+            {protectedViews('FlowerSearch')}
+          </Route>
+          <Route exact path='/SearchHeight'>
+            {protectedViews('SearchHeight')}
+          </Route>
+          {/* <Route exact path='/PlantIndex'>
+            <PlantIndex token={sessionToken} />
           </Route> */}
-          <Route exact path="/PlantIndex">
-            <PlantIndex token={sessionToken}/>
-          </Route> 
-          <Route exact path="/">
-            <Auth updateToken={updateToken}/>
+          <Route exact path='/'>
+            <Auth updateToken={updateToken} setUserName={setUserName} />
           </Route>
         </Switch>
       </Router>

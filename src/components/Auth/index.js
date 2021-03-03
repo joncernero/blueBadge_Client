@@ -11,7 +11,7 @@ import '../../App.css'
 
 const Auth = props => {
   const [loggingIn, setLoggingIn] = useState(false)
-
+  console.log(props)
   const toggleLoggingIn = () => {
     setLoggingIn(!loggingIn)
   }
@@ -24,9 +24,15 @@ const Auth = props => {
         </TitleContainer>
         <LoginContainer>
           {loggingIn ? (
-            <Login updateToken={props.updateToken} />
+            <Login
+              updateToken={props.updateToken}
+              setUserName={props.setUserName}
+            />
           ) : (
-            <Register updateToken={props.updateToken} />
+            <Register
+              updateToken={props.updateToken}
+              setUserName={props.setUserName}
+            />
           )}
 
           {loggingIn ? (
