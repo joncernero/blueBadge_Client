@@ -21,7 +21,7 @@ const Login = props => {
       .then(response => response.json())
       .then(data => {
         console.log('Logged In!!!', data)
-        props.updateToken(data.sessionToken, data.user.firstName)
+        props.updateToken(data.sessionToken)
         setPassword('')
         // console.log(data.user.firstName)
       })
