@@ -58,14 +58,6 @@ const UserSearchPlants = (props) => {
       setPage(page + 1);
       fetchPlants();
     }
-
-    function displayCards() {
-      return plants.length > 0
-        ? plants.map((plant) => (
-            <DisplayUserPlants plant={plant} token={props.token} />
-          ))
-        : null;
-    }
   };
 
   function displayCards() {

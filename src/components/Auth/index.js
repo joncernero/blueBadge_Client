@@ -3,48 +3,53 @@ import Register from './Register'
 import Login from './Login'
 import {
   Button,
-  Wrapper,
-  Row,
-  Col,
-  LoginCol,
-  TitleCol
+  Container,
+  LoginContainer,
+  TitleContainer
 } from '../../components/styled'
-import { colors, fontSizes } from '../styled/Theme'
 import '../../App.css'
 
 const Auth = props => {
   const [loggingIn, setLoggingIn] = useState(false)
-
+  console.log(props)
   const toggleLoggingIn = () => {
     setLoggingIn(!loggingIn)
   }
   return (
     <div>
-      <Row>
-        <TitleCol>
+      <Container>
+        <TitleContainer>
           <h1>iPlants.com</h1>
-        </TitleCol>
-        <LoginCol>
+          <h2>A Place For Plant Enthusiasts</h2>
+        </TitleContainer>
+        <LoginContainer>
           {loggingIn ? (
-            <Login updateToken={props.updateToken} />
+            <Login
+              updateToken={props.updateToken}
+              setUserName={props.setUserName}
+            />
           ) : (
-            <Register updateToken={props.updateToken} />
+            <Register
+              updateToken={props.updateToken}
+              setUserName={props.setUserName}
+            />
           )}
 
           {loggingIn ? (
             <p>
-              Don't have an account? &nbsp;
+              Don't have an account?
               <Button main onClick={toggleLoggingIn}>
                 Register
               </Button>
             </p>
           ) : (
             <p>
-              Have an account? <Button onClick={toggleLoggingIn}>Login</Button>
+              Have an account?
+              <Button onClick={toggleLoggingIn}>Login</Button>
             </p>
           )}
-        </LoginCol>
-      </Row>
+        </LoginContainer>
+      </Container>
     </div>
   )
 }
