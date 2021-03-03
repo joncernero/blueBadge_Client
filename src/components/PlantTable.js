@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
-import APIURL from "../helpers/environment";
-import {Table, CardDeck, CardBody, CardTitle, CardSubtitle, CardText, Button, Card, CardImg} from 'reactstrap';
+import APIURL from '../helpers/environment';
+import {
+  Table,
+  CardDeck,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  CardText,
+  Button,
+  Card,
+  CardImg,
+} from 'reactstrap';
 
 const PlantTable = (props) => {
-    const deletePlants = (plants) => {
-        fetch(`${APIURL}/plants/${plants.id}`, {
-            method: 'DELETE',
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': props.token
-            })
-        })
-        .then(() => props.fetchPlants())
-    }
-
+  const deletePlants = (plants) => {
+    fetch(`${APIURL}/plants/${plants.id}`, {
+      method: 'DELETE',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        Authorization: props.token,
+      }),
+    }).then(() => props.fetchPlants());
+  };
+  
     const plantMapper = () => {
         return props.plants.map((plants, index) => {
             return(
@@ -46,10 +55,6 @@ const PlantTable = (props) => {
         </CardBody> 
         </Card>
         </CardDeck>
-
-            )
-        })
-    }
 
     return ( 
         <>

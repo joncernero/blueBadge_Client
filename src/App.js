@@ -41,8 +41,7 @@ function App() {
     if (pageToShow === 'SearchPlants') {
       component = <SearchPlants token={sessionToken} />
     }
-    let x = localStorage.getItem('token')
-
+  
     return localStorage.getItem('token') ? (
       // <Dashboard token={sessionToken} />
       component

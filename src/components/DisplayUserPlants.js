@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import {
-    Card, Button, CardImg, CardTitle, CardText,
-    CardSubtitle, CardBody, CardDeck
-  } from 'reactstrap';
-  import APIURL from "../helpers/environment";
+  Card,
+  Button,
+  CardImg,
+  CardTitle,
+  CardText,
+  CardSubtitle,
+  CardBody,
+  CardDeck,
+} from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 const DisplayUserPlants = (props) => {
   const handleSubmit = () => {
-
       fetch(`${APIURL}/plants/`, {
         method: 'Post',
         body: JSON.stringify({
@@ -40,6 +45,7 @@ const DisplayUserPlants = (props) => {
             width='100%'
             src={props.plant.image_url}
             alt='Image not available'
+            onError={imageHandling}
           />
 
           <CardBody id='plantBody'>

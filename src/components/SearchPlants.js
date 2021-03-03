@@ -23,7 +23,7 @@ const SearchPlants = (props) => {
     const baseurl = 'https://trefle.io/api/v1/plants?';
     const token = 'token=FKCFSL2qgSy2Gnwimlt25A-Ze2oYTp-CACmUCTxbtSc';
     const pageurl = `&page=${page}`;
-    const url = `${baseurl}${token}${pageurl}&order[common_name]=asc`;
+    const url = `${baseurl}${token}${pageurl}&filter_not[image_url]=null&order[common_name]=asc`;
     console.log(url);
     fetch(corsURL + url)
       .then((response) => response.json())
