@@ -18,10 +18,10 @@ const Toggler = props => {
   return (
     <div>
       <NavHeader>
-        <div href='/'>iPlants.com</div>
         {/* <NavbarToggler onClick={toggle} className='mr-2' /> */}
         {/* <Collapse isOpen={!collapsed} navbar> */}
         <ul>
+          <div href='/'>iPlants.com</div>
           <li>
             <Link to='/Dashboard'>My Garden</Link>
           </li>
@@ -36,6 +36,9 @@ const Toggler = props => {
           </li>
           <li>
             <Link to='/SearchHeight'>Search Height</Link>
+          </li>
+          <li>
+            <Link to='/DurationSearch'>Search Duration</Link>
           </li>
           <Button primary onClick={props.clearToken}>
             Logout

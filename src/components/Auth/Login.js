@@ -3,12 +3,13 @@ import { Button, Form, FormGroup, Label, Input } from '../../components/styled';
 import APIURL from '../../helpers/environment';
 import Dashboard from '../Dashboard';
 
-const Login = (props) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  console.log(props);
-  const handleSubmit = (event) => {
-    event.preventDefault();
+const Login = props => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  console.log(props)
+  const handleSubmit = event => {
+    event.preventDefault()
     fetch(`${APIURL}/user/login`, {
       method: 'POST',
       body: JSON.stringify({
@@ -18,14 +19,15 @@ const Login = (props) => {
         'Content-Type': 'application/json',
       }),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Logged In!!!', data);
-        props.updateToken(data.sessionToken, data.user.firstName);
-        setPassword('');
-        // console.log(data.user.firstName)
-      });
-  };
+      .then(response => response.json())
+      .then(data => {
+        console.log('Logged In!!!', data)
+        props.updateToken(data.sessionToken)
+        setPassword('')
+        console.log(data.user.firstName)
+      })
+  }
+
   return (
     <div>
       <h1>Welcome Back!</h1>

@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import {
     Card, Button, CardImg, CardTitle, CardText,
-    CardSubtitle, CardBody
+    CardSubtitle, CardBody, Tooltip
   } from 'reactstrap';
   import APIURL from "../helpers/environment";
 
 const DisplayHeight = (props) => {
+
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const toggle = () => setTooltipOpen(!tooltipOpen); 
+
   const handleSubmit = () => {
 
       fetch(`${APIURL}/plants/`, {
@@ -39,13 +44,15 @@ const DisplayHeight = (props) => {
             top
             width='100%'
             src={props.plant.image_url}
-            alt='Image not available'
+            id='AlternateImage'
+            alt="Image not available"
           />
 
           <CardBody id='plantBody'>
             <Button id='plantButton' size='sm' onClick={handleSubmit}>
               +
             </Button>
+            <Tooltip placement="right" isOpen={tooltipOpen} target="plantButton" toggle={toggle}>Click on the "+" button to add this plant to your garden</Tooltip>
             <CardTitle key={props.plant.image_url}>
               Common Name: {props.plant.common_name}
             </CardTitle>
