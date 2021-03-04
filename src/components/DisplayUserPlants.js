@@ -50,6 +50,7 @@ const DisplayUserPlants = (props) => {
             src={props.plant.image_url}
             alt="Image not available"
             id='AlternateImage'
+
           />
 
           <CardBody id='plantBody'>

@@ -6,6 +6,7 @@ import Dashboard from '../Dashboard'
 const Login = props => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
   console.log(props)
   const handleSubmit = event => {
     event.preventDefault()
@@ -23,7 +24,7 @@ const Login = props => {
         console.log('Logged In!!!', data)
         props.updateToken(data.sessionToken)
         setPassword('')
-        // console.log(data.user.firstName)
+        console.log(data.user.firstName)
       })
   }
   return (

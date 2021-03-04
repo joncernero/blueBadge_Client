@@ -1,4 +1,17 @@
 import React, { useState, useEffect } from 'react'
+<<<<<<< HEAD
+import { Container} from '../components/styled'
+import { Col, Card, Button, CardImg, CardTitle, CardText,
+    CardSubtitle, CardBody, Row, CardDeck} from 'reactstrap';
+import APIURL from "../helpers/environment";
+import PlantTable from './PlantTable';
+import PlantEdit from './PlantEdit';
+import UserSearchPlants from "./UserSearchPlants";
+import SearchPlants from "./SearchPlants";
+import PlantIndex from "./PlantIndex";
+import {BrowserRouter} from 'react-router-dom';
+import Navbar from "./Navbar";
+=======
 import { Container } from '../components/styled'
 import {
   Row,
@@ -20,6 +33,7 @@ import SearchPlants from './SearchPlants'
 import PlantIndex from './PlantIndex'
 import { BrowserRouter } from 'react-router-dom'
 import Navbar from './Navbar'
+>>>>>>> 55c9f9dba5b2022defe0daa1472ba407016976d7
 
 const Dashboard = props => {
   const [plants, setPlants] = useState([])
