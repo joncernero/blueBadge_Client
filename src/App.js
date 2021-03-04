@@ -14,7 +14,9 @@ import {
 } from 'react-router-dom'
 import UserSearchPlants from './components/UserSearchPlants'
 import FlowerSearch from './components/FlowerSearch'
+import SearchHeight from "./components/SearchHeight"
 import PlantIndex from './components/PlantIndex'
+import DurationSearch from "./components/DurationSearch"
 
 function App() {
   const [sessionToken, setSessionToken] = useState('')
@@ -45,6 +47,15 @@ function App() {
     }
     if (pageToShow === 'SearchPlants') {
       component = <SearchPlants token={sessionToken} />
+    }
+    if (pageToShow === 'FlowerSearch') {
+      component = <FlowerSearch token={sessionToken} />
+    }
+    if (pageToShow === 'SearchHeight') {
+      component = <SearchHeight token={sessionToken} />
+    }
+    if (pageToShow === 'DurationSearch') {
+      component = <DurationSearch token={sessionToken} />
     }
 
     return localStorage.getItem('token') ? (
@@ -87,6 +98,9 @@ function App() {
           </Route>
           <Route exact path='/SearchHeight'>
             {protectedViews('SearchHeight')}
+          </Route>
+          <Route exact path='/DurationSearch'>
+            {protectedViews('DurationSearch')}
           </Route>
           {/* <Route exact path='/PlantIndex'>
             <PlantIndex token={sessionToken} />

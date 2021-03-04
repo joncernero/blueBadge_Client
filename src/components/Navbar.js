@@ -45,6 +45,9 @@ const Toggler = props => {
           <li>
             <Link to='/SearchHeight'>Search Height</Link>
           </li>
+          <li>
+            <Link to='/DurationSearch'>Search Duration</Link>
+          </li>
           <Button primary onClick={props.clearToken}>
             Logout
           </Button>

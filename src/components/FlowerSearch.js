@@ -9,6 +9,7 @@ import {
   CardText,
   CardSubtitle,
   CardBody,
+  Tooltip
 } from 'reactstrap';
 import DisplayFlowers from './DisplayFlowers';
 import { Link } from 'react-router-dom';
@@ -17,6 +18,9 @@ const SearchFlowers = (props) => {
   const [plants, setPlants] = useState([]);
   const [page, setPage] = useState(1);
   const [flowerColor, setFlowerColor] = useState();
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const toggle = () => setTooltipOpen(!tooltipOpen); 
 
   function fetchFlowers() {
     const corsURL = 'https://efa-cors-anywhere.herokuapp.com/';
@@ -70,8 +74,15 @@ const SearchFlowers = (props) => {
 
   return (
     <div>
+       <br />
+      <hr />
+      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <hr />
+      <br />
       <div>
-        <span>Flower Color:</span>
+        <span>Search by a flower color:</span>
+        <br />
+        <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>yellow, purple, blue, red...</Tooltip>
         <input
           type='text'
           name='flowersearch'
@@ -83,6 +94,8 @@ const SearchFlowers = (props) => {
         <CardDeck>{displayCards()}</CardDeck>
       </div>
       <div>
+      <br />
+        <p>plants will display here after you click 'Search'</p>
         <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
         <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>
       </div>
