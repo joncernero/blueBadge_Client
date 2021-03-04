@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import APIURL from "../helpers/environment";
+import APIURL from '../helpers/environment';
 import {
   Card,
   Button,
@@ -8,6 +8,8 @@ import {
   CardText,
   CardSubtitle,
   CardBody,
+  CardDeck,
+  Alert,
   Tooltip
 } from 'reactstrap';
 
@@ -28,17 +30,14 @@ const handleSubmit = () => {
       }),
       headers: new Headers({
         'Content-type': 'application/json',
-        'Authorization': props.token
+        Authorization: props.token,
       }),
     })
       .then((res) => res.json())
       .then((logData) => {
-        console.log(logData);
+        alert('Plant successfully added!');
       });
   };
-
-
-
 
   return (
     <div>
