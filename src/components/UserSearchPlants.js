@@ -62,8 +62,14 @@ const UserSearchPlants = (props) => {
 
   return (
     <div>
+      <br />
+      <hr />
+      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <hr />
+      <br />
       <div>
-        <span>Enter a plant to search:</span>
+        <span>Search by a plant name:</span>
+        <br />
         <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>Hosta, ficus, pine, oak...</Tooltip>
         <input
           type='text'
@@ -76,6 +82,8 @@ const UserSearchPlants = (props) => {
         <CardDeck>{displayCards()}</CardDeck>
       </div>
       <div>
+        <br />
+        <p>plants will display here after you click 'Search'</p>
         <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
         <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>
       </div>

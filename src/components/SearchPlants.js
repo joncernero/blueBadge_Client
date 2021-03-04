@@ -51,12 +51,17 @@ const SearchPlants = (props) => {
 
   return (
     <div>
+      <br />
+      <hr />
+      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <hr />
+      <br />
+      <div>
+        <CardDeck>{displayCards()}</CardDeck>
+      </div>
       <div>
         <button onClick={e => changePage(e, 'down')}>Previous Plants</button>
         <button onClick={e => changePage(e, 'up')}>Show More Plants</button>
-      </div>
-      <div>
-        <CardDeck>{displayCards()}</CardDeck>
       </div>
     </div>
   );

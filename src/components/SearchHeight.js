@@ -70,26 +70,37 @@ const SearchHeight = (props) => {
    
 
 <div>
+<br />
+      <hr />
+      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <hr />
+      <br />
       <div>
-        <span>Enter a plant height range:</span>
+        <span>Search by plant height</span>
+        <br />
         <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>Enter a minimum height then a maximum height (cm)</Tooltip>
+        <span>Minimum height (cm): </span>
         <input
           type='text'
           name='minheight'
           onChange={(e) => setMinHeight(e.target.value)}
         />
-        <span>Enter a maximum height(cm):</span>
+        <br />
+        <span>Maximum height (cm):</span>
         <input
           type='text'
           name='maxheight'
           onChange={(e) => setMaxHeight(e.target.value)}
         />
+        <br />
         <button type='submit' onClick={(e) => handleSubmit()}>
           Search
         </button>
         <CardDeck>{displayCards()}</CardDeck>
       </div>
       <div>
+      <br />
+        <p>plants will display here after you click 'Search'</p>
   <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
   <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>
 </div>
