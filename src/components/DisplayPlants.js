@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import APIURL from "../helpers/environment";
+import APIURL from '../helpers/environment';
 import {
   Card,
   Button,
@@ -9,12 +9,12 @@ import {
   CardSubtitle,
   CardBody,
   CardDeck,
+  Alert,
 } from 'reactstrap';
 
 const DisplayPlants = (props) => {
-
-const handleSubmit = () => {
-// fetch('http://localhost:3001/plants/', {
+  const handleSubmit = () => {
+    // fetch('http://localhost:3001/plants/', {
     fetch(`${APIURL}/plants/`, {
       method: 'Post',
       body: JSON.stringify({
@@ -25,12 +25,12 @@ const handleSubmit = () => {
       }),
       headers: new Headers({
         'Content-type': 'application/json',
-        'Authorization': props.token
+        Authorization: props.token,
       }),
     })
       .then((res) => res.json())
       .then((logData) => {
-        console.log(logData);
+        alert('Plant successfully added!');
       });
   };
 
