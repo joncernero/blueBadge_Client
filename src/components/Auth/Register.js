@@ -27,7 +27,7 @@ const Register = props => {
       .then(response => response.json())
       .then(data => {
         console.log('ENTRY CREATED!!!', data)
-        props.updateToken(data.sessionToken, data.user.firstName)
+        props.updateToken(data.sessionToken)
         console.log(data.user)
       })
       .catch(err => console.log(err))

@@ -77,20 +77,20 @@ export const Label = styled.label`
 `
 export const Input = styled.input``
 export const NavHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto, auto, auto;
+  justify-content: center;
   align-items: center;
   margin-bottom: 5px;
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  padding: 15px 100px;
+  padding: 15px;
   z-index: 10;
   font-family: 'Poppin', sans-serif;
   font-weight: bolder;
 
   div {
-    position: relative;
     font-size: 2rem;
     color: green;
     text-decoration: none;
@@ -99,7 +99,8 @@ export const NavHeader = styled.div`
 
   ul {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
     flex-wrap: wrap;
     margin: 10px 0;
   }
@@ -126,12 +127,5 @@ export const NavHeader = styled.div`
     font-size: 1rem;
     font-weight: bolder;
     color: green;
-  }
-
-  @media (max-width: 991px) {
-    header {
-      padding: 10px 20px;
-      flex-direction: column;
-    }
   }
 `
