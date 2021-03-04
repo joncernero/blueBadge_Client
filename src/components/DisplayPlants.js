@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import APIURL from "../helpers/environment";
+import APIURL from '../helpers/environment';
 import {
   Card,
   Button,
@@ -9,12 +9,12 @@ import {
   CardSubtitle,
   CardBody,
   CardDeck,
+  Alert,
 } from 'reactstrap';
 
 const DisplayPlants = (props) => {
-
-const handleSubmit = () => {
-// fetch('http://localhost:3001/plants/', {
+  const handleSubmit = () => {
+    // fetch('http://localhost:3001/plants/', {
     fetch(`${APIURL}/plants/`, {
       method: 'Post',
       body: JSON.stringify({
@@ -25,13 +25,18 @@ const handleSubmit = () => {
       }),
       headers: new Headers({
         'Content-type': 'application/json',
-        'Authorization': props.token
+        Authorization: props.token,
       }),
     })
       .then((res) => res.json())
       .then((logData) => {
-        console.log(logData);
+        alert('Plant added successfully');
+        // <Alert color='success'>This is a success alert with</Alert>;
+        // console.log(logData);
       });
+    // try {
+    // } catch (error) {}
+    // // .catch((err) => res.status(500).json({ error: err }));
   };
 
   return (
@@ -48,9 +53,13 @@ const handleSubmit = () => {
             alt='AlternateImage'
             id='AlternateImage'
           />
-
           <CardBody id='plantBody'>
-            <Button id='plantButton' size='sm' onClick={handleSubmit}>
+            <Button
+              color='success'
+              id='plantButton'
+              size='sm'
+              onClick={handleSubmit}
+            >
               +
             </Button>
             <CardTitle key={props.plant.common_name}>

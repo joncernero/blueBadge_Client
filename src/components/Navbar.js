@@ -4,7 +4,6 @@ import SearchPlants from './SearchPlants';
 import UserSearchPlants from './UserSearchPlants';
 import FlowerSearch from './FlowerSearch';
 import PlantIndex from './PlantIndex';
-import Home from './Home';
 import { Button, NavbarToggler, Collapse } from 'reactstrap';
 
 const Navbar = (props) => {
