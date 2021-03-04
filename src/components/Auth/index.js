@@ -11,7 +11,7 @@ import '../../App.css'
 
 const Auth = props => {
   const [loggingIn, setLoggingIn] = useState(false)
-
+  console.log(props)
   const toggleLoggingIn = () => {
     setLoggingIn(!loggingIn)
   }

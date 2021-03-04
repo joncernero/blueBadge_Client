@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Button, Form, FormGroup, Label, Input } from '../../components/styled';
-import APIURL from "../../helpers/environment";
+import { Button, Form, FormGroup, Label, Input } from '../../components/styled'
+import APIURL from '../../helpers/environment'
 
 const Register = props => {
   const [email, setEmail] = useState('')
@@ -13,7 +13,12 @@ const Register = props => {
     fetch(`${APIURL}/user/register`, {
       method: 'POST',
       body: JSON.stringify({
-        user: { email: email, password: password, firstName: firstName, zipcode: zipcode }
+        user: {
+          email: email,
+          password: password,
+          firstName: firstName,
+          zipcode: zipcode
+        }
       }),
       headers: new Headers({
         'Content-Type': 'application/json'
@@ -21,12 +26,11 @@ const Register = props => {
     })
       .then(response => response.json())
       .then(data => {
-
         console.log('ENTRY CREATED!!!', data)
-      
         props.updateToken(data.sessionToken)
+        console.log(data.user)
       })
-      .catch ((err) => console.log(err))
+      .catch(err => console.log(err))
   }
   return (
     <div>
@@ -86,4 +90,4 @@ const Register = props => {
   )
 }
 
-export default Register;
+export default Register
