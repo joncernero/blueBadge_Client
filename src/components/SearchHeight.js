@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  CardDeck
+  CardDeck,
+  Tooltip
 } from 'reactstrap';
 import DisplayHeight from "./DisplayHeight";
 
@@ -12,6 +13,9 @@ const SearchHeight = (props) => {
   const [minHeight, setMinHeight] = useState();
   const [maxHeight, setMaxHeight] = useState();
   const [page, setPage] = useState(1);
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const toggle = () => setTooltipOpen(!tooltipOpen); 
 
   function fetchHeight() {
     const corsURL = 'https://efa-cors-anywhere.herokuapp.com/';
@@ -67,7 +71,8 @@ const SearchHeight = (props) => {
 
 <div>
       <div>
-        <span>Enter a minimum height(cm):</span>
+        <span>Enter a plant height range:</span>
+        <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>Enter a minimum height then a maximum height (cm)</Tooltip>
         <input
           type='text'
           name='minheight'

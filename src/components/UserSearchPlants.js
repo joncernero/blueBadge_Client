@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
-  CardDeck
+  CardDeck,
+  Tooltip
 } from 'reactstrap';
 import DisplayUserPlants from './DisplayUserPlants';
 
@@ -8,6 +9,9 @@ const UserSearchPlants = (props) => {
   const [plants, setPlants] = useState([]);
   const [page, setPage] = useState(1);
   const [plantSelector, setPlantSelector] = useState();
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const toggle = () => setTooltipOpen(!tooltipOpen); 
 
   function fetchPlants() {
     const corsURL = 'https://efa-cors-anywhere.herokuapp.com/';
@@ -60,6 +64,7 @@ const UserSearchPlants = (props) => {
     <div>
       <div>
         <span>Enter a plant to search:</span>
+        <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>Hosta, ficus, pine, oak...</Tooltip>
         <input
           type='text'
           name='plantsearch'

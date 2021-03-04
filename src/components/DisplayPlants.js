@@ -59,7 +59,7 @@ const handleSubmit = () => {
             <Button id='plantButton' size='sm' onClick={handleSubmit}>
               +
             </Button>
-            <Tooltip placement="right" isOpen={tooltipOpen} target="Button" toggle={toggle}>Click on the "+" button to add this plant to your garden</Tooltip>
+            <Tooltip placement="right" isOpen={tooltipOpen} target="plantButton" toggle={toggle}>Click on the "+" button to add this plant to your garden</Tooltip>
             <CardTitle key={props.plant.common_name}>
               {props.plant.common_name}
             </CardTitle>
