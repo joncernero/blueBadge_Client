@@ -19,7 +19,7 @@ const SearchHeight = (props) => {
     const token = 'token=FKCFSL2qgSy2Gnwimlt25A-Ze2oYTp-CACmUCTxbtSc';
     const pageurl = `&page=${page}`;
     const heighturl = `&range[maximum_height_cm]=${minHeight},${maxHeight}`;
-    const url = `${baseurl}${token}${heighturl}${pageurl}&order[common_name]=asc`;
+    const url = `${baseurl}${token}${heighturl}${pageurl}&filter_not[image_url]=null&order[common_name]=asc`;
     console.log(url);
     fetch(corsURL + url)
       .then((response) => response.json())

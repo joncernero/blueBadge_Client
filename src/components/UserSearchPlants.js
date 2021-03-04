@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {
-  CardColumns,
-  CardDeck,
-  Card,
-  Button,
-  CardImg,
-  CardTitle,
-  CardText,
-  CardSubtitle,
-  CardBody,
+  CardDeck
 } from 'reactstrap';
 import DisplayUserPlants from './DisplayUserPlants';
-import { Link } from 'react-router-dom';
 
 const UserSearchPlants = (props) => {
   const [plants, setPlants] = useState([]);
-  const [loading, setLoading] = useState();
   const [page, setPage] = useState(1);
   const [plantSelector, setPlantSelector] = useState();
 
@@ -48,7 +38,7 @@ const UserSearchPlants = (props) => {
   const changePage = (event, direction) => {
     event.preventDefault();
     if (direction === 'down') {
-      if (page > 0) {
+      if (page > 1) {
         setPage(page - 1);
         fetchPlants();
       }
@@ -62,7 +52,7 @@ const UserSearchPlants = (props) => {
 
   function displayCards() {
     return plants.length > 0
-      ? plants.map((plant) => <DisplayUserPlants plant={plant} />)
+      ? plants.map((plant) => <DisplayUserPlants plant={plant} token={props.token} />)
       : null;
   }
 
