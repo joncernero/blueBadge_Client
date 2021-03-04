@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Button, NavHeader } from '../components/styled'
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import SearchPlants from "./SearchPlants";
-import UserSearchPlants from "./UserSearchPlants";
-import FlowerSearch from "./FlowerSearch";
-import PlantIndex from "./PlantIndex";
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
+import SearchPlants from './SearchPlants'
+import UserSearchPlants from './UserSearchPlants'
+import FlowerSearch from './FlowerSearch'
+import PlantIndex from './PlantIndex'
+import SearchHeight from '../components/SearchHeight'
 // import {Button, NavbarToggler, Collapse} from 'reactstrap';
 
 const Toggler = props => {
   const [isOpen, setIsOpen] = useState(false)
-  console.log(props.token)
   const toggle = () => {
     let newIsOpen = !isOpen
     setIsOpen(newIsOpen)
@@ -31,6 +30,12 @@ const Toggler = props => {
           </li>
           <li>
             <Link to='/UserSearchPlants'>Search Plants</Link>
+          </li>
+          <li>
+            <Link to='/FlowerSearch'>Flower Search</Link>
+          </li>
+          <li>
+            <Link to='/SearchHeight'>Search Height</Link>
           </li>
           <Button primary onClick={props.clearToken}>
             Logout
