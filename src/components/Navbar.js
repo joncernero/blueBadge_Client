@@ -1,19 +1,11 @@
 import React, { useState } from 'react'
 import { Button, NavHeader } from '../components/styled'
-<<<<<<< HEAD
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import SearchPlants from "./SearchPlants";
-import UserSearchPlants from "./UserSearchPlants";
-import FlowerSearch from "./FlowerSearch";
-import PlantIndex from "./PlantIndex";
-=======
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 import SearchPlants from './SearchPlants'
 import UserSearchPlants from './UserSearchPlants'
 import FlowerSearch from './FlowerSearch'
 import PlantIndex from './PlantIndex'
 import SearchHeight from '../components/SearchHeight'
->>>>>>> 55c9f9dba5b2022defe0daa1472ba407016976d7
 // import {Button, NavbarToggler, Collapse} from 'reactstrap';
 
 const Toggler = props => {

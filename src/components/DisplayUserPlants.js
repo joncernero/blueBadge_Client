@@ -7,6 +7,7 @@ import {
   CardText,
   CardSubtitle,
   CardBody,
+  CardDeck,
   Tooltip
 } from 'reactstrap'
 import APIURL from '../helpers/environment'
@@ -49,10 +50,8 @@ const DisplayUserPlants = (props) => {
             width='100%'
             src={props.plant.image_url}
             alt="Image not available"
-            id='AlternateImage'
-
-          />
-
+            id='AlternateImage'/>
+    
           <CardBody id='plantBody'>
             <Button id='plantButton' size='sm' onClick={handleSubmit}>
               +
@@ -69,7 +68,7 @@ const DisplayUserPlants = (props) => {
         </Card>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DisplayUserPlants;
+export default DisplayUserPlants

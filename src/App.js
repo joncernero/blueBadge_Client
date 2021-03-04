@@ -18,17 +18,20 @@ import SearchHeight from "./components/SearchHeight"
 import PlantIndex from './components/PlantIndex'
 import DurationSearch from "./components/DurationSearch"
 
+
 function App() {
   const [sessionToken, setSessionToken] = useState('')
+  const [userName, setUserName] = useState('')
 
   useEffect(() => {
     if (localStorage.getItem('token'));
     setSessionToken(localStorage.getItem('token'))
   }, [])
 
-  const updateToken = newToken => {
+  const updateToken = (newToken, newUserName) => {
     localStorage.setItem('token', newToken)
     setSessionToken(newToken)
+    setUserName(newUserName)
     console.log(sessionToken)
   }
 
@@ -58,6 +61,7 @@ function App() {
       component = <DurationSearch token={sessionToken} />
     }
 
+
     return localStorage.getItem('token') ? (
       // <Dashboard token={sessionToken} />
       component
@@ -85,12 +89,7 @@ function App() {
             {sessionToken ? (
               <Redirect to='/dashboard' />
             ) : (
-              <Auth updateToken={updateToken} />
-<<<<<<< HEAD
-            )}</Route>
-          {/*<Route exact path="/FlowerSearch">
-            <FlowerSearch token={sessionToken}/>
-=======
+              <Auth updateToken={updateToken} setUserName={setUserName} />
             )}
           </Route>
           <Route exact path='/FlowerSearch'>
@@ -101,13 +100,6 @@ function App() {
           </Route>
           <Route exact path='/DurationSearch'>
             {protectedViews('DurationSearch')}
-          </Route>
-          {/* <Route exact path='/PlantIndex'>
-            <PlantIndex token={sessionToken} />
->>>>>>> 55c9f9dba5b2022defe0daa1472ba407016976d7
-          </Route> */}
-          <Route exact path='/'>
-            <Auth updateToken={updateToken} />
           </Route>
         </Switch>
       </Router>
