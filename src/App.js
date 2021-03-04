@@ -18,17 +18,15 @@ import PlantIndex from './components/PlantIndex'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('')
-  const [userName, setUserName] = useState('')
 
   useEffect(() => {
     if (localStorage.getItem('token'));
     setSessionToken(localStorage.getItem('token'))
   }, [])
 
-  const updateToken = (newToken, newUserName) => {
+  const updateToken = newToken => {
     localStorage.setItem('token', newToken)
     setSessionToken(newToken)
-    setUserName(newUserName)
     console.log(sessionToken)
   }
 
@@ -89,7 +87,7 @@ function App() {
             <PlantIndex token={sessionToken} />
           </Route> */}
           <Route exact path='/'>
-            <Auth updateToken={updateToken} setUserName={setUserName} />
+            <Auth updateToken={updateToken} />
           </Route>
         </Switch>
       </Router>
