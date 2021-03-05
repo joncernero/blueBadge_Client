@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: repeat(2, 6fr);
   justify-content: center;
   align-content: center;
   background-color: rgba(255, 255, 255, 0.5);
@@ -11,9 +11,8 @@ export const Container = styled.div`
   border-radius: 10px;
   padding: 10px;
   min-height: 95vh;
-`
+`;
 export const TitleContainer = styled.div`
-  grid-column: 1 / 7;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -30,9 +29,8 @@ export const TitleContainer = styled.div`
     color: gray;
     font-size: 1.5rem;
   }
-`
+`;
 export const LoginContainer = styled.div`
-  grid-column: 7 / -1;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -42,40 +40,47 @@ export const LoginContainer = styled.div`
   border-radius: 10px;
   min-height: 85vh;
   font-family: 'Poppins', sans-serif;
-`
+`;
 export const Card = styled.div`
   background-color: white;
   padding: 10px;
   margin: 5px;
-`
-export const Thumbnail = styled.img``
+`;
 export const Button = styled.button`
   height: 35px;
   width: 125px;
   color: white;
   font-size: 15px;
   font-weight: bold;
-  background: ${props => (props.primary ? 'green' : 'gray')};
+  background: ${(props) => (props.primary ? 'green' : 'gray')};
   border-radius: 5px;
   margin: 10px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-`
+`;
 //Form, FormGroup, Label, Input
 
 export const Form = styled.form`
   display: grid;
   justify-content: center;
   align-content: center;
-`
+  grid-template-columns: repeat(autofit, minmax(400px, 3fr));
+  grid-template-rows: repeat(4, 4fr);
+`;
 
-export const FormGroup = styled.div``
+export const FormGroup = styled.div`
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-auto-flow: ;
+`;
+
 export const Label = styled.label`
   font-size: 25px;
   width: 10vw;
   /* display: inline-block; */
   margin: 5px;
-`
-export const Input = styled.input``
+`;
+export const Input = styled.input``;
 export const NavHeader = styled.div`
   display: grid;
   grid-template-columns: auto, auto, auto;
@@ -128,4 +133,4 @@ export const NavHeader = styled.div`
     font-weight: bolder;
     color: green;
   }
-`
+`;

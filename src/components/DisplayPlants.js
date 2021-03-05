@@ -10,23 +10,22 @@ import {
   CardBody,
   CardDeck,
   Alert,
-  Tooltip
+  Tooltip,
 } from 'reactstrap';
 
 const DisplayPlants = (props) => {
+  const [tooltipOpen, setTooltipOpen] = useState(false);
 
-const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggle = () => setTooltipOpen(!tooltipOpen);
 
-const toggle = () => setTooltipOpen(!tooltipOpen);  
-
-const handleSubmit = () => {
+  const handleSubmit = () => {
     fetch(`${APIURL}/plants/`, {
       method: 'Post',
       body: JSON.stringify({
         trefle_id: props.plant.id,
         common_name: props.plant.common_name,
         scientific_name: props.plant.scientific_name,
-        image_url: props.plant.image_url
+        image_url: props.plant.image_url,
       }),
       headers: new Headers({
         'Content-type': 'application/json',
@@ -51,14 +50,20 @@ const handleSubmit = () => {
             width='100%'
             src={props.plant.image_url}
             id='AlternateImage'
-            alt="Image not available"
+            alt='Image not available'
           />
 
           <CardBody id='plantBody'>
             <Button id='plantButton' size='sm' onClick={handleSubmit}>
               +
             </Button>
-            <Tooltip placement="right" isOpen={tooltipOpen} target="plantButton" toggle={toggle}>Click on the "+" button to add this plant to your garden</Tooltip>
+            <Tooltip
+              placement='right'
+              isOpen={tooltipOpen}
+              target='plantButton'
+              toggle={toggle}>
+              Click on the "+" button to add this plant to your garden
+            </Tooltip>
             <CardTitle key={props.plant.common_name}>
               {props.plant.common_name}
             </CardTitle>
