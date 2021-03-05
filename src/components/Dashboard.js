@@ -25,7 +25,6 @@ const Dashboard = props => {
   const [plants, setPlants] = useState([])
   const [plantsToUpdate, setPlantsToUpdate] = useState({})
   const [updateActive, setUpdateActive] = useState(false)
-  const userName = localStorage.userData
 
   const fetchPlants = () => {
     if (props.token === '') {
@@ -61,7 +60,7 @@ const Dashboard = props => {
 
   return (
     <Container>
-      <h1>Welcome, {userName}</h1>
+      <h1>Welcome, {props.userName}</h1>
       <Row>
         <Col md='12'>
           <PlantTable

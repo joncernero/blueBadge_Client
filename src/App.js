@@ -14,10 +14,9 @@ import {
 } from 'react-router-dom'
 import UserSearchPlants from './components/UserSearchPlants'
 import FlowerSearch from './components/FlowerSearch'
-import SearchHeight from "./components/SearchHeight"
+import SearchHeight from './components/SearchHeight'
 import PlantIndex from './components/PlantIndex'
-import DurationSearch from "./components/DurationSearch"
-
+import DurationSearch from './components/DurationSearch'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('')
@@ -43,7 +42,7 @@ function App() {
   const protectedViews = pageToShow => {
     let component
     if (pageToShow === 'dashboard') {
-      component = <Dashboard token={sessionToken} />
+      component = <Dashboard token={sessionToken} userName={userName} />
     }
     if (pageToShow === 'UserSearchPlants') {
       component = <UserSearchPlants token={sessionToken} />
@@ -60,7 +59,6 @@ function App() {
     if (pageToShow === 'DurationSearch') {
       component = <DurationSearch token={sessionToken} />
     }
-
 
     return localStorage.getItem('token') ? (
       // <Dashboard token={sessionToken} />
@@ -89,7 +87,7 @@ function App() {
             {sessionToken ? (
               <Redirect to='/dashboard' />
             ) : (
-              <Auth updateToken={updateToken} setUserName={setUserName} />
+              <Auth updateToken={updateToken} />
             )}
           </Route>
           <Route exact path='/FlowerSearch'>
