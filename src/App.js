@@ -14,7 +14,9 @@ import {
 } from 'react-router-dom'
 import UserSearchPlants from './components/UserSearchPlants'
 import FlowerSearch from './components/FlowerSearch'
+import SearchHeight from './components/SearchHeight'
 import PlantIndex from './components/PlantIndex'
+import DurationSearch from './components/DurationSearch'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('')
@@ -40,13 +42,22 @@ function App() {
   const protectedViews = pageToShow => {
     let component
     if (pageToShow === 'dashboard') {
-      component = <Dashboard token={sessionToken} />
+      component = <Dashboard token={sessionToken} userName={userName} />
     }
     if (pageToShow === 'UserSearchPlants') {
       component = <UserSearchPlants token={sessionToken} />
     }
     if (pageToShow === 'SearchPlants') {
       component = <SearchPlants token={sessionToken} />
+    }
+    if (pageToShow === 'FlowerSearch') {
+      component = <FlowerSearch token={sessionToken} />
+    }
+    if (pageToShow === 'SearchHeight') {
+      component = <SearchHeight token={sessionToken} />
+    }
+    if (pageToShow === 'DurationSearch') {
+      component = <DurationSearch token={sessionToken} />
     }
 
     return localStorage.getItem('token') ? (
@@ -85,11 +96,8 @@ function App() {
           <Route exact path='/SearchHeight'>
             {protectedViews('SearchHeight')}
           </Route>
-          {/* <Route exact path='/PlantIndex'>
-            <PlantIndex token={sessionToken} />
-          </Route> */}
-          <Route exact path='/'>
-            <Auth updateToken={updateToken} setUserName={setUserName} />
+          <Route exact path='/DurationSearch'>
+            {protectedViews('DurationSearch')}
           </Route>
         </Switch>
       </Router>

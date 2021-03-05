@@ -6,7 +6,7 @@ import {
   import APIURL from "../helpers/environment";
 
 
-const DisplayFlowers = (props) => {
+const DisplayDuration = (props) => {
 
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
@@ -63,4 +63,4 @@ const DisplayFlowers = (props) => {
      
 }
  
-export default DisplayFlowers;
+export default DisplayDuration;

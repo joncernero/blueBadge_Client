@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import {
-  CardColumns,
   CardDeck,
-  Card,
-  Button,
-  CardImg,
-  CardTitle,
-  CardText,
-  CardSubtitle,
-  CardBody,
+  Tooltip
 } from 'reactstrap';
 import DisplayUserPlants from './DisplayUserPlants';
-import { Link } from 'react-router-dom';
 
 const UserSearchPlants = (props) => {
   const [plants, setPlants] = useState([]);
-  const [loading, setLoading] = useState();
   const [page, setPage] = useState(1);
   const [plantSelector, setPlantSelector] = useState();
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const toggle = () => setTooltipOpen(!tooltipOpen); 
 
   function fetchPlants() {
     const corsURL = 'https://efa-cors-anywhere.herokuapp.com/';
@@ -48,7 +42,7 @@ const UserSearchPlants = (props) => {
   const changePage = (event, direction) => {
     event.preventDefault();
     if (direction === 'down') {
-      if (page > 0) {
+      if (page > 1) {
         setPage(page - 1);
         fetchPlants();
       }
@@ -62,14 +56,21 @@ const UserSearchPlants = (props) => {
 
   function displayCards() {
     return plants.length > 0
-      ? plants.map((plant) => <DisplayUserPlants plant={plant} />)
+      ? plants.map((plant) => <DisplayUserPlants plant={plant} token={props.token} />)
       : null;
   }
 
   return (
     <div>
+      <br />
+      <hr />
+      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <hr />
+      <br />
       <div>
-        <span>Enter a plant to search:</span>
+        <span>Search by a plant name:</span>
+        <br />
+        <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>Hosta, ficus, pine, oak...</Tooltip>
         <input
           type='text'
           name='plantsearch'
@@ -81,6 +82,8 @@ const UserSearchPlants = (props) => {
         <CardDeck>{displayCards()}</CardDeck>
       </div>
       <div>
+        <br />
+        <p>plants will display here after you click 'Search'</p>
         <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
         <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>
       </div>

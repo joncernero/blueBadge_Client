@@ -10,11 +10,15 @@ import {
   CardBody,
   CardDeck,
   Alert,
+  Tooltip,
 } from 'reactstrap';
 
 const DisplayPlants = (props) => {
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const toggle = () => setTooltipOpen(!tooltipOpen);
+
   const handleSubmit = () => {
-    // fetch('http://localhost:3001/plants/', {
     fetch(`${APIURL}/plants/`, {
       method: 'Post',
       body: JSON.stringify({
@@ -30,9 +34,7 @@ const DisplayPlants = (props) => {
     })
       .then((res) => res.json())
       .then((logData) => {
-        alert('Plant added successfully');
-        // <Alert color='success'>This is a success alert with</Alert>;
-        // console.log(logData);
+        alert('Plant successfully added!');
       });
     // try {
     // } catch (error) {}
@@ -50,8 +52,8 @@ const DisplayPlants = (props) => {
             top
             width='100%'
             src={props.plant.image_url}
-            alt='AlternateImage'
             id='AlternateImage'
+            alt='Image not available'
           />
           <CardBody id='plantBody'>
             <Button
@@ -62,6 +64,14 @@ const DisplayPlants = (props) => {
             >
               +
             </Button>
+            <Tooltip
+              placement='right'
+              isOpen={tooltipOpen}
+              target='plantButton'
+              toggle={toggle}
+            >
+              Click on the "+" button to add this plant to your garden
+            </Tooltip>
             <CardTitle key={props.plant.common_name}>
               {props.plant.common_name}
             </CardTitle>
@@ -72,7 +82,6 @@ const DisplayPlants = (props) => {
           </CardBody>
         </Card>
       </div>
-      <div></div>
     </div>
   );
 };

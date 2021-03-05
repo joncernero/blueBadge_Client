@@ -14,24 +14,27 @@ const Navbar = (props) => {
   };
   return (
     <div>
-      <div>
+      <NavHeader>
+        {/* <NavbarToggler onClick={toggle} className='mr-2' /> */}
+        {/* <Collapse isOpen={!collapsed} navbar> */}
         <ul>
+          <div href='/'>iPlants.com</div>
           <li>
             <Link to='/Dashboard'>My Garden</Link>
           </li>
           <li>
             <Link to='/PlantIndex'>Explore Plants</Link>
           </li>
-          {/* <li><Link to="/SearchPlants">View All Plants</Link></li>
-                <li><Link to="/UserSearchPlants">Search Plants</Link></li>
-                <li><Link to ="/FlowerSearch">Search By Flower Color</Link></li> */}
-          <Button color='info' onClick={props.clearToken}>
+          <li>
+            <Link to='/DurationSearch'>Search Duration</Link>
+          </li>
+          <Button primary onClick={props.clearToken}>
             Logout
           </Button>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen}></Collapse>
         </ul>
-      </div>
+      </NavHeader>
     </div>
   );
 };

@@ -7,11 +7,17 @@ import {
   CardText,
   CardSubtitle,
   CardBody,
-  CardDeck
+  CardDeck,
+  Tooltip
 } from 'reactstrap'
 import APIURL from '../helpers/environment'
 
-const DisplayUserPlants = props => {
+const DisplayUserPlants = (props) => {
+
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const toggle = () => setTooltipOpen(!tooltipOpen);  
+  
   const handleSubmit = () => {
     fetch(`${APIURL}/plants/`, {
       method: 'Post',
@@ -23,14 +29,14 @@ const DisplayUserPlants = props => {
       }),
       headers: new Headers({
         'Content-type': 'application/json',
-        Authorization: props.token
-      })
+        'Authorization': props.token
+      }),
     })
-      .then(res => res.json())
-      .then(logData => {
-        console.log(logData)
-      })
-  }
+      .then((res) => res.json())
+      .then((logData) => {
+        console.log(logData);
+      });
+  };
 
   return (
     <div>
@@ -43,17 +49,18 @@ const DisplayUserPlants = props => {
             top
             width='100%'
             src={props.plant.image_url}
-            alt='Image not available'
-          />
-
+            alt="Image not available"
+            id='AlternateImage'/>
+    
           <CardBody id='plantBody'>
             <Button id='plantButton' size='sm' onClick={handleSubmit}>
               +
             </Button>
-            <CardTitle key={props.plant.image_url}>
+            <Tooltip placement="right" isOpen={tooltipOpen} target="plantButton" toggle={toggle}>Click on the "+" button to add this plant to your garden</Tooltip>
+            <CardTitle key={props.plant.common_name}>
               Common Name: {props.plant.common_name}
             </CardTitle>
-            <CardSubtitle key={props.plant.image_url}>
+            <CardSubtitle key={props.plant.scientific_name}>
               Scientific Name: {props.plant.scientific_name}
             </CardSubtitle>
             <CardText></CardText>

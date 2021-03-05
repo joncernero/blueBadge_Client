@@ -24,15 +24,9 @@ const Auth = props => {
         </TitleContainer>
         <LoginContainer>
           {loggingIn ? (
-            <Login
-              updateToken={props.updateToken}
-              setUserName={props.setUserName}
-            />
+            <Login updateToken={props.updateToken} />
           ) : (
-            <Register
-              updateToken={props.updateToken}
-              setUserName={props.setUserName}
-            />
+            <Register updateToken={props.updateToken} />
           )}
 
           {loggingIn ? (

@@ -45,7 +45,14 @@ const PlantEdit = (props) => {
               onChange={(e) => setEditNotes(e.target.value)}
             />
           </FormGroup>
-          <Button type='submit'>Update the Plant!</Button>
+          <Button
+            type='submit'
+            onClick={() => {
+              window.location.reload(false);
+            }}
+          >
+            Update the Plant!
+          </Button>
         </Form>
       </ModalBody>
     </Modal>

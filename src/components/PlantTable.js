@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import APIURL from '../helpers/environment'
 import {
@@ -9,13 +10,13 @@ import {
   CardText,
   Button,
   Card,
-  CardImg
-} from 'reactstrap'
+  CardImg,
+} from "reactstrap";
 
 const PlantTable = props => {
   const deletePlants = plants => {
     fetch(`${APIURL}/plants/${plants.id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: new Headers({
         'Content-Type': 'application/json',
         Authorization: props.token
@@ -43,7 +44,7 @@ const PlantTable = props => {
         // </tr>
 
         <CardDeck>
-          <Card id='plantCard'>
+          <Card id="plantCard">
             <CardImg
               id='plantImg'
               className='plantImg'
@@ -68,6 +69,7 @@ const PlantTable = props => {
               <Button
                 color='warning'
                 onClick={() => {
+                  // window.location.reload(true)
                   props.editPlants(plants)
                   props.toggleModal()
                 }}>
@@ -79,6 +81,7 @@ const PlantTable = props => {
       )
     })
   }
+  
   return (
     <>
       <h3>My Garden</h3>
@@ -99,5 +102,6 @@ const PlantTable = props => {
     </>
   )
 }
+
 
 export default PlantTable

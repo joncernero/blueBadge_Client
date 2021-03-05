@@ -6,7 +6,7 @@ import Dashboard from '../Dashboard';
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  console.log(props);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch(`${APIURL}/user/login`, {
@@ -21,12 +21,11 @@ const Login = (props) => {
       .then((response) => response.json())
       .then((data) => {
         console.log('Logged In!!!', data);
-        props.updateToken(data.sessionToken);
-        // props.updateToken(data.sessionToken, data.user.firstName);
+        props.updateToken(data.sessionToken, data.user.firstName);
         setPassword('');
-        // console.log(data.user.firstName)
       });
   };
+
   return (
     <div>
       <h1>Welcome Back!</h1>
