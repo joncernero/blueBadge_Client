@@ -22,12 +22,20 @@ export const TitleContainer = styled.div`
     font-weight: bolder;
     font-size: 2.5rem;
     color: Green;
+
+    @media only screen and (max-width: 480px) {
+      text-align: center;
+    }
   }
 
   h2 {
     font-family: 'Poppins', sans-serif;
     color: gray;
     font-size: 1.5rem;
+
+    @media only screen and (max-width: 480px) {
+      text-align: center;
+    }
   }
 `;
 export const LoginContainer = styled.div`
@@ -40,6 +48,12 @@ export const LoginContainer = styled.div`
   border-radius: 10px;
   min-height: 85vh;
   font-family: 'Poppins', sans-serif;
+
+  h1 {
+    @media only screen and (max-width: 480px) {
+      text-align: center;
+    }
+  }
 `;
 export const Card = styled.div`
   background-color: white;
@@ -69,18 +83,27 @@ export const Form = styled.form`
 
 export const FormGroup = styled.div`
   display: grid;
-  justify-content: center;
-  align-content: center;
-  grid-auto-flow: ;
+  grid-template-columns: 150px 1fr;
+  grid-gap: 5px;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 export const Label = styled.label`
-  font-size: 25px;
-  width: 10vw;
+  grid-column: 1 / 2;
+  font-size: 1.5rem;
   /* display: inline-block; */
-  margin: 5px;
 `;
-export const Input = styled.input``;
+export const Input = styled.input`
+  grid-column: 2 / 3;
+  width: 200px;
+  height: 35px;
+  padding: 10px;
+`;
 export const NavHeader = styled.div`
   display: grid;
   grid-template-columns: auto, auto, auto;
