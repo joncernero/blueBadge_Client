@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
   CardDeck,
-  Tooltip
+  Tooltip,
+  Container
 } from 'reactstrap';
 import DisplayUserPlants from './DisplayUserPlants';
 
@@ -79,7 +80,9 @@ const UserSearchPlants = (props) => {
         <button type='submit' onClick={(e) => handleSubmit()}>
           Search
         </button>
+        <Container>
         <CardDeck>{displayCards()}</CardDeck>
+        </Container>
       </div>
       <div>
         <br />

@@ -1,5 +1,18 @@
 import styled from 'styled-components'
 
+export const CardContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  // min-height: 95vh;
+  `
+
 export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);

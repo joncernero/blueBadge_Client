@@ -11,6 +11,8 @@ import {
   Button,
   Card,
   CardImg,
+  Container,
+  CardColumns
 } from "reactstrap";
 
 const PlantTable = props => {
@@ -27,24 +29,10 @@ const PlantTable = props => {
   const plantMapper = () => {
     return props.plants.map((plants, index) => {
       return (
-        // <tr key={index}>
-        //     <th scope="row">{plants.id}</th>
-        //     <td>{plants.trefle_id}</td>
-        //     <td>{plants.common_name}</td>
-        //     <td>{plants.scientific_name}</td>
-        //     <td>{plants.image_url}</td>
-        //     <td>{plants.notes}</td>
-        //     <td>
-        //         <Button color ="danger" onClick={() => {deletePlants(plants)}}>Kill Plant!</Button>
-        //         <br/>
-        //         <br/>
-        //         <Button color="warning" onClick={() => {props.editPlants(plants); props.toggleModal()}}>Add/Edit Notes</Button>
-
-        //     </td>
-        // </tr>
+       
 
         <CardDeck>
-          <Card id="plantCard">
+          <Card id="gardenCard">
             <CardImg
               id='plantImg'
               className='plantImg'
@@ -52,13 +40,16 @@ const PlantTable = props => {
               width='100%'
               src={plants.image_url}
               alt='AlternateImage'
-              id='AlternateImage'
             />
 
-            <CardBody id='plantBody'>
+            <CardBody id='gardenBody'>
               <CardTitle>{plants.common_name}</CardTitle>
-              <CardSubtitle>{plants.scientific_name}</CardSubtitle>
-              <CardText>{plants.notes}</CardText>
+              <p className="plantSubtitle">Scientific Name:</p>
+              <CardSubtitle className="plantSubtitle">{plants.scientific_name}</CardSubtitle>
+              <hr/>
+              <p className="gardenNotes">My Notes:</p>
+              <CardText className="gardenNotes">{plants.notes}</CardText>
+              <br />
               <Button
                 color='danger'
                 onClick={() => {
@@ -78,28 +69,15 @@ const PlantTable = props => {
             </CardBody>
           </Card>
         </CardDeck>
+        
       )
     })
   }
   
   return (
-    <>
-      <h3>My Garden</h3>
-      <hr />
-      <Table striped>
-        <thead>
-          <tr>
-            {/* <th>#</th>
-                        <th>Trefle ID</th>
-                        <th>Common Name</th>
-                        <th>Scientific Name</th>
-                        <th>Image</th>
-                        <th>Notes</th> */}
-          </tr>
-        </thead>
-        <tbody>{plantMapper()}</tbody>
-      </Table>
-    </>
+      <CardColumns>
+      {plantMapper()}
+      </CardColumns>
   )
 }
 

@@ -9,7 +9,8 @@ import {
   CardText,
   CardSubtitle,
   CardBody,
-  Tooltip
+  Tooltip,
+  Container
 } from 'reactstrap';
 import DisplayDuration from './DisplayDuration';
 import { Link } from 'react-router-dom';
@@ -91,8 +92,9 @@ const SearchDuration = (props) => {
         <button type='submit' onClick={(e) => handleSubmit()}>
           Search
         </button>
-        
+        <Container>
         <CardDeck>{displayCards()}</CardDeck>
+        </Container>
       </div>
       <div>
       <br />

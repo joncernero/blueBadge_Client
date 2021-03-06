@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  CardDeck
+  CardDeck, Container
 } from 'reactstrap';
 import DisplayPlants from './DisplayPlants';
 
@@ -57,7 +57,9 @@ const SearchPlants = (props) => {
       <hr />
       <br />
       <div>
+        <Container>
         <CardDeck>{displayCards()}</CardDeck>
+        </Container>
       </div>
       <div>
         <button onClick={e => changePage(e, 'down')}>Previous Plants</button>

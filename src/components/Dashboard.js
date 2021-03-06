@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container } from '../components/styled'
+import { CardContainer } from '../components/styled'
 import {
   Row,
   Col,
@@ -59,10 +59,13 @@ const Dashboard = props => {
   }, [props.token])
 
   return (
-    <Container>
+    <CardContainer>
+      <div>
       <h1>Welcome, {props.userName}</h1>
-      <Row>
-        <Col md='12'>
+      </div>
+      <br />
+      <hr />
+      <div>
           <PlantTable
             plants={plants}
             editPlants={editPlants}
@@ -70,7 +73,8 @@ const Dashboard = props => {
             fetchPlants={fetchPlants}
             token={props.token}
           />
-        </Col>
+        </div>
+        <div>
         {updateActive ? (
           <PlantEdit
             plantsToUpdate={plantsToUpdate}
@@ -82,8 +86,10 @@ const Dashboard = props => {
         ) : (
           <></>
         )}
-      </Row>
-    </Container>
+        </div>
+     
+    </CardContainer>
+    
   )
 }
 export default Dashboard

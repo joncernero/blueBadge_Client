@@ -9,7 +9,8 @@ import {
   CardText,
   CardSubtitle,
   CardBody,
-  Tooltip
+  Tooltip,
+  Container
 } from 'reactstrap';
 import DisplayFlowers from './DisplayFlowers';
 import { Link } from 'react-router-dom';
@@ -91,7 +92,9 @@ const SearchFlowers = (props) => {
         <button type='submit' onClick={(e) => handleSubmit()}>
           Search
         </button>
+        <Container>
         <CardDeck>{displayCards()}</CardDeck>
+        </Container>
       </div>
       <div>
       <br />

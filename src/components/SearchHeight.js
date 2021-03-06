@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import {
   CardDeck,
-  Tooltip
+  Tooltip,
+  Container
 } from 'reactstrap';
 import DisplayHeight from "./DisplayHeight";
 
@@ -96,7 +97,9 @@ const SearchHeight = (props) => {
         <button type='submit' onClick={(e) => handleSubmit()}>
           Search
         </button>
+        <Container>
         <CardDeck>{displayCards()}</CardDeck>
+        </Container>
       </div>
       <div>
       <br />
