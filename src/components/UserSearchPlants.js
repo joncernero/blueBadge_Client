@@ -6,6 +6,7 @@ import {
 } from 'reactstrap';
 import { Button } from '../components/styled'
 import DisplayUserPlants from './DisplayUserPlants';
+import DisplayPlants from "./DisplayPlants";
 
 const UserSearchPlants = (props) => {
   const [plants, setPlants] = useState([]);
@@ -34,7 +35,7 @@ const UserSearchPlants = (props) => {
 
   useEffect(() => {
     fetchPlants();
-  }, []);
+  }, [page]);
 
   const handleSubmit = (event) => {
     setPage(1);
@@ -46,19 +47,17 @@ const UserSearchPlants = (props) => {
     if (direction === 'down') {
       if (page > 1) {
         setPage(page - 1);
-        fetchPlants();
       }
     }
 
     if (direction === 'up') {
       setPage(page + 1);
-      fetchPlants();
     }
   };
 
   function displayCards() {
     return plants.length > 0
-      ? plants.map((plant) => <DisplayUserPlants plant={plant} token={props.token} />)
+      ? plants.map((plant) => <DisplayPlants plant={plant} token={props.token} />)
       : null;
   }
 
@@ -90,8 +89,8 @@ const UserSearchPlants = (props) => {
       <div>
         <br />
         {plants.length >0 ? null : <p className="plantSearch">plants will display here after you click 'Search'</p>}
-        <Button onClick={(e) => changePage(e, 'down')}>Previous</Button>
-        <Button onClick={(e) => changePage(e, 'up')}>Show More</Button>
+        <Button onClick={(e) => changePage(e, 'down')}>Previous Plants</Button>
+        <Button onClick={(e) => changePage(e, 'up')}>Show More Plants</Button>
       </div>
     </div>
   );

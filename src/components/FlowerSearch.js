@@ -14,6 +14,7 @@ import {
 import { Button } from '../components/styled';
 import DisplayFlowers from './DisplayFlowers';
 import { Link } from 'react-router-dom';
+import DisplayPlants from "./DisplayPlants";
 
 const SearchFlowers = (props) => {
   const [plants, setPlants] = useState([]);
@@ -43,7 +44,7 @@ const SearchFlowers = (props) => {
 
   useEffect(() => {
     fetchFlowers();
-  }, []);
+  }, [page]);
 
   const handleSubmit = (event) => {
     setPage(1);
@@ -55,20 +56,18 @@ const SearchFlowers = (props) => {
     if (direction === 'down') {
       if (page > 0) {
         setPage(page - 1);
-        fetchFlowers();
       }
     }
 
     if (direction === 'up') {
       setPage(page + 1);
-      fetchFlowers();
     }
   };
 
   function displayCards() {
     return plants.length > 0
       ? plants.map((plant) => (
-          <DisplayFlowers plant={plant} token={props.token} />
+          <DisplayPlants plant={plant} token={props.token} />
         ))
       : null;
   }
@@ -100,8 +99,8 @@ const SearchFlowers = (props) => {
       <div>
       <br />
       {plants.length >0 ? null : <p className="plantSearch">plants will display here after you click 'Search'</p>}
-        <Button onClick={(e) => changePage(e, 'down')}>Previous</Button>
-        <Button onClick={(e) => changePage(e, 'up')}>Show More</Button>
+        <Button onClick={(e) => changePage(e, 'down')}>Previous Plants</Button>
+        <Button onClick={(e) => changePage(e, 'up')}>Show More Plants</Button>
       </div>
     </div>
   );

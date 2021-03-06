@@ -64,7 +64,7 @@ export const Card = styled.div`
 export const Thumbnail = styled.img``
 export const Button = styled.button`
   height: 35px;
-  width: 125px;
+  width: 150px;
   color: white;
   font-size: 15px;
   font-weight: bold;
@@ -74,6 +74,18 @@ export const Button = styled.button`
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 `
 //Form, FormGroup, Label, Input
+
+export const KillEditButton = styled.button`
+  height: 35px;
+  width: 150px;
+  color: ${props => (props.primary) ? 'white' : 'gray'};
+  font-size: 15px;
+  font-weight: bold;
+  background: ${props => (props.primary ? 'red' : 'yellow')};
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+`
 
 export const Form = styled.form`
   display: grid;

@@ -8,6 +8,7 @@ import {
 } from 'reactstrap';
 import { Button } from '../components/styled'
 import DisplayHeight from "./DisplayHeight";
+import DisplayPlants from "./DisplayPlants";
 
 
 const SearchHeight = (props) => {
@@ -38,7 +39,7 @@ const SearchHeight = (props) => {
 
   useEffect(() => {
     fetchHeight();
-  }, []);
+  }, [page]);
 
   const handleSubmit = (event) => {
     setPage(1);
@@ -50,20 +51,18 @@ const SearchHeight = (props) => {
     if (direction === 'down') {
       if (page > 0) {
         setPage(page - 1);
-        fetchHeight();
       }
     }
 
     if (direction === 'up') {
       setPage(page + 1);
-      fetchHeight();
     }
   };
 
   function displayCards() {
     return plants.length > 0
       ? plants.map((plant) => (
-          <DisplayHeight plant={plant} token={props.token} />
+          <DisplayPlants plant={plant} token={props.token} />
         ))
       : null;
   }
@@ -89,6 +88,7 @@ const SearchHeight = (props) => {
           onChange={(e) => setMinHeight(e.target.value)}
         />
         <br />
+        <br />
         <span className="searchTitle">Maximum height (cm):</span>
         <input
           type='text'
@@ -107,8 +107,8 @@ const SearchHeight = (props) => {
       <div>
       <br />
       {plants.length >0 ? null : <p className="plantSearch">plants will display here after you click 'Search'</p>}
-  <Button onClick={(e) => changePage(e, 'down')}>Previous</Button>
-  <Button onClick={(e) => changePage(e, 'up')}>Show More</Button>
+  <Button onClick={(e) => changePage(e, 'down')}>Previous Plants</Button>
+  <Button onClick={(e) => changePage(e, 'up')}>Show More Plants</Button>
 </div>
     </div>
 

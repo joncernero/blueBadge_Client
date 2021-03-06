@@ -15,7 +15,6 @@ const SearchPlants = (props) => {
     const token = 'token=FKCFSL2qgSy2Gnwimlt25A-Ze2oYTp-CACmUCTxbtSc';
     const pageurl = `&page=${page}`;
     const url = `${baseurl}${token}${pageurl}&filter_not[image_url]=null&order[common_name]=asc`;
-    url.replace('https', 'http')
     console.log(url);
     fetch(corsURL + url)
       .then((response) => response.json())
@@ -27,20 +26,18 @@ const SearchPlants = (props) => {
 
   useEffect(() => {
     fetchPlants();
-  }, []);
+  }, [page]);
 
   const changePage = (event, direction) => {
     event.preventDefault();
     if (direction === 'down') {
       if (page > 1) {
         setPage(page - 1)
-        fetchPlants();
       }
     }
 
     if (direction === 'up') {
       setPage(page + 1);
-      fetchPlants();
     }
   };
 
@@ -63,8 +60,8 @@ const SearchPlants = (props) => {
         </Container>
       </div>
       <div>
-        <Button onClick={e => changePage(e, 'down')}>Previous</Button>
-        <Button onClick={e => changePage(e, 'up')}>Show More</Button>
+        <Button onClick={e => changePage(e, 'down')}>Previous Plants</Button>
+        <Button onClick={e => changePage(e, 'up')}>Show More Plants</Button>
       </div>
     </div>
   );

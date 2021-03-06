@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
-  CardColumns,
   CardDeck,
-  Card,
-  CardImg,
-  CardTitle,
-  CardText,
-  CardSubtitle,
-  CardBody,
   Tooltip,
   Container
 } from 'reactstrap';
 import { Button } from '../components/styled';
 import DisplayDuration from './DisplayDuration';
-import { Link } from 'react-router-dom';
+import DisplayUserPlants from "./DisplayUserPlants";
+import DisplayPlants from "./DisplayPlants";
+
 
 const SearchDuration = (props) => {
   const [plants, setPlants] = useState([]);
@@ -44,7 +39,7 @@ const SearchDuration = (props) => {
 
   useEffect(() => {
     fetchFlowers();
-  }, []);
+  }, [page]);
 
   const handleSubmit = (event) => {
     setPage(1);
@@ -54,23 +49,19 @@ const SearchDuration = (props) => {
   const changePage = (event, direction) => {
     event.preventDefault();
     if (direction === 'down') {
-      if (page > 0) {
+      if (page > 1) {
         setPage(page - 1);
-        fetchFlowers();
       }
     }
 
     if (direction === 'up') {
       setPage(page + 1);
-      fetchFlowers();
     }
   };
 
   function displayCards() {
     return plants.length > 0
-      ? plants.map((plant) => (
-          <DisplayDuration plant={plant} token={props.token} />
-        ))
+      ? plants.map((plant) => <DisplayPlants plant={plant} token={props.token} />)
       : null;
   }
 
@@ -101,8 +92,8 @@ const SearchDuration = (props) => {
       <div>
       <br />
       {plants.length >0 ? null : <p className="plantSearch">plants will display here after you click 'Search'</p>}
-        <Button onClick={(e) => changePage(e, 'down')}>Previous</Button>
-        <Button onClick={(e) => changePage(e, 'up')}>Show More</Button>
+        <Button onClick={(e) => changePage(e, 'down')}>Previous Plants</Button>
+        <Button onClick={(e) => changePage(e, 'up')}>Show More Plants</Button>
       </div>
     </div>
   );

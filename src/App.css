@@ -87,7 +87,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   min-width: 16em;
-  /* max-width: 16em; */
+  max-width: 16em;
   min-height: 26em;
   /* max-height: em; */
   background-color: rgba(255, 255, 255, 0.5);
@@ -106,14 +106,17 @@
   font-size: 12px;
   color: black;
   font-weight: bold;
-  padding: 2em;
+  max-width: 100%;
   word-wrap: break-word;
   padding: 1em;
+ 
 }
 
 .gardenNotes{
   color: green;
   margin: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
 }
 
 #gardenImg {
