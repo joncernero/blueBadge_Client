@@ -5,3 +5,9 @@ client url:  https://iplants-client.herokuapp.com/
 
 git add . 
 git commit -m "heroku deployment"
+
+EVERYTIME YOU ARE DEPLOYING - YOU MUST REBUILD FIRST BY RUNNING THIS COMMAND:
+npm run build
+git add . 
+git commit -m "deploy heroku"
+git push heroku main
