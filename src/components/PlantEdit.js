@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {
   Button,
   Form,
@@ -9,53 +9,52 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  Alert
+  Alert,
 } from 'reactstrap';
 import APIURL from '../helpers/environment';
 
 const PlantEdit = (props) => {
-   const [editNotes, setEditNotes] = useState(props.plantsToUpdate.notes);
+  const [editNotes, setEditNotes] = useState(props.plantsToUpdate.notes);
 
   const plantUpdate = (e) => {
     e.preventDefault();
     fetch(`${APIURL}/plants/${props.plantsToUpdate.id}`, {
       method: 'Put',
       body: JSON.stringify({
-        notes: editNotes
+        notes: editNotes,
       }),
       headers: new Headers({
         'Content-type': 'application/json',
-        Authorization: props.token
-      })
+        Authorization: props.token,
+      }),
     })
       .then((res) => res.json())
       .then((plantData) => {
-        console.log(plantData);
         props.toggleModal();
         props.refresh();
-        alert('Plant Note Updated!')
+        alert('Plant Note Updated!');
       });
-    };
+  };
 
-    return (
-
-      <Modal isOpen={props.updateActive}>
-        <ModalHeader>Edit/Update a Plant</ModalHeader>
-        <ModalBody>
-          <Form onSubmit={plantUpdate}>
-            <FormGroup>
-              <Label htmlFor='notes'>Edit Notes:</Label>
-              <Input
-                name='notes'
-                value={editNotes}
-                onChange={(e) => setEditNotes(e.target.value)}
-              />
-            </FormGroup>
-            <Button type='submit' onClick={() => {
-                }}>Update the Plant!</Button>
-          </Form>
-        </ModalBody>
-      </Modal>
-    );
+  return (
+    <Modal isOpen={props.updateActive}>
+      <ModalHeader>Edit/Update a Plant</ModalHeader>
+      <ModalBody>
+        <Form onSubmit={plantUpdate}>
+          <FormGroup>
+            <Label htmlFor='notes'>Edit Notes:</Label>
+            <Input
+              name='notes'
+              value={editNotes}
+              onChange={(e) => setEditNotes(e.target.value)}
+            />
+          </FormGroup>
+          <Button type='submit' onClick={() => {}}>
+            Update the Plant!
+          </Button>
+        </Form>
+      </ModalBody>
+    </Modal>
+  );
 };
 export default PlantEdit;

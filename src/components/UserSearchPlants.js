@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {
-  CardDeck,
-  Tooltip,
-  Container
-} from 'reactstrap';
-import { Button } from '../components/styled'
-import DisplayUserPlants from './DisplayUserPlants';
-import DisplayPlants from "./DisplayPlants";
+import { CardDeck, Tooltip, Container } from 'reactstrap';
+import { Button } from '../components/styled';
+import DisplayPlants from './DisplayPlants';
 
 const UserSearchPlants = (props) => {
   const [plants, setPlants] = useState([]);
@@ -14,7 +9,7 @@ const UserSearchPlants = (props) => {
   const [plantSelector, setPlantSelector] = useState();
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
-  const toggle = () => setTooltipOpen(!tooltipOpen); 
+  const toggle = () => setTooltipOpen(!tooltipOpen);
 
   function fetchPlants() {
     const corsURL = 'https://efa-cors-anywhere.herokuapp.com/';
@@ -57,21 +52,34 @@ const UserSearchPlants = (props) => {
 
   function displayCards() {
     return plants.length > 0
-      ? plants.map((plant) => <DisplayPlants plant={plant} token={props.token} />)
+      ? plants.map((plant) => (
+          <DisplayPlants plant={plant} token={props.token} />
+        ))
       : null;
   }
 
   return (
-    <div className="plantComponents">
+    <div className='plantComponents'>
       <br />
       <hr />
-      <h6>Plants are listed alphabetically by the plant's common name.  Click the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h6>
+      <h6>
+        Plants are listed alphabetically by the plant's common name. Click the
+        "+" button on a plant to add it to your garden. Once a plant is in your
+        garden, you can add your own personal notes regarding each specific
+        plant.
+      </h6>
       <hr />
       <br />
       <div>
-        <span className="searchTitle">Search by a Plant Name:</span>
+        <span className='searchTitle'>Search by a Plant Name:</span>
         <br />
-        <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>Hosta, ficus, pine, oak...</Tooltip>
+        <Tooltip
+          placement='top'
+          isOpen={tooltipOpen}
+          target='input'
+          toggle={toggle}>
+          Hosta, ficus, pine, oak...
+        </Tooltip>
         <input
           type='text'
           name='plantsearch'
@@ -80,15 +88,19 @@ const UserSearchPlants = (props) => {
         <Button primary type='submit' onClick={(e) => handleSubmit()}>
           Search
         </Button>
-      
+
         <Container>
-        <br />
-        <CardDeck>{displayCards()}</CardDeck>
+          <br />
+          <CardDeck>{displayCards()}</CardDeck>
         </Container>
       </div>
       <div>
         <br />
-        {plants.length >0 ? null : <p className="plantSearch">plants will display here after you click 'Search'</p>}
+        {plants.length > 0 ? null : (
+          <p className='plantSearch'>
+            plants will display here after you click 'Search'
+          </p>
+        )}
         <Button onClick={(e) => changePage(e, 'down')}>Previous Plants</Button>
         <Button onClick={(e) => changePage(e, 'up')}>Show More Plants</Button>
       </div>

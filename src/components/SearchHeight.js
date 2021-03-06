@@ -1,15 +1,9 @@
 // const url = `${baseurl}${token}${page}&order[genus]=asc&order[family_common_name]=asc&order[family]=asc&order[common_name]=asc&order[scientific_name]=asc`;
 
 import React, { useState, useEffect } from 'react';
-import {
-  CardDeck,
-  Tooltip,
-  Container
-} from 'reactstrap';
-import { Button } from '../components/styled'
-import DisplayHeight from "./DisplayHeight";
-import DisplayPlants from "./DisplayPlants";
-
+import { CardDeck, Tooltip, Container } from 'reactstrap';
+import { Button } from '../components/styled';
+import DisplayPlants from './DisplayPlants';
 
 const SearchHeight = (props) => {
   const [plants, setPlants] = useState([]);
@@ -18,7 +12,7 @@ const SearchHeight = (props) => {
   const [page, setPage] = useState(1);
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
-  const toggle = () => setTooltipOpen(!tooltipOpen); 
+  const toggle = () => setTooltipOpen(!tooltipOpen);
 
   function fetchHeight() {
     const corsURL = 'https://efa-cors-anywhere.herokuapp.com/';
@@ -33,7 +27,7 @@ const SearchHeight = (props) => {
       .then((data) => {
         setPlants(data.data);
         console.log(plants);
-        console.log(url)
+        console.log(url);
       });
   }
 
@@ -68,20 +62,29 @@ const SearchHeight = (props) => {
   }
 
   return (
-   
-
-    <div className="plantComponents">
-<br />
+    <div className='plantComponents'>
+      <br />
       <hr />
-      <h6>Plants are listed alphabetically by the plant's common name.  Click the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h6>
+      <h6>
+        Plants are listed alphabetically by the plant's common name. Click the
+        "+" button on a plant to add it to your garden. Once a plant is in your
+        garden, you can add your own personal notes regarding each specific
+        plant.
+      </h6>
       <hr />
       <br />
       <div>
-        <span className="searchTitle">Search by a Range of Plant Height:</span>
+        <span className='searchTitle'>Search by a Range of Plant Height:</span>
         <br />
-        <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>Enter a minimum height then a maximum height (cm)</Tooltip>
+        <Tooltip
+          placement='top'
+          isOpen={tooltipOpen}
+          target='input'
+          toggle={toggle}>
+          Enter a minimum height then a maximum height (cm)
+        </Tooltip>
         <br />
-        <span className="searchTitle">Minimum height (cm): </span>
+        <span className='searchTitle'>Minimum height (cm): </span>
         <input
           type='text'
           name='minheight'
@@ -89,7 +92,7 @@ const SearchHeight = (props) => {
         />
         <br />
         <br />
-        <span className="searchTitle">Maximum height (cm):</span>
+        <span className='searchTitle'>Maximum height (cm):</span>
         <input
           type='text'
           name='maxheight'
@@ -101,18 +104,20 @@ const SearchHeight = (props) => {
         </Button>
         <Container>
           <br />
-        <CardDeck>{displayCards()}</CardDeck>
+          <CardDeck>{displayCards()}</CardDeck>
         </Container>
       </div>
       <div>
-      <br />
-      {plants.length >0 ? null : <p className="plantSearch">plants will display here after you click 'Search'</p>}
-  <Button onClick={(e) => changePage(e, 'down')}>Previous Plants</Button>
-  <Button onClick={(e) => changePage(e, 'up')}>Show More Plants</Button>
-</div>
+        <br />
+        {plants.length > 0 ? null : (
+          <p className='plantSearch'>
+            plants will display here after you click 'Search'
+          </p>
+        )}
+        <Button onClick={(e) => changePage(e, 'down')}>Previous Plants</Button>
+        <Button onClick={(e) => changePage(e, 'up')}>Show More Plants</Button>
+      </div>
     </div>
-
-
   );
 };
 
