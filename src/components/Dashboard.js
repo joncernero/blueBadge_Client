@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { CardContainer } from '../components/styled'
+
+import React, { useState, useEffect } from 'react';
+import { Container } from '../components/styled';
 import {
   Row,
   Col,
@@ -11,26 +12,31 @@ import {
   CardSubtitle,
   CardBody,
   CardDeck
-} from 'reactstrap'
-import APIURL from '../helpers/environment'
-import PlantTable from './PlantTable'
-import PlantEdit from './PlantEdit'
-import UserSearchPlants from './UserSearchPlants'
-import SearchPlants from './SearchPlants'
-import PlantIndex from './PlantIndex'
-import { BrowserRouter } from 'react-router-dom'
-import Navbar from './Navbar'
+} from 'reactstrap';
+import APIURL from '../helpers/environment';
+import PlantTable from './PlantTable';
+import PlantEdit from './PlantEdit';
+import UserSearchPlants from './UserSearchPlants';
+import SearchPlants from './SearchPlants';
+import PlantIndex from './PlantIndex';
+import { BrowserRouter } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const Dashboard = props => {
   const [plants, setPlants] = useState([])
   const [plantsToUpdate, setPlantsToUpdate] = useState({})
   const [updateActive, setUpdateActive] = useState(false)
+  const [reload, setReload] = useState(true)
 
+  const refresh = () => {
+    setReload(!reload)
+  }  
+  
   const fetchPlants = () => {
     if (props.token === '') {
-      return
+      return;
     }
-
+    
     fetch(`${APIURL}/plants/`, {
       method: 'GET',
       headers: new Headers({
@@ -38,25 +44,29 @@ const Dashboard = props => {
         Authorization: props.token
       })
     })
-      .then(res => res.json())
-      .then(plantData => {
-        setPlants(plantData)
-        console.log(plantData)
-      })
-  }
+      .then((res) => res.json())
+      .then((plantData) => {
+        setPlants(plantData);
+        console.log(plantData);
+      });
+  };
 
-  const editPlants = plants => {
-    setPlantsToUpdate(plants)
-    console.log(plants)
-  }
+  const editPlants = (plants) => {
+    setPlantsToUpdate(plants);
+    console.log(plants);
+  };
 
   const toggleModal = () => {
-    setUpdateActive(!updateActive)
-  }
+    setUpdateActive(!updateActive);
+  };
+
+  useEffect(() => {
+    fetchPlants();
+  }, [props.token]);
 
   useEffect(() => {
     fetchPlants()
-  }, [props.token])
+  }, [reload])
 
   return (
     <div className="gardenDiv">
@@ -83,16 +93,14 @@ const Dashboard = props => {
             updateActive={updateActive}
             token={props.token}
             fetchPlants={fetchPlants}
+            refresh={refresh}
           />
         ) : (
           <></>
         )}
         </div>
         </div>
-
-     
-   
-    
   )
 }
 export default Dashboard
+

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const CardContainer = styled.div`
   position: relative;
@@ -15,8 +15,8 @@ export const CardContainer = styled.div`
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: repeat(2, 6fr);
   justify-content: center;
   align-content: center;
   background-color: rgba(255, 255, 255, 0.5);
@@ -24,9 +24,8 @@ export const Container = styled.div`
   border-radius: 10px;
   padding: 10px;
   min-height: 95vh;
-`
+`;
 export const TitleContainer = styled.div`
-  grid-column: 1 / 7;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -36,16 +35,23 @@ export const TitleContainer = styled.div`
     font-weight: bolder;
     font-size: 2.5rem;
     color: Green;
+
+    @media only screen and (max-width: 480px) {
+      text-align: center;
+    }
   }
 
   h2 {
     font-family: 'Poppins', sans-serif;
     color: gray;
     font-size: 1.5rem;
+
+    @media only screen and (max-width: 480px) {
+      text-align: center;
+    }
   }
-`
+`;
 export const LoginContainer = styled.div`
-  grid-column: 7 / -1;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -55,24 +61,29 @@ export const LoginContainer = styled.div`
   border-radius: 10px;
   min-height: 85vh;
   font-family: 'Poppins', sans-serif;
-`
+
+  h1 {
+    @media only screen and (max-width: 480px) {
+      text-align: center;
+    }
+  }
+`;
 export const Card = styled.div`
   background-color: white;
   padding: 10px;
   margin: 5px;
-`
-export const Thumbnail = styled.img``
+`;
 export const Button = styled.button`
   height: 35px;
   width: 150px;
   color: white;
   font-size: 15px;
   font-weight: bold;
-  background: ${props => (props.primary ? 'green' : 'gray')};
+  background: ${(props) => (props.primary ? 'green' : 'gray')};
   border-radius: 5px;
   margin: 10px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-`
+`;
 //Form, FormGroup, Label, Input
 
 export const KillEditButton = styled.button`
@@ -91,16 +102,33 @@ export const Form = styled.form`
   display: grid;
   justify-content: center;
   align-content: center;
-`
+  grid-template-columns: repeat(autofit, minmax(400px, 3fr));
+  grid-template-rows: repeat(4, 4fr);
+`;
 
-export const FormGroup = styled.div``
+export const FormGroup = styled.div`
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-gap: 5px;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+`;
+
 export const Label = styled.label`
-  font-size: 25px;
-  width: 10vw;
+  grid-column: 1 / 2;
+  font-size: 1.5rem;
   /* display: inline-block; */
-  margin: 5px;
-`
-export const Input = styled.input``
+`;
+export const Input = styled.input`
+  grid-column: 2 / 3;
+  width: 200px;
+  height: 35px;
+  padding: 10px;
+`;
 export const NavHeader = styled.div`
   display: grid;
   grid-template-columns: auto, auto, auto;
@@ -153,4 +181,4 @@ export const NavHeader = styled.div`
     font-weight: bolder;
     color: green;
   }
-`
+`;

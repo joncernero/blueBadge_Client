@@ -1,20 +1,19 @@
-import React, { useState } from 'react'
-import Register from './Register'
-import Login from './Login'
+import React, { useState } from 'react';
+import Register from './Register';
+import Login from './Login';
 import {
   Button,
   Container,
   LoginContainer,
   TitleContainer
-} from '../../components/styled'
-import '../../App.css'
+} from '../../components/styled';
+import '../../App.css';
 
-const Auth = props => {
-  const [loggingIn, setLoggingIn] = useState(false)
-  console.log(props)
+const Auth = (props) => {
+  const [loggingIn, setLoggingIn] = useState(false);
   const toggleLoggingIn = () => {
-    setLoggingIn(!loggingIn)
-  }
+    setLoggingIn(!loggingIn);
+  };
   return (
     <div>
       <Container>
@@ -45,7 +44,7 @@ const Auth = props => {
         </LoginContainer>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default Auth
+export default Auth;

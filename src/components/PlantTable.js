@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import APIURL from '../helpers/environment'
 import {
@@ -8,23 +9,30 @@ import {
   CardText,
   Card,
   CardImg,
-} from 'reactstrap'
+  Alert
+} from "reactstrap";
 import { KillEditButton } from '../components/styled'
 
 const PlantTable = (props) => {
   const deletePlants = (plants) => {
+
     fetch(`${APIURL}/plants/${plants.id}`, {
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
-        Authorization: props.token,
-      }),
-    }).then(() => props.fetchPlants())
+        Authorization: props.token
+      })
+    })
+    .then(() => props.fetchPlants())
+    .then((plantData) => {
+      alert('Plant deleted!');
+    })
   }
 
   const plantMapper = () => {
     return props.plants.map((plants, index) => {
       return (
+
         <Card id="gardenCard">
           <CardImg
             id="gardenImg"
@@ -69,7 +77,7 @@ const PlantTable = (props) => {
     })
   }
 
-  return <CardDeck>{plantMapper()}</CardDeck>
-}
+  return (<CardDeck>{plantMapper()}</CardDeck>});
+};
 
-export default PlantTable
+export default PlantTable;
