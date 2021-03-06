@@ -54,7 +54,6 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   color: white;
-  
 }
 
 #plantBody {
@@ -77,14 +76,19 @@
   margin: 0;
 }
 
+.gardenDiv{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 #gardenCard {
   position: relative;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  min-width: 18em;
-  max-width: 18em;
-  min-height: 22em;
+  min-width: 16em;
+  /* max-width: 16em; */
+  min-height: 26em;
   /* max-height: em; */
   background-color: rgba(255, 255, 255, 0.5);
   background-clip: border-box;
@@ -110,4 +114,26 @@
 .gardenNotes{
   color: green;
   margin: 0;
+}
+
+#gardenImg {
+  background-image: url(./assets/images/plants-bg.jpg);
+  max-height: 13em;
+  min-height: 13em;
+  width: 100%;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  color: white;
+}
+
+.plantSearch{
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 0.75em;
+  color: grey;
+}
+
+.searchTitle{
+  font-weight: bold;
+  color: green;
 }

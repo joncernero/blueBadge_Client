@@ -6,6 +6,7 @@ import {
   Tooltip,
   Container
 } from 'reactstrap';
+import { Button } from '../components/styled'
 import DisplayHeight from "./DisplayHeight";
 
 
@@ -70,42 +71,44 @@ const SearchHeight = (props) => {
   return (
    
 
-<div>
+    <div className="plantComponents">
 <br />
       <hr />
-      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <h6>Plants are listed alphabetically by the plant's common name.  Click the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h6>
       <hr />
       <br />
       <div>
-        <span>Search by plant height</span>
+        <span className="searchTitle">Search by a Range of Plant Height:</span>
         <br />
         <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>Enter a minimum height then a maximum height (cm)</Tooltip>
-        <span>Minimum height (cm): </span>
+        <br />
+        <span className="searchTitle">Minimum height (cm): </span>
         <input
           type='text'
           name='minheight'
           onChange={(e) => setMinHeight(e.target.value)}
         />
         <br />
-        <span>Maximum height (cm):</span>
+        <span className="searchTitle">Maximum height (cm):</span>
         <input
           type='text'
           name='maxheight'
           onChange={(e) => setMaxHeight(e.target.value)}
         />
         <br />
-        <button type='submit' onClick={(e) => handleSubmit()}>
+        <Button primary type='submit' onClick={(e) => handleSubmit()}>
           Search
-        </button>
+        </Button>
         <Container>
+          <br />
         <CardDeck>{displayCards()}</CardDeck>
         </Container>
       </div>
       <div>
       <br />
-        <p>plants will display here after you click 'Search'</p>
-  <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
-  <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>
+      {plants.length >0 ? null : <p className="plantSearch">plants will display here after you click 'Search'</p>}
+  <Button onClick={(e) => changePage(e, 'down')}>Previous</Button>
+  <Button onClick={(e) => changePage(e, 'up')}>Show More</Button>
 </div>
     </div>
 

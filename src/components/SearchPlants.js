@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   CardDeck, Container
 } from 'reactstrap';
+import { Button } from '../components/styled'
 import DisplayPlants from './DisplayPlants';
 
 const SearchPlants = (props) => {
@@ -50,10 +51,10 @@ const SearchPlants = (props) => {
   }
 
   return (
-    <div>
+    <div className="plantComponents">
       <br />
       <hr />
-      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <h6>Plants are listed alphabetically by the plant's common name.  Click the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h6>
       <hr />
       <br />
       <div>
@@ -62,8 +63,8 @@ const SearchPlants = (props) => {
         </Container>
       </div>
       <div>
-        <button onClick={e => changePage(e, 'down')}>Previous Plants</button>
-        <button onClick={e => changePage(e, 'up')}>Show More Plants</button>
+        <Button onClick={e => changePage(e, 'down')}>Previous</Button>
+        <Button onClick={e => changePage(e, 'up')}>Show More</Button>
       </div>
     </div>
   );

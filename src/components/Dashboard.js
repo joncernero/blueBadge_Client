@@ -59,9 +59,10 @@ const Dashboard = props => {
   }, [props.token])
 
   return (
-    <CardContainer>
+    <div className="gardenDiv">
       <div>
-      <h1>Welcome, {props.userName}</h1>
+      <br />
+      {!props.userName ? <h1>My Garden</h1> : <h1>Welcome, {props.userName}</h1>}
       </div>
       <br />
       <hr />
@@ -87,8 +88,10 @@ const Dashboard = props => {
           <></>
         )}
         </div>
+        </div>
+
      
-    </CardContainer>
+   
     
   )
 }

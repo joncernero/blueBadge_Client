@@ -4,6 +4,7 @@ import {
   Tooltip,
   Container
 } from 'reactstrap';
+import { Button } from '../components/styled'
 import DisplayUserPlants from './DisplayUserPlants';
 
 const UserSearchPlants = (props) => {
@@ -62,14 +63,14 @@ const UserSearchPlants = (props) => {
   }
 
   return (
-    <div>
+    <div className="plantComponents">
       <br />
       <hr />
-      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <h6>Plants are listed alphabetically by the plant's common name.  Click the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h6>
       <hr />
       <br />
       <div>
-        <span>Search by a plant name:</span>
+        <span className="searchTitle">Search by a Plant Name:</span>
         <br />
         <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>Hosta, ficus, pine, oak...</Tooltip>
         <input
@@ -77,18 +78,20 @@ const UserSearchPlants = (props) => {
           name='plantsearch'
           onChange={(e) => setPlantSelector(e.target.value)}
         />
-        <button type='submit' onClick={(e) => handleSubmit()}>
+        <Button primary type='submit' onClick={(e) => handleSubmit()}>
           Search
-        </button>
+        </Button>
+      
         <Container>
+        <br />
         <CardDeck>{displayCards()}</CardDeck>
         </Container>
       </div>
       <div>
         <br />
-        <p>plants will display here after you click 'Search'</p>
-        <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
-        <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>
+        {plants.length >0 ? null : <p className="plantSearch">plants will display here after you click 'Search'</p>}
+        <Button onClick={(e) => changePage(e, 'down')}>Previous</Button>
+        <Button onClick={(e) => changePage(e, 'up')}>Show More</Button>
       </div>
     </div>
   );

@@ -31,15 +31,15 @@ const PlantTable = props => {
       return (
        
 
-        <CardDeck>
+        
           <Card id="gardenCard">
             <CardImg
-              id='plantImg'
+              id='gardenImg'
               className='plantImg'
               top
               width='100%'
               src={plants.image_url}
-              alt='AlternateImage'
+              alt='Image not available'
             />
 
             <CardBody id='gardenBody'>
@@ -68,16 +68,16 @@ const PlantTable = props => {
               </Button>
             </CardBody>
           </Card>
-        </CardDeck>
+     
         
       )
     })
   }
   
   return (
-      <CardColumns>
+      <CardDeck>
       {plantMapper()}
-      </CardColumns>
+      </CardDeck>
   )
 }
 
