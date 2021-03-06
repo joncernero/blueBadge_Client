@@ -11,9 +11,10 @@ import {
   Button,
   Card,
   CardImg,
+  Alert
 } from "reactstrap";
 
-const PlantTable = props => {
+const PlantTable = (props) => {
   const deletePlants = plants => {
     fetch(`${APIURL}/plants/${plants.id}`, {
       method: "DELETE",
@@ -21,7 +22,11 @@ const PlantTable = props => {
         'Content-Type': 'application/json',
         Authorization: props.token
       })
-    }).then(() => props.fetchPlants())
+    })
+    .then(() => props.fetchPlants())
+    .then((plantData) => {
+      alert('Plant deleted!');
+    })
   }
 
   const plantMapper = () => {
@@ -85,7 +90,7 @@ const PlantTable = props => {
   
   return (
     <>
-      <h3>My Garden</h3>
+      <h3>My Garden:</h3>
       <hr />
       <Table striped>
         <thead>

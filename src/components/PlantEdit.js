@@ -8,6 +8,7 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
+  Alert
 } from 'reactstrap';
 import APIURL from "../helpers/environment";
 
@@ -33,6 +34,7 @@ const PlantEdit = (props) => {
       });
     };
     return (
+
       <Modal isOpen={props.updateActive}>
         <ModalHeader>Edit/Update a Plant</ModalHeader>
         <ModalBody>
@@ -46,7 +48,7 @@ const PlantEdit = (props) => {
               />
             </FormGroup>
             <Button type='submit' onClick={() => {
-                  window.location.reload(true)
+                  window.location.reload(false)
                 }}>Update the Plant!</Button>
           </Form>
         </ModalBody>
