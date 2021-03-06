@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom';
 import {
   Button,
   Form,
@@ -15,6 +16,9 @@ import APIURL from "../helpers/environment";
 const PlantEdit = (props) => {
    const [editNotes, setEditNotes] = useState(props.plantsToUpdate.notes);
     console.log(props.updateActive);
+
+    const history = useHistory();
+
   const plantUpdate = (e) => {
     e.preventDefault();
     fetch(`${APIURL}/plants/${props.plantsToUpdate.id}`, {
@@ -31,8 +35,12 @@ const PlantEdit = (props) => {
       .then((plantData) => {
         console.log(plantData);
         props.toggleModal();
+        props.refresh();
+        alert('Plant Note Updated')
       });
     };
+
+  
     return (
 
       <Modal isOpen={props.updateActive}>
@@ -48,7 +56,6 @@ const PlantEdit = (props) => {
               />
             </FormGroup>
             <Button type='submit' onClick={() => {
-                  window.location.reload(false)
                 }}>Update the Plant!</Button>
           </Form>
         </ModalBody>

@@ -25,6 +25,11 @@ const Dashboard = props => {
   const [plants, setPlants] = useState([])
   const [plantsToUpdate, setPlantsToUpdate] = useState({})
   const [updateActive, setUpdateActive] = useState(false)
+  const [reload, setReload] = useState(true)
+
+  const refresh = () => {
+    setReload(!reload)
+  }  
 
   const fetchPlants = () => {
     if (props.token === '') {
@@ -58,6 +63,10 @@ const Dashboard = props => {
     fetchPlants()
   }, [props.token])
 
+  useEffect(() => {
+    fetchPlants()
+  }, [reload])
+
   return (
     <Container>
       <h1>Welcome, {props.userName}</h1>
@@ -78,6 +87,7 @@ const Dashboard = props => {
             updateActive={updateActive}
             token={props.token}
             fetchPlants={fetchPlants}
+            refresh={refresh}
           />
         ) : (
           <></>
