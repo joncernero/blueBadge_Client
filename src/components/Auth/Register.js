@@ -9,7 +9,6 @@ const Register = (props) => {
   const [firstName, setFirstName] = useState('');
   const [zipcode, setZipcode] = useState('');
   const [visible, setVisible] = useState(false);
-
   const onDismiss = () => setVisible(false);
 
   const handleSubmit = (event) => {
@@ -21,12 +20,12 @@ const Register = (props) => {
           email: email,
           password: password,
           firstName: firstName,
-          zipcode: zipcode
-        }
+          zipcode: zipcode,
+        },
       }),
       headers: new Headers({
-        'Content-Type': 'application/json'
-      })
+        'Content-Type': 'application/json',
+      }),
     })
       .then((response) => response.json())
       .then((data) => {

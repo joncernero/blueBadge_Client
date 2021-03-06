@@ -11,12 +11,11 @@ import {
   Switch,
   BrowserRouter as Router,
   Redirect
-} from 'react-router-dom';
-import UserSearchPlants from './components/UserSearchPlants';
-import FlowerSearch from './components/FlowerSearch';
-import SearchHeight from './components/SearchHeight';
-import PlantIndex from './components/PlantIndex';
-import DurationSearch from './components/DurationSearch';
+} from 'react-router-dom'
+import UserSearchPlants from './components/UserSearchPlants'
+import FlowerSearch from './components/FlowerSearch'
+import SearchHeight from './components/SearchHeight'
+import DurationSearch from './components/DurationSearch'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');

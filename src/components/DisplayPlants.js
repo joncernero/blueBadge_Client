@@ -36,9 +36,6 @@ const DisplayPlants = (props) => {
       .then((logData) => {
         alert('Plant successfully added!');
       });
-    // try {
-    // } catch (error) {}
-    // // .catch((err) => res.status(500).json({ error: err }));
   };
 
   return (
@@ -68,8 +65,7 @@ const DisplayPlants = (props) => {
               placement='right'
               isOpen={tooltipOpen}
               target='plantButton'
-              toggle={toggle}
-            >
+              toggle={toggle}>
               Click on the "+" button to add this plant to your garden
             </Tooltip>
             <CardTitle key={props.plant.common_name}>

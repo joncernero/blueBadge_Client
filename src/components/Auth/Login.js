@@ -12,15 +12,14 @@ const Login = (props) => {
   const onDismiss = () => setVisible(false);
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Handle Submit ');
     fetch(`${APIURL}/user/login`, {
       method: 'POST',
       body: JSON.stringify({
-        user: { email: email, password: password }
+        user: { email: email, password: password },
       }),
       headers: new Headers({
-        'Content-Type': 'application/json'
-      })
+        'Content-Type': 'application/json',
+      }),
     })
       .then((response) => response.json())
       .then((data) => {
