@@ -8,8 +8,7 @@ const Register = (props) => {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [zipcode, setZipcode] = useState('');
-  const [invalidUser, setInvalidUser] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   const onDismiss = () => setVisible(false);
 
@@ -36,7 +35,7 @@ const Register = (props) => {
         setFirstName('');
         setZipcode('');
         if (!data.sessionToken) {
-          setInvalidUser(true);
+          setVisible(true);
         } else {
           props.updateToken(data.sessionToken, data.user.firstName);
         }
@@ -45,11 +44,9 @@ const Register = (props) => {
   };
   return (
     <div>
-      {invalidUser ? (
-        <Alert color='danger' isOpen={visible} toggle={onDismiss}>
-          Registration Failed! Click the X to close this message and try again.
-        </Alert>
-      ) : null}
+      <Alert color='danger' isOpen={visible} toggle={onDismiss}>
+        Registration Failed! Click the X to close this message and try again.
+      </Alert>
       <h1>Join Now!</h1>
       <Form onSubmit={handleSubmit}>
         <FormGroup>

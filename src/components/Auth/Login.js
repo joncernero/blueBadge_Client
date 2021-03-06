@@ -7,9 +7,8 @@ import { Alert } from 'reactstrap';
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [invalidUser, setInvalidUser] = useState(false);
-  const [visible, setVisible] = useState(true);
-  console.log(props);
+  const [visible, setVisible] = useState(false);
+
   const onDismiss = () => setVisible(false);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,8 +27,7 @@ const Login = (props) => {
         setPassword('');
         setEmail('');
         if (!data.sessionToken) {
-          console.log('Invalid User');
-          setInvalidUser(true);
+          setVisible(true);
         } else {
           props.updateToken(data.sessionToken, data.user.firstName);
         }
@@ -38,11 +36,9 @@ const Login = (props) => {
 
   return (
     <div>
-      {invalidUser ? (
-        <Alert color='danger' isOpen={visible} toggle={onDismiss}>
-          Login Failed! Click the X to close this message and try again.
-        </Alert>
-      ) : null}
+      <Alert color='danger' isOpen={visible} toggle={onDismiss}>
+        Login Failed! Click the X to close this message and try again.
+      </Alert>
       <h1>Welcome Back!</h1>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
