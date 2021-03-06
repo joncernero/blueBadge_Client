@@ -36,7 +36,7 @@ const PlantEdit = (props) => {
         console.log(plantData);
         props.toggleModal();
         props.refresh();
-        alert('Plant Note Updated')
+        alert('Plant Note Updated!')
       });
     };
 
