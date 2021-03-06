@@ -1,6 +1,5 @@
-
-import React, { useState } from 'react'
-import APIURL from '../helpers/environment'
+import React, { useState } from 'react';
+import APIURL from '../helpers/environment';
 import {
   Table,
   CardDeck,
@@ -10,19 +9,19 @@ import {
   CardText,
   Button,
   Card,
-  CardImg,
-} from "reactstrap";
+  CardImg
+} from 'reactstrap';
 
-const PlantTable = props => {
-  const deletePlants = plants => {
+const PlantTable = (props) => {
+  const deletePlants = (plants) => {
     fetch(`${APIURL}/plants/${plants.id}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
         Authorization: props.token
       })
-    }).then(() => props.fetchPlants())
-  }
+    }).then(() => props.fetchPlants());
+  };
 
   const plantMapper = () => {
     return props.plants.map((plants, index) => {
@@ -42,9 +41,8 @@ const PlantTable = props => {
 
         //     </td>
         // </tr>
-
         <CardDeck>
-          <Card id="plantCard">
+          <Card id='plantCard'>
             <CardImg
               id='plantImg'
               className='plantImg'
@@ -62,26 +60,28 @@ const PlantTable = props => {
               <Button
                 color='danger'
                 onClick={() => {
-                  deletePlants(plants)
-                }}>
+                  deletePlants(plants);
+                }}
+              >
                 Kill Plant!
               </Button>
               <Button
                 color='warning'
                 onClick={() => {
                   // window.location.reload(true)
-                  props.editPlants(plants)
-                  props.toggleModal()
-                }}>
+                  props.editPlants(plants);
+                  props.toggleModal();
+                }}
+              >
                 Add/Edit Notes
               </Button>
             </CardBody>
           </Card>
         </CardDeck>
-      )
-    })
-  }
-  
+      );
+    });
+  };
+
   return (
     <>
       <h3>My Garden</h3>
@@ -100,8 +100,7 @@ const PlantTable = props => {
         <tbody>{plantMapper()}</tbody>
       </Table>
     </>
-  )
-}
+  );
+};
 
-
-export default PlantTable
+export default PlantTable;

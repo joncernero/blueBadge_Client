@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import { Button, NavHeader } from '../components/styled';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import SearchPlants from './SearchPlants';
 import UserSearchPlants from './UserSearchPlants';
 import FlowerSearch from './FlowerSearch';
 import PlantIndex from './PlantIndex';
-import { Button, NavbarToggler, Collapse } from 'reactstrap';
+import SearchHeight from '../components/SearchHeight';
+// import {Button, NavbarToggler, Collapse} from 'reactstrap';
 
-const Navbar = (props) => {
+const Toggler = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     let newIsOpen = !isOpen;
     setIsOpen(newIsOpen);
   };
+
   return (
     <div>
       <NavHeader>
@@ -23,7 +26,16 @@ const Navbar = (props) => {
             <Link to='/Dashboard'>My Garden</Link>
           </li>
           <li>
-            <Link to='/PlantIndex'>Explore Plants</Link>
+            <Link to='/SearchPlants'>View All Plants</Link>
+          </li>
+          <li>
+            <Link to='/UserSearchPlants'>Search Plants</Link>
+          </li>
+          <li>
+            <Link to='/FlowerSearch'>Flower Search</Link>
+          </li>
+          <li>
+            <Link to='/SearchHeight'>Search Height</Link>
           </li>
           <li>
             <Link to='/DurationSearch'>Search Duration</Link>
@@ -31,12 +43,11 @@ const Navbar = (props) => {
           <Button primary onClick={props.clearToken}>
             Logout
           </Button>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen}></Collapse>
         </ul>
+        {/* </Collapse> */}
       </NavHeader>
     </div>
   );
 };
 
-export default Navbar;
+export default Toggler;

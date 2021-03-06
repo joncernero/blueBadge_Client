@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Container } from '../components/styled'
+import React, { useState, useEffect } from 'react';
+import { Container } from '../components/styled';
 import {
   Row,
   Col,
@@ -11,24 +11,24 @@ import {
   CardSubtitle,
   CardBody,
   CardDeck
-} from 'reactstrap'
-import APIURL from '../helpers/environment'
-import PlantTable from './PlantTable'
-import PlantEdit from './PlantEdit'
-import UserSearchPlants from './UserSearchPlants'
-import SearchPlants from './SearchPlants'
-import PlantIndex from './PlantIndex'
-import { BrowserRouter } from 'react-router-dom'
-import Navbar from './Navbar'
+} from 'reactstrap';
+import APIURL from '../helpers/environment';
+import PlantTable from './PlantTable';
+import PlantEdit from './PlantEdit';
+import UserSearchPlants from './UserSearchPlants';
+import SearchPlants from './SearchPlants';
+import PlantIndex from './PlantIndex';
+import { BrowserRouter } from 'react-router-dom';
+import Navbar from './Navbar';
 
-const Dashboard = props => {
-  const [plants, setPlants] = useState([])
-  const [plantsToUpdate, setPlantsToUpdate] = useState({})
-  const [updateActive, setUpdateActive] = useState(false)
+const Dashboard = (props) => {
+  const [plants, setPlants] = useState([]);
+  const [plantsToUpdate, setPlantsToUpdate] = useState({});
+  const [updateActive, setUpdateActive] = useState(false);
 
   const fetchPlants = () => {
     if (props.token === '') {
-      return
+      return;
     }
 
     fetch(`${APIURL}/plants/`, {
@@ -38,25 +38,25 @@ const Dashboard = props => {
         Authorization: props.token
       })
     })
-      .then(res => res.json())
-      .then(plantData => {
-        setPlants(plantData)
-        console.log(plantData)
-      })
-  }
+      .then((res) => res.json())
+      .then((plantData) => {
+        setPlants(plantData);
+        console.log(plantData);
+      });
+  };
 
-  const editPlants = plants => {
-    setPlantsToUpdate(plants)
-    console.log(plants)
-  }
+  const editPlants = (plants) => {
+    setPlantsToUpdate(plants);
+    console.log(plants);
+  };
 
   const toggleModal = () => {
-    setUpdateActive(!updateActive)
-  }
+    setUpdateActive(!updateActive);
+  };
 
   useEffect(() => {
-    fetchPlants()
-  }, [props.token])
+    fetchPlants();
+  }, [props.token]);
 
   return (
     <Container>
@@ -84,6 +84,6 @@ const Dashboard = props => {
         )}
       </Row>
     </Container>
-  )
-}
-export default Dashboard
+  );
+};
+export default Dashboard;

@@ -1,63 +1,63 @@
-import './App.css'
-import styled from 'styled-components'
-import { Wrapper, Container } from './components/styled/'
-import Auth from './components/Auth/index'
-import React, { useState, useEffect } from 'react'
-import Dashboard from './components/Dashboard'
-import Navbar from './components/Navbar'
-import SearchPlants from './components/SearchPlants'
+import './App.css';
+import styled from 'styled-components';
+import { Wrapper, Container } from './components/styled/';
+import Auth from './components/Auth/index';
+import React, { useState, useEffect } from 'react';
+import Dashboard from './components/Dashboard';
+import Navbar from './components/Navbar';
+import SearchPlants from './components/SearchPlants';
 import {
   Route,
   Switch,
   BrowserRouter as Router,
   Redirect
-} from 'react-router-dom'
-import UserSearchPlants from './components/UserSearchPlants'
-import FlowerSearch from './components/FlowerSearch'
-import SearchHeight from './components/SearchHeight'
-import PlantIndex from './components/PlantIndex'
-import DurationSearch from './components/DurationSearch'
+} from 'react-router-dom';
+import UserSearchPlants from './components/UserSearchPlants';
+import FlowerSearch from './components/FlowerSearch';
+import SearchHeight from './components/SearchHeight';
+import PlantIndex from './components/PlantIndex';
+import DurationSearch from './components/DurationSearch';
 
 function App() {
-  const [sessionToken, setSessionToken] = useState('')
-  const [userName, setUserName] = useState('')
+  const [sessionToken, setSessionToken] = useState('');
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     if (localStorage.getItem('token'));
-    setSessionToken(localStorage.getItem('token'))
-  }, [])
+    setSessionToken(localStorage.getItem('token'));
+  }, []);
 
   const updateToken = (newToken, newUserName) => {
-    localStorage.setItem('token', newToken)
-    setSessionToken(newToken)
-    setUserName(newUserName)
-    console.log(sessionToken)
-  }
+    localStorage.setItem('token', newToken);
+    setSessionToken(newToken);
+    setUserName(newUserName);
+    console.log(sessionToken);
+  };
 
   const clearToken = () => {
-    localStorage.clear()
-    setSessionToken('')
-  }
+    localStorage.clear();
+    setSessionToken('');
+  };
 
-  const protectedViews = pageToShow => {
-    let component
+  const protectedViews = (pageToShow) => {
+    let component;
     if (pageToShow === 'dashboard') {
-      component = <Dashboard token={sessionToken} userName={userName} />
+      component = <Dashboard token={sessionToken} userName={userName} />;
     }
     if (pageToShow === 'UserSearchPlants') {
-      component = <UserSearchPlants token={sessionToken} />
+      component = <UserSearchPlants token={sessionToken} />;
     }
     if (pageToShow === 'SearchPlants') {
-      component = <SearchPlants token={sessionToken} />
+      component = <SearchPlants token={sessionToken} />;
     }
     if (pageToShow === 'FlowerSearch') {
-      component = <FlowerSearch token={sessionToken} />
+      component = <FlowerSearch token={sessionToken} />;
     }
     if (pageToShow === 'SearchHeight') {
-      component = <SearchHeight token={sessionToken} />
+      component = <SearchHeight token={sessionToken} />;
     }
     if (pageToShow === 'DurationSearch') {
-      component = <DurationSearch token={sessionToken} />
+      component = <DurationSearch token={sessionToken} />;
     }
 
     return localStorage.getItem('token') ? (
@@ -65,9 +65,9 @@ function App() {
       component
     ) : (
       <Redirect to='/' />
-    )
-  }
-  console.log(sessionToken)
+    );
+  };
+  console.log(sessionToken);
 
   return (
     <div className='main'>
@@ -87,7 +87,7 @@ function App() {
             {sessionToken ? (
               <Redirect to='/dashboard' />
             ) : (
-              <Auth updateToken={updateToken} />
+              <Auth updateToken={updateToken} setUserName={setUserName} />
             )}
           </Route>
           <Route exact path='/FlowerSearch'>
@@ -102,6 +102,6 @@ function App() {
         </Switch>
       </Router>
     </div>
-  )
+  );
 }
-export default App
+export default App;

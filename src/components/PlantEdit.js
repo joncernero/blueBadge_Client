@@ -7,7 +7,7 @@ import {
   Input,
   Modal,
   ModalHeader,
-  ModalBody,
+  ModalBody
 } from 'reactstrap';
 import APIURL from '../helpers/environment';
 
@@ -19,12 +19,12 @@ const PlantEdit = (props) => {
     fetch(`${APIURL}/plants/${props.plantsToUpdate.id}`, {
       method: 'Put',
       body: JSON.stringify({
-        notes: editNotes,
+        notes: editNotes
       }),
       headers: new Headers({
         'Content-type': 'application/json',
-        Authorization: props.token,
-      }),
+        Authorization: props.token
+      })
     })
       .then((res) => res.json())
       .then((plantData) => {
@@ -48,7 +48,7 @@ const PlantEdit = (props) => {
           <Button
             type='submit'
             onClick={() => {
-              window.location.reload(false);
+              window.location.reload(true);
             }}
           >
             Update the Plant!
