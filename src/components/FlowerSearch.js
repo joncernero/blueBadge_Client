@@ -3,16 +3,18 @@ import {
   CardColumns,
   CardDeck,
   Card,
-  Button,
   CardImg,
   CardTitle,
   CardText,
   CardSubtitle,
   CardBody,
-  Tooltip
+  Tooltip,
+  Container
 } from 'reactstrap';
+import { Button } from '../components/styled';
 import DisplayFlowers from './DisplayFlowers';
 import { Link } from 'react-router-dom';
+import DisplayPlants from "./DisplayPlants";
 
 const SearchFlowers = (props) => {
   const [plants, setPlants] = useState([]);
@@ -42,7 +44,7 @@ const SearchFlowers = (props) => {
 
   useEffect(() => {
     fetchFlowers();
-  }, []);
+  }, [page]);
 
   const handleSubmit = (event) => {
     setPage(1);
@@ -54,33 +56,31 @@ const SearchFlowers = (props) => {
     if (direction === 'down') {
       if (page > 0) {
         setPage(page - 1);
-        fetchFlowers();
       }
     }
 
     if (direction === 'up') {
       setPage(page + 1);
-      fetchFlowers();
     }
   };
 
   function displayCards() {
     return plants.length > 0
       ? plants.map((plant) => (
-          <DisplayFlowers plant={plant} token={props.token} />
+          <DisplayPlants plant={plant} token={props.token} />
         ))
       : null;
   }
 
   return (
-    <div>
+    <div className="plantComponents">
        <br />
       <hr />
-      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <h6>Plants are listed alphabetically by the plant's common name.  Click the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h6>
       <hr />
       <br />
       <div>
-        <span>Search by a flower color:</span>
+        <span className="searchTitle">Search by a Flower Color:</span>
         <br />
         <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>yellow, purple, blue, red...</Tooltip>
         <input
@@ -88,16 +88,19 @@ const SearchFlowers = (props) => {
           name='flowersearch'
           onChange={(e) => setFlowerColor(e.target.value)}
         />
-        <button type='submit' onClick={(e) => handleSubmit()}>
+        <Button primary type='submit' onClick={(e) => handleSubmit()}>
           Search
-        </button>
+        </Button>
+        <Container>
+          <br />
         <CardDeck>{displayCards()}</CardDeck>
+        </Container>
       </div>
       <div>
       <br />
-        <p>plants will display here after you click 'Search'</p>
-        <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
-        <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>
+      {plants.length >0 ? null : <p className="plantSearch">plants will display here after you click 'Search'</p>}
+        <Button onClick={(e) => changePage(e, 'down')}>Previous Plants</Button>
+        <Button onClick={(e) => changePage(e, 'up')}>Show More Plants</Button>
       </div>
     </div>
   );

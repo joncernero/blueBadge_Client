@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Container } from '../components/styled';
 import {
@@ -68,10 +69,14 @@ const Dashboard = props => {
   }, [reload])
 
   return (
-    <Container>
-      <h1>Welcome, {props.userName}</h1>
-      <Row>
-        <Col md='12'>
+    <div className="gardenDiv">
+      <div>
+      <br />
+      {!props.userName ? <h1>My Garden</h1> : <h1>Welcome, {props.userName}</h1>}
+      </div>
+      <br />
+      <hr />
+      <div>
           <PlantTable
             plants={plants}
             editPlants={editPlants}
@@ -79,7 +84,8 @@ const Dashboard = props => {
             fetchPlants={fetchPlants}
             token={props.token}
           />
-        </Col>
+        </div>
+        <div>
         {updateActive ? (
           <PlantEdit
             plantsToUpdate={plantsToUpdate}
@@ -92,8 +98,9 @@ const Dashboard = props => {
         ) : (
           <></>
         )}
-      </Row>
-    </Container>
-  );
-};
-export default Dashboard;
+        </div>
+        </div>
+  )
+}
+export default Dashboard
+

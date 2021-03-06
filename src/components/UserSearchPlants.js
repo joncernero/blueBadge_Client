@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {
   CardDeck,
-  Tooltip
+  Tooltip,
+  Container
 } from 'reactstrap';
+import { Button } from '../components/styled'
 import DisplayUserPlants from './DisplayUserPlants';
+import DisplayPlants from "./DisplayPlants";
 
 const UserSearchPlants = (props) => {
   const [plants, setPlants] = useState([]);
@@ -32,7 +35,7 @@ const UserSearchPlants = (props) => {
 
   useEffect(() => {
     fetchPlants();
-  }, []);
+  }, [page]);
 
   const handleSubmit = (event) => {
     setPage(1);
@@ -44,31 +47,29 @@ const UserSearchPlants = (props) => {
     if (direction === 'down') {
       if (page > 1) {
         setPage(page - 1);
-        fetchPlants();
       }
     }
 
     if (direction === 'up') {
       setPage(page + 1);
-      fetchPlants();
     }
   };
 
   function displayCards() {
     return plants.length > 0
-      ? plants.map((plant) => <DisplayUserPlants plant={plant} token={props.token} />)
+      ? plants.map((plant) => <DisplayPlants plant={plant} token={props.token} />)
       : null;
   }
 
   return (
-    <div>
+    <div className="plantComponents">
       <br />
       <hr />
-      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <h6>Plants are listed alphabetically by the plant's common name.  Click the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h6>
       <hr />
       <br />
       <div>
-        <span>Search by a plant name:</span>
+        <span className="searchTitle">Search by a Plant Name:</span>
         <br />
         <Tooltip placement="top" isOpen={tooltipOpen} target="input" toggle={toggle}>Hosta, ficus, pine, oak...</Tooltip>
         <input
@@ -76,16 +77,20 @@ const UserSearchPlants = (props) => {
           name='plantsearch'
           onChange={(e) => setPlantSelector(e.target.value)}
         />
-        <button type='submit' onClick={(e) => handleSubmit()}>
+        <Button primary type='submit' onClick={(e) => handleSubmit()}>
           Search
-        </button>
+        </Button>
+      
+        <Container>
+        <br />
         <CardDeck>{displayCards()}</CardDeck>
+        </Container>
       </div>
       <div>
         <br />
-        <p>plants will display here after you click 'Search'</p>
-        <button onClick={(e) => changePage(e, 'down')}>Previous Plants</button>
-        <button onClick={(e) => changePage(e, 'up')}>Show More Plants</button>
+        {plants.length >0 ? null : <p className="plantSearch">plants will display here after you click 'Search'</p>}
+        <Button onClick={(e) => changePage(e, 'down')}>Previous Plants</Button>
+        <Button onClick={(e) => changePage(e, 'up')}>Show More Plants</Button>
       </div>
     </div>
   );

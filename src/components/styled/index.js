@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 
+export const CardContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  // min-height: 95vh;
+  `
+
 export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -62,7 +75,7 @@ export const Card = styled.div`
 `;
 export const Button = styled.button`
   height: 35px;
-  width: 125px;
+  width: 150px;
   color: white;
   font-size: 15px;
   font-weight: bold;
@@ -72,6 +85,18 @@ export const Button = styled.button`
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 `;
 //Form, FormGroup, Label, Input
+
+export const KillEditButton = styled.button`
+  height: 35px;
+  width: 150px;
+  color: ${props => (props.primary) ? 'white' : 'gray'};
+  font-size: 15px;
+  font-weight: bold;
+  background: ${props => (props.primary ? 'red' : 'yellow')};
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+`
 
 export const Form = styled.form`
   display: grid;

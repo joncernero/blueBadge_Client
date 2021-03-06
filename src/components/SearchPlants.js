@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
-  CardDeck
+  CardDeck, Container
 } from 'reactstrap';
+import { Button } from '../components/styled'
 import DisplayPlants from './DisplayPlants';
 
 const SearchPlants = (props) => {
@@ -14,7 +15,6 @@ const SearchPlants = (props) => {
     const token = 'token=FKCFSL2qgSy2Gnwimlt25A-Ze2oYTp-CACmUCTxbtSc';
     const pageurl = `&page=${page}`;
     const url = `${baseurl}${token}${pageurl}&filter_not[image_url]=null&order[common_name]=asc`;
-    url.replace('https', 'http')
     console.log(url);
     fetch(corsURL + url)
       .then((response) => response.json())
@@ -26,20 +26,18 @@ const SearchPlants = (props) => {
 
   useEffect(() => {
     fetchPlants();
-  }, []);
+  }, [page]);
 
   const changePage = (event, direction) => {
     event.preventDefault();
     if (direction === 'down') {
       if (page > 1) {
         setPage(page - 1)
-        fetchPlants();
       }
     }
 
     if (direction === 'up') {
       setPage(page + 1);
-      fetchPlants();
     }
   };
 
@@ -50,18 +48,20 @@ const SearchPlants = (props) => {
   }
 
   return (
-    <div>
+    <div className="plantComponents">
       <br />
       <hr />
-      <h4>Plants are listed alphabetically by the plant's common name.  Click on the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h4>
+      <h6>Plants are listed alphabetically by the plant's common name.  Click the "+" button on a plant to add it to your garden.  Once a plant is in your garden, you can add your own personal notes regarding each specific plant.</h6>
       <hr />
       <br />
       <div>
+        <Container>
         <CardDeck>{displayCards()}</CardDeck>
+        </Container>
       </div>
       <div>
-        <button onClick={e => changePage(e, 'down')}>Previous Plants</button>
-        <button onClick={e => changePage(e, 'up')}>Show More Plants</button>
+        <Button onClick={e => changePage(e, 'down')}>Previous Plants</Button>
+        <Button onClick={e => changePage(e, 'up')}>Show More Plants</Button>
       </div>
     </div>
   );

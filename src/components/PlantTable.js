@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
-import APIURL from '../helpers/environment';
+
+import React, { useState } from 'react'
+import APIURL from '../helpers/environment'
 import {
-  Table,
   CardDeck,
   CardBody,
   CardTitle,
   CardSubtitle,
   CardText,
-  Button,
   Card,
   CardImg,
   Alert
 } from "reactstrap";
+import { KillEditButton } from '../components/styled'
 
 const PlantTable = (props) => {
-  const deletePlants = plants => {
+  const deletePlants = (plants) => {
+
     fetch(`${APIURL}/plants/${plants.id}`, {
       method: 'DELETE',
       headers: new Headers({
@@ -31,52 +32,52 @@ const PlantTable = (props) => {
   const plantMapper = () => {
     return props.plants.map((plants, index) => {
       return (
-        <CardDeck>
-          <Card id='plantCard'>
-            <CardImg
-              id='plantImg'
-              className='plantImg'
-              top
-              width='100%'
-              src={plants.image_url}
-              alt='AlternateImage'
-              id='AlternateImage'
-            />
 
-            <CardBody id='plantBody'>
-              <CardTitle>{plants.common_name}</CardTitle>
-              <CardSubtitle>{plants.scientific_name}</CardSubtitle>
-              <CardText>{plants.notes}</CardText>
-              <Button
-                color='danger'
-                onClick={() => {
-                  deletePlants(plants);
-                }}
-              >
-                Kill Plant!
-              </Button>
-              <Button
-                color='warning'
-                onClick={() => {
-                  props.editPlants(plants);
-                  props.toggleModal();
-                }}
-              >
-                Add/Edit Notes
-              </Button>
-            </CardBody>
-          </Card>
-        </CardDeck>
-      );
-    });
-  };
+        <Card id="gardenCard">
+          <CardImg
+            id="gardenImg"
+            className="plantImg"
+            top
+            width="100%"
+            src={plants.image_url}
+            alt="Image not available"
+          />
 
-  return (
-    <>
-      <h3>My Garden:</h3>
-        {plantMapper()}
-    </>
-  );
+          <CardBody id="gardenBody">
+            <CardTitle>{plants.common_name}</CardTitle>
+            <p className="plantSubtitle">Scientific Name:</p>
+            <CardSubtitle className="plantSubtitle">
+              {plants.scientific_name}
+            </CardSubtitle>
+            <hr />
+            
+            <KillEditButton
+              primary
+              onClick={() => {
+                deletePlants(plants)
+              }}
+            >
+              Kill Plant!
+            </KillEditButton>
+            <KillEditButton
+              onClick={() => {
+                // window.location.reload(true)
+                props.editPlants(plants)
+                props.toggleModal()
+              }}
+            >
+              Add/Edit Notes
+            </KillEditButton>
+            <p className="gardenNotes">My Notes:</p>
+            <CardText className="gardenNotes">{plants.notes}</CardText>
+            <br />
+          </CardBody>
+        </Card>
+      )
+    })
+  }
+
+  return (<CardDeck>{plantMapper()}</CardDeck>});
 };
 
 export default PlantTable;

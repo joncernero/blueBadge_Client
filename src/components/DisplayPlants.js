@@ -10,7 +10,7 @@ import {
   CardBody,
   CardDeck,
   Alert,
-  Tooltip,
+  Tooltip
 } from 'reactstrap';
 
 const DisplayPlants = (props) => {
@@ -49,9 +49,9 @@ const DisplayPlants = (props) => {
             top
             width='100%'
             src={props.plant.image_url}
-            id='AlternateImage'
-            alt='Image not available'
+            alt="Image not available"
           />
+   
           <CardBody id='plantBody'>
             <Button
               color='success'
@@ -71,11 +71,13 @@ const DisplayPlants = (props) => {
             <CardTitle key={props.plant.common_name}>
               {props.plant.common_name}
             </CardTitle>
-            <CardSubtitle key={props.plant.scientific_name}>
+            <p className="plantSubtitle">Scientific Name:</p>
+            <CardSubtitle className="plantSubtitle" key={props.plant.scientific_name}>
               {props.plant.scientific_name}
             </CardSubtitle>
             <CardText></CardText>
           </CardBody>
+        
         </Card>
       </div>
     </div>

@@ -15,53 +15,129 @@
   padding: 25px;
 }
 
-.plantWrapper {
+#plantWrapper {
+  position: relative;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 20px;
 }
+
 
 #plantCard {
   position: relative;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  min-width: 14em;
-  max-width: 14em;
-  min-height: 25em;
-  max-height: 25em;
-  /* max-height: 300px; */
-  background-color: rgb(221, 247, 221);
+  min-width: 12em;
+  max-width: 12em;
+  min-height: 22em;
+  max-height: 22em;
+  background-color: rgba(255, 255, 255, 0.5);
   background-clip: border-box;
-  border: 1px solid rgb(2, 58, 2);
-  border-radius: 5% 5% 5% 5%;
   margin-bottom: 2em;
   text-align: center;
+  padding: 0.5em;
+  border: 1px solid transparent;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  font-family: 'Poppin', sans-serif;
+  font-weight: bolder;
 }
 
 #plantImg {
-  width: 100%;
-  max-height: 10em;
-  min-height: 10em;
-  border-radius: 5% 5% 0% 0%;
-  border: 2px solid rgb(2, 58, 2);
-}
-
-#plantBody {
-  font-size: 0.5em;
-  color: rgb(2, 58, 2);
-}
-
-#plantButton {
-  background-color: rgb(2, 58, 2);
-  border: 1px solid rgb(2, 58, 2);
-}
-
-#AlternateImage {
   background-image: url(./assets/images/plants-bg.jpg);
   max-height: 10em;
   min-height: 10em;
   width: 100%;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   color: white;
 }
+
+#plantBody {
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+  padding: 2em;
+  word-wrap: break-word;
+  padding: 1em;
+}
+
+#plantButton {
+  background-color: green;
+  border: 1px solid green;
+}
+
+.plantSubtitle{
+  font-weight: lighter;
+  font-style: italic;
+  margin: 0;
+}
+
+.gardenDiv{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#gardenCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 16em;
+  max-width: 16em;
+  min-height: 26em;
+  /* max-height: em; */
+  background-color: rgba(255, 255, 255, 0.5);
+  background-clip: border-box;
+  margin-bottom: 2em;
+  text-align: center;
+  padding: 0.5em;
+  border: 1px solid transparent;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  font-family: 'Poppin', sans-serif;
+  font-weight: bolder;
+}
+
+#gardenBody {
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+  max-width: 100%;
+  word-wrap: break-word;
+  padding: 1em;
+ 
+}
+
+.gardenNotes{
+  color: green;
+  margin: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+#gardenImg {
+  background-image: url(./assets/images/plants-bg.jpg);
+  max-height: 13em;
+  min-height: 13em;
+  width: 100%;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  color: white;
+}
+
+.plantSearch{
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 0.75em;
+  color: grey;
+}
+
+.searchTitle{
+  font-weight: bold;
+  color: green;
+}
+

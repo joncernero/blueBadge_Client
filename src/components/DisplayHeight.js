@@ -44,7 +44,6 @@ const DisplayHeight = (props) => {
             top
             width='100%'
             src={props.plant.image_url}
-            id='AlternateImage'
             alt="Image not available"
           />
 
@@ -53,11 +52,10 @@ const DisplayHeight = (props) => {
               +
             </Button>
             <Tooltip placement="right" isOpen={tooltipOpen} target="plantButton" toggle={toggle}>Click on the "+" button to add this plant to your garden</Tooltip>
-            <CardTitle key={props.plant.image_url}>
-              Common Name: {props.plant.common_name}
+            <CardTitle key={props.plant.image_url}>{props.plant.common_name}
             </CardTitle>
-            <CardSubtitle key={props.plant.image_url}>
-              Scientific Name: {props.plant.scientific_name}
+            <p className="plantSubtitle">Scientific Name:</p>
+            <CardSubtitle className="plantSubtitle" key={props.plant.image_url}>{props.plant.scientific_name}
             </CardSubtitle>
             <CardText></CardText>
           </CardBody>
