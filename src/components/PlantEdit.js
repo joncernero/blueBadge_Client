@@ -46,7 +46,7 @@ const PlantEdit = (props) => {
               />
             </FormGroup>
             <Button type='submit' onClick={() => {
-                  window.location.reload(false)
+                  window.location.reload(true)
                 }}>Update the Plant!</Button>
           </Form>
         </ModalBody>

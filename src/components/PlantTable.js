@@ -25,6 +25,7 @@ const PlantTable = props => {
   }
 
   const plantMapper = () => {
+
     return props.plants.map((plants, index) => {
       return (
         // <tr key={index}>
