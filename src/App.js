@@ -15,7 +15,6 @@ import {
 import UserSearchPlants from './components/UserSearchPlants'
 import FlowerSearch from './components/FlowerSearch'
 import SearchHeight from './components/SearchHeight'
-import PlantIndex from './components/PlantIndex'
 import DurationSearch from './components/DurationSearch'
 
 function App() {
