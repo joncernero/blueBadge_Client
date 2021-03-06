@@ -5,13 +5,12 @@ import {
   Button,
   Container,
   LoginContainer,
-  TitleContainer,
+  TitleContainer
 } from '../../components/styled';
 import '../../App.css';
 
 const Auth = (props) => {
   const [loggingIn, setLoggingIn] = useState(false);
-  console.log(props);
   const toggleLoggingIn = () => {
     setLoggingIn(!loggingIn);
   };

@@ -11,25 +11,22 @@ import {
   ModalBody,
   Alert
 } from 'reactstrap';
-import APIURL from "../helpers/environment";
+import APIURL from '../helpers/environment';
 
 const PlantEdit = (props) => {
    const [editNotes, setEditNotes] = useState(props.plantsToUpdate.notes);
-    console.log(props.updateActive);
-
-    const history = useHistory();
 
   const plantUpdate = (e) => {
     e.preventDefault();
     fetch(`${APIURL}/plants/${props.plantsToUpdate.id}`, {
       method: 'Put',
       body: JSON.stringify({
-        notes: editNotes,
+        notes: editNotes
       }),
       headers: new Headers({
         'Content-type': 'application/json',
-        'Authorization': props.token
-      }),
+        Authorization: props.token
+      })
     })
       .then((res) => res.json())
       .then((plantData) => {
@@ -40,7 +37,6 @@ const PlantEdit = (props) => {
       });
     };
 
-  
     return (
 
       <Modal isOpen={props.updateActive}>
@@ -61,6 +57,5 @@ const PlantEdit = (props) => {
         </ModalBody>
       </Modal>
     );
-
 };
 export default PlantEdit;

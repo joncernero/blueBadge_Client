@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import { Button, NavHeader } from '../components/styled'
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
-import SearchPlants from './SearchPlants'
-import UserSearchPlants from './UserSearchPlants'
-import FlowerSearch from './FlowerSearch'
-import PlantIndex from './PlantIndex'
-import SearchHeight from '../components/SearchHeight'
+import React, { useState } from 'react';
+import { Button, NavHeader } from '../components/styled';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import SearchPlants from './SearchPlants';
+import UserSearchPlants from './UserSearchPlants';
+import FlowerSearch from './FlowerSearch';
+import PlantIndex from './PlantIndex';
+import SearchHeight from '../components/SearchHeight';
 // import {Button, NavbarToggler, Collapse} from 'reactstrap';
 
-const Toggler = props => {
-  const [isOpen, setIsOpen] = useState(false)
+const Toggler = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
-    let newIsOpen = !isOpen
-    setIsOpen(newIsOpen)
-  }
+    let newIsOpen = !isOpen;
+    setIsOpen(newIsOpen);
+  };
 
   return (
     <div>
@@ -47,7 +47,7 @@ const Toggler = props => {
         {/* </Collapse> */}
       </NavHeader>
     </div>
-  )
-}
+  );
+};
 
-export default Toggler
+export default Toggler;

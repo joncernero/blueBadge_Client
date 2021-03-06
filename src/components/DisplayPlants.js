@@ -52,9 +52,13 @@ const DisplayPlants = (props) => {
             id='AlternateImage'
             alt='Image not available'
           />
-
           <CardBody id='plantBody'>
-            <Button id='plantButton' size='sm' onClick={handleSubmit}>
+            <Button
+              color='success'
+              id='plantButton'
+              size='sm'
+              onClick={handleSubmit}
+            >
               +
             </Button>
             <Tooltip

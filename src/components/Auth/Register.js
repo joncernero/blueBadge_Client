@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from '../../components/styled';
 import APIURL from '../../helpers/environment';
+import { Alert } from 'reactstrap';
 
 const Register = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [zipcode, setZipcode] = useState('');
+  const [visible, setVisible] = useState(false);
+  const onDismiss = () => setVisible(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,14 +29,23 @@ const Register = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('ENTRY CREATED!!!', data);
-        props.updateToken(data.sessionToken, data.user.firstName);
-        console.log(data.user);
+        setEmail('');
+        setPassword('');
+        setFirstName('');
+        setZipcode('');
+        if (!data.sessionToken) {
+          setVisible(true);
+        } else {
+          props.updateToken(data.sessionToken, data.user.firstName);
+        }
       })
       .catch((err) => console.log(err));
   };
   return (
     <div>
+      <Alert color='danger' isOpen={visible} toggle={onDismiss}>
+        Registration Failed! Click the X to close this message and try again.
+      </Alert>
       <h1>Join Now!</h1>
       <Form onSubmit={handleSubmit}>
         <FormGroup>

@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from '../../components/styled';
 import APIURL from '../../helpers/environment';
+import Dashboard from '../Dashboard';
+import { Alert } from 'reactstrap';
 
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [visible, setVisible] = useState(false);
 
+  const onDismiss = () => setVisible(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch(`${APIURL}/user/login`, {
@@ -19,15 +23,21 @@ const Login = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Logged In!!!', data);
-        props.updateToken(data.sessionToken, data.user.firstName);
         setPassword('');
-        console.log(data.user.firstName);
+        setEmail('');
+        if (!data.sessionToken) {
+          setVisible(true);
+        } else {
+          props.updateToken(data.sessionToken, data.user.firstName);
+        }
       });
   };
 
   return (
     <div>
+      <Alert color='danger' isOpen={visible} toggle={onDismiss}>
+        Login Failed! Click the X to close this message and try again.
+      </Alert>
       <h1>Welcome Back!</h1>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
